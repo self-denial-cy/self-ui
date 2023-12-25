@@ -1,1 +1,3 @@
-console.log('this is button');
+import Button from './button.vue';
+
+export default Button;
