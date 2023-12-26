@@ -1,0 +1,72 @@
+// 辅助色
+@gray-10: lighten(#000, 10%);
+@gray-20: lighten(#000, 20%);
+@gray-30: lighten(#000, 30%);
+@gray-40: lighten(#000, 40%);
+@gray-50: lighten(#000, 50%);
+@gray-60: lighten(#000, 60%);
+@gray-70: lighten(#000, 70%);
+@gray-75: lighten(#000, 75%);
+@gray-85: lighten(#000, 80%);
+@gray-80: lighten(#000, 85%);
+@gray-90: lighten(#000, 90%);
+@gray-95: lighten(#000, 95%);
+
+// 语义色
+@default: @gray-80;
+@primary: #62a8ea;
+@info: #57c7d4;
+@success: #46be8a;
+@warning: #f2a654;
+@danger: #f96868;
+
+@link-color: @primary;
+@link-hover-color: darken(@link-color, 20%);
+
+// 字体
+@font-family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Tahoma, "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+@font-family-base: @font-family-sans-serif;
+@font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+@font-size-base: 14px;
+@font-size-small: 12px;
+@line-height-base: 1.428571429;
+@line-height-computed: floor((@font-size-base * @line-height-base));
+@font-color: #363636;
+@font-color-auxiliary: @gray-60;
+
+// 盒模型
+@border-radius-none: 0;
+@border-radius-base: 4px;
+@border-radius-large: 6px;
+@border-radius-small: 3px;
+
+@box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, .1);
+@box-shadow-auxiliary: 0 1px 5px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12);
+
+@box-shadow-primary: 0 1px 5px lighten(@primary, 35%), 0 2px 2px lighten(@primary, 30%), 0 3px 1px -2px lighten(@primary, 25%);
+@box-shadow-success: 0 1px 5px lighten(@success, 35%), 0 2px 2px lighten(@success, 30%), 0 3px 1px -2px lighten(@success, 25%);
+@box-shadow-danger: 0 1px 5px lighten(@danger, 35%), 0 2px 2px lighten(@danger, 30%), 0 3px 1px -2px lighten(@danger, 25%);
+@box-shadow-info: 0 1px 5px lighten(@info, 35%), 0 2px 2px lighten(@info, 30%), 0 3px 1px -2px lighten(@info, 25%);
+@box-shadow-warning: 0 1px 5px lighten(@warning, 35%), 0 2px 2px lighten(@warning, 30%), 0 3px 1px -2px lighten(@warning, 25%);
+
+@margin-left-default: 5px;
+@margin-bottom-default: @line-height-computed;
+
+// 按钮
+@btn-default-padding: 7px 12px;
+@btn-small-padding: 4px 12px;
+@btn-large-padding: 10px 18px;
+@btn-small-height: 30px;
+@btn-default-height: 36px;
+@btn-large-height: 42px;
+@btn-radius-circle: @btn-default-height;
+
+// 按钮组
+@btn-group-default-padding: @btn-default-padding;
+@btn-group-small-padding: @btn-small-padding;
+@btn-group-large-padding: @btn-large-padding;
+@btn-group-large-height: @btn-large-height;
+@btn-group-small-height: @btn-small-height;
+@btn-group-default-height: @btn-default-height;
+@btn-group-radius-circle: @btn-radius-circle;

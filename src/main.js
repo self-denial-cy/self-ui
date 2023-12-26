@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+import 'packages/styles/index.less';
 import { installSelf } from './libs';
 
 installSelf(Vue);
