@@ -20,6 +20,7 @@
 @warning: #f2a654;
 @danger: #f96868;
 
+// 链接
 @link-color: @primary;
 @link-hover-color: darken(@link-color, 20%);
 
@@ -27,10 +28,9 @@
 @font-family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Tahoma, "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 @font-family-base: @font-family-sans-serif;
 @font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
-
 @font-size-base: 14px;
 @font-size-small: 12px;
-@line-height-base: 1.428571429;
+@line-height-base: 1.428571428571429;
 @line-height-computed: floor((@font-size-base * @line-height-base));
 @font-color: #363636;
 @font-color-auxiliary: @gray-60;
@@ -40,33 +40,151 @@
 @border-radius-base: 4px;
 @border-radius-large: 6px;
 @border-radius-small: 3px;
-
 @box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, .1);
 @box-shadow-auxiliary: 0 1px 5px rgba(0, 0, 0, .2), 0 2px 2px rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12);
-
 @box-shadow-primary: 0 1px 5px lighten(@primary, 35%), 0 2px 2px lighten(@primary, 30%), 0 3px 1px -2px lighten(@primary, 25%);
 @box-shadow-success: 0 1px 5px lighten(@success, 35%), 0 2px 2px lighten(@success, 30%), 0 3px 1px -2px lighten(@success, 25%);
 @box-shadow-danger: 0 1px 5px lighten(@danger, 35%), 0 2px 2px lighten(@danger, 30%), 0 3px 1px -2px lighten(@danger, 25%);
 @box-shadow-info: 0 1px 5px lighten(@info, 35%), 0 2px 2px lighten(@info, 30%), 0 3px 1px -2px lighten(@info, 25%);
 @box-shadow-warning: 0 1px 5px lighten(@warning, 35%), 0 2px 2px lighten(@warning, 30%), 0 3px 1px -2px lighten(@warning, 25%);
 
+// 外边距
 @margin-left-default: 5px;
 @margin-bottom-default: @line-height-computed;
 
+// 基础
+@default-padding: 7px 12px;
+@small-padding: 4px 12px;
+@large-padding: 10px 18px;
+@small-height: 30px;
+@default-height: 36px;
+@large-height: 42px;
+
 // 按钮
-@btn-default-padding: 7px 12px;
-@btn-small-padding: 4px 12px;
-@btn-large-padding: 10px 18px;
-@btn-small-height: 30px;
-@btn-default-height: 36px;
-@btn-large-height: 42px;
-@btn-radius-circle: @btn-default-height;
+@btn-default-padding: @default-padding;
+@btn-small-padding: @small-padding;
+@btn-large-padding: @large-padding;
+@btn-small-height: @small-height;
+@btn-default-height: @default-height;
+@btn-large-height: @large-height;
+@btn-radius-circle: @default-height;
 
 // 按钮组
-@btn-group-default-padding: @btn-default-padding;
-@btn-group-small-padding: @btn-small-padding;
-@btn-group-large-padding: @btn-large-padding;
-@btn-group-large-height: @btn-large-height;
-@btn-group-small-height: @btn-small-height;
-@btn-group-default-height: @btn-default-height;
-@btn-group-radius-circle: @btn-radius-circle;
+@btn-group-default-padding: @default-padding;
+@btn-group-small-padding: @small-padding;
+@btn-group-large-padding: @large-padding;
+@btn-group-large-height: @large-height;
+@btn-group-small-height: @small-height;
+@btn-group-default-height: @default-height;
+@btn-group-radius-circle: @default-height;
+
+// 单选框组
+@radio-group-radius-circle: @default-height;
+@radio-group-small-height: @small-height;
+@radio-group-small-padding: @small-padding;
+@radio-group-large-height: @large-height;
+@radio-group-large-padding: @large-padding;
+
+// 多选框组
+@checkbox-group-radius-circle: @default-height;
+@checkbox-group-small-height: @small-height;
+@checkbox-group-small-padding: @small-padding;
+@checkbox-group-large-height: @large-height;
+@checkbox-group-large-padding: @large-padding;
+
+// 输入框
+@input-default-height: @default-height;
+@input-default-padding: @default-padding;
+@input-small-height: @small-height;
+@input-small-padding: @small-padding;
+@input-large-height: @large-height;
+@input-large-padding: @large-padding;
+@input-radius-circle: @input-default-height;
+
+// 下拉菜单
+@dropdown-item-padding: 10px 12px;
+@dropdown-item-height: 40px;
+@dropdown-item-title-height: 30px;
+@dropdown-item-title-padding: 5px 12px;
+
+// 警告框
+@alert-default-height: @default-height;
+@alert-default-padding: @default-padding;
+@alert-small-height: @small-height;
+@alert-small-padding: @small-padding;
+@alert-large-height: @large-height;
+@alert-large-padding: @large-padding;
+@alert-radius-circle: @default-height;
+
+// 提示框
+@tooltip-default-height: @default-height;
+@tooltip-default-padding: @default-padding;
+@tooltip-radius-circle: @default-height;
+@tooltip-small-height: @small-height;
+@tooltip-small-padding: @small-padding;
+@tooltip-large-height: @large-height;
+@tooltip-large-padding: @large-padding;
+
+// 弹出框
+@poper-default-height: @default-height;
+@poper-default-padding: @default-padding;
+@poper-radius-circle: @default-height;
+@poper-small-height: @small-height;
+@poper-small-padding: @small-padding;
+@poper-large-height: @large-height;
+@poper-large-padding: @large-padding;
+
+// 标签
+@tag-default-height: @small-height;
+@tag-default-padding: @small-padding;
+@tag-radius-circle: @default-height;
+@tag-large-height: @default-height;
+@tag-large-padding: @default-padding;
+@tag-larger-height: @large-height;
+@tag-larger-padding: @large-padding;
+
+// 标签组
+@tag-group-default-height: @small-height;
+@tag-group-default-padding: @small-padding;
+@tag-group-radius-circle: @default-height;
+@tag-group-large-height: @default-height;
+@tag-group-large-padding: @default-padding;
+@tag-group-larger-height: @large-height;
+@tag-group-larger-padding: @large-padding;
+
+// 通知处理
+@snackbar-default-padding: @large-padding;
+@snackbar-default-height: @large-height;
+
+// 消息通知
+@toast-default-padding: 20px 28px;
+@toast-default-height: @large-height;
+@toast-radius-circle: @large-height;
+
+// 表格
+@table-default-td-height: 52px;
+@table-default-th-height: 64px;
+
+// 媒体查询
+@screen-sm: 768px; // 小屏幕 平板
+@screen-sm-min: @screen-sm;
+
+@screen-md: 992px; // 中等屏幕 桌面显示器
+@screen-md-min: @screen-md;
+
+@screen-lg: 1200px; // 大屏幕 大桌面显示器
+@screen-lg-min: @screen-lg;
+
+// 堆叠层级
+@checkbox-input-index: -1; // checkbox
+@radio-input-index: -1; // radio
+@btn-group-index: 2; // 按钮组
+@input-icon-index: 3; // input 的 icon 图标
+@navbar-fixed-index: 97; // 固定导航
+@tooltip-index: 98; // 提示框
+@poper-index: 98; // 弹出框
+@dropdown-menu-index: 99; // 下拉菜单
+@snackbar-index: 997; // 通知处理
+@toast-index: 997; // 消息通知
+@background-index: 998; // 遮罩层
+@dropdown-menu-fixed-index: 999; // 下拉菜单(高于遮罩，需要注意祖先元素不能有 z-index 值，否则遮罩容易遮住下拉菜单)
