@@ -1,1 +1,3 @@
-console.log('this is button-group');
+import ButtonGroup from './button-group.vue';
+
+export default ButtonGroup;

@@ -1,0 +1,141 @@
+@btn-default-bg: #fff;
+@btn-default-color: @btn-default-bg;
+
+.self-btn-semantic(@color) {
+  background-color: lighten(@color, 10%);
+  border-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: lighten(@color, 5%);
+    border-color: transparent;
+  }
+
+  &:active {
+    background-color: lighten(@color, 10%);
+    border-color: transparent;
+  }
+}
+
+.self-btn {
+  display: inline-block;
+  padding: @btn-default-padding;
+  font-size: @font-size-base;
+  font-weight: normal;
+  line-height: @line-height-computed;
+  height: @btn-default-height;
+  text-align: center;
+  white-space: nowrap;
+  outline-style: none;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid @gray-80;
+  border-radius: @border-radius-none;
+  color: @font-color;
+  cursor: pointer;
+
+  .fade-all();
+  .user-select(none);
+
+  &:hover,
+  &:focus {
+    border-color: @gray-70;
+  }
+
+  &:active {
+    border-color: @gray-80;
+  }
+
+  i {
+    font-size: @font-size-base;
+    line-height: @line-height-computed;
+  }
+
+  i+span,
+  span+i {
+    margin-left: 5px;
+  }
+}
+
+.self-btn+.self-btn {
+  margin-left: @margin-left-default;
+}
+
+.self-btn-shadow {
+  .box-shadow(@box-shadow-auxiliary);
+  border: none;
+}
+
+.self-btn-semantic-default {
+  .self-btn-semantic(@default);
+}
+
+.self-btn-semantic-dark {
+  .self-btn-semantic(@gray-30);
+  color: white;
+}
+
+.self-btn-semantic-primary {
+  .self-btn-semantic(@primary);
+}
+
+.self-btn-semantic-success {
+  .self-btn-semantic(@success);
+}
+
+.self-btn-semantic-info {
+  .self-btn-semantic(@info);
+}
+
+.self-btn-semantic-warning {
+  .self-btn-semantic(@warning);
+}
+
+.self-btn-semantic-danger {
+  .self-btn-semantic(@danger);
+}
+
+.self-btn-semantic-text {
+  border: none;
+  color: @primary;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: darken(@primary, 20%);
+    background-color: transparent;
+    border: none;
+  }
+
+  &:active {
+    color: @primary;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.self-btn-radius-small {
+  border-radius: @border-radius-small;
+}
+
+.self-btn-radius-large {
+  border-radius: @border-radius-large;
+}
+
+.self-btn-radius-circle {
+  border-radius: @btn-radius-circle;
+}
+
+.self-btn[disabled] {
+  .disabled();
+}
+
+.self-btn-size-large {
+  height: @btn-large-height;
+  padding: @btn-large-padding;
+}
+
+.self-btn-size-small {
+  height: @btn-small-height;
+  padding: @btn-small-padding;
+}
