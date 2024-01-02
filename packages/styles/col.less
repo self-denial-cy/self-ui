@@ -1,0 +1,82 @@
+@col-max: 24;
+
+.self-col-init() {
+  .col(@init: 1) when (@init =1) {
+    @item: ~".self-col-xs-@{init}, .self-col-sm-@{init}, .self-col-md-@{init}, .self-col-lg-@{init}";
+    .col((@init + 1), @item);
+  }
+
+  .col(@index, @prev) when (@index =< @col-max) {
+    @item: ~".self-col-xs-@{index}, .self-col-sm-@{index}, .self-col-md-@{index}, .self-col-lg-@{index}";
+    .col((@index + 1), ~"@{prev}, @{item}");
+  }
+
+  .col(@index, @prev) when(@index > @col-max) {
+    @{prev} {
+      position: relative;
+      float: left;
+    }
+  }
+
+  .col();
+}
+
+.self-col-init(@size, @type, @index: @col-max) when(@index >=0) {
+  .self-col-type-init(@size, @type, @index);
+  .self-col-init(@size, @type, @index - 1);
+}
+
+.self-col-type-init(@size, @type, @index) when (@type =width) and (@index > 0) {
+  .self-col-@{size}-@{index} {
+    width: percentage((@index / @col-max));
+  }
+}
+
+.self-col-type-init(@size, @type, @index) when (@type =pull) and (@index > 0) {
+  .self-col-@{size}-pull-@{index} {
+    right: percentage((@index / @col-max));
+  }
+}
+
+.self-col-type-init(@size, @type, @index) when (@type =push) and (@index > 0) {
+  .self-col-@{size}-push-@{index} {
+    left: percentage((@index / @col-max));
+  }
+}
+
+.self-col-type-init(@size, @type, @index) when (@type =offset) and (@index > 0) {
+  .self-col-@{size}-offset-@{index} {
+    margin-left: percentage((@index / @col-max));
+  }
+}
+
+.self-col-init();
+
+.self-col-init(xs, width);
+.self-col-init(xs, pull);
+.self-col-init(xs, push);
+.self-col-init(xs, offset);
+
+// 小屏幕 平板 768px
+@media (min-width: @screen-sm-min) {
+  .self-col-init(sm, width);
+  .self-col-init(sm, pull);
+  .self-col-init(sm, push);
+  .self-col-init(sm, offset);
+}
+
+// 中等屏幕 桌面显示器 992px
+@media (min-width: @screen-md-min) {
+  .self-col-init(md, width);
+  .self-col-init(md, pull);
+  .self-col-init(md, push);
+  .self-col-init(md, offset);
+}
+
+// 大屏幕 大桌面显示器 1200px
+@media (min-width: @screen-lg-min) {
+  .self-col-init(lg, width);
+  .self-col-init(lg, pull);
+  .self-col-init(lg, push);
+  .self-col-init(lg, offset);
+}
