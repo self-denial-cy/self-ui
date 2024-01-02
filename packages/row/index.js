@@ -1,1 +1,3 @@
-console.log('this is row');
+import Row from './row.vue';
+
+export default Row;
