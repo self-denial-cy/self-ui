@@ -13,6 +13,7 @@
       <self-col :span="6">3</self-col>
       <self-col :span="6">4</self-col>
     </self-row>
+    <self-table shadow></self-table>
   </div>
 </template>
 
