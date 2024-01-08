@@ -25,6 +25,8 @@
       </caption>
       <slot></slot>
       <self-table-colgroup />
+      <self-table-header :head-cls="headCls" />
+      <self-table-body :row-style="rowStyle" />
     </table>
   </div>
 </template>
@@ -32,10 +34,12 @@
 <script>
 import Store from './store';
 import SelfTableColgroup from './colgroup.vue';
+import SelfTableHeader from './header.vue';
+import SelfTableBody from './body.vue';
 
 export default {
   name: 'SelfTable',
-  components: { SelfTableColgroup },
+  components: { SelfTableColgroup, SelfTableHeader, SelfTableBody },
   props: {
     data: {
       type: Array,
@@ -78,7 +82,7 @@ export default {
       default: 'center'
     },
     rowStyle: [String, Function],
-    headStyle: String
+    headCls: String
   },
   data() {
     const store = new Store(this);
