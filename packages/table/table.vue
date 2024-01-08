@@ -24,13 +24,18 @@
         <span>{{ caption }}</span>
       </caption>
       <slot></slot>
+      <self-table-colgroup />
     </table>
   </div>
 </template>
 
 <script>
+import Store from './store';
+import SelfTableColgroup from './colgroup.vue';
+
 export default {
   name: 'SelfTable',
+  components: { SelfTableColgroup },
   props: {
     data: {
       type: Array,
@@ -74,6 +79,20 @@ export default {
     },
     rowStyle: [String, Function],
     headStyle: String
+  },
+  data() {
+    const store = new Store(this);
+    return {
+      store
+    };
+  },
+  watch: {
+    data: {
+      immediate: true,
+      handler(val) {
+        this.store.updateData(val);
+      }
+    }
   }
 };
 </script>
