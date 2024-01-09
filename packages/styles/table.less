@@ -1,0 +1,253 @@
+@table-cell-padding: 10px;
+@table-td-border: 1px solid @gray-90;
+@table-th-border: @table-td-border;
+@table-caption-border: @table-td-border;
+@table-border: @table-td-border;
+@table-tr-bgColor: @gray-95;
+@table-tr-hover-bgColor: @gray-95;
+
+@table-deafult-bg: @table-tr-bgColor;
+@table-success-bg: lighten(@success, 10%);
+@table-info-bg: lighten(@info, 10%);
+@table-warning-bg: lighten(@warning, 10%);
+@table-danger-bg: lighten(@danger, 10%);
+
+@table-th-span-margin: 5px;
+@table-th-i-left: -6.86px;
+
+.self-table-align(@align) {
+  .self-table-align-@{align} {
+
+    >thead,
+    >tbody {
+      >tr {
+
+        >th,
+        >td {
+          text-align: @align;
+        }
+      }
+    }
+  }
+}
+
+.self-table-caption-side(@position) {
+  .self-table>caption.self-caption-side-@{position} {
+    caption-side: @position;
+  }
+}
+
+.self-table-caption-align(@position) {
+  .self-table>caption.self-caption-align-@{position} {
+    text-align: @position;
+  }
+}
+
+// .self-table-row(@state, @background) {
+//   .self-table>tbody>tr.self-tr-@{state} {
+//     background: @background;
+
+//     &:hover {
+//       background: darken(@background, 3%);
+//     }
+//   }
+// }
+
+.self-table-head(@state, @background) {
+  .self-table>thead>tr.self-tr-@{state} {
+    background: @background;
+  }
+}
+
+.self-table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  margin-bottom: @line-height-computed;
+  font-size: @font-size-base;
+
+  >thead,
+  >tbody {
+    >tr {
+      .fade-background();
+
+      >td {
+        padding: @table-cell-padding;
+        line-height: @line-height-base;
+        border-bottom: @table-td-border;
+        text-align: left;
+        height: @table-default-td-height;
+      }
+
+      >th {
+        height: @table-default-th-height;
+        border-bottom: @table-th-border;
+        padding: 1.3 * @table-cell-padding;
+        line-height: 1.3 * @line-height-base;
+        text-align: left;
+
+        span {
+          margin-left: @table-th-span-margin;
+
+          i {
+            font-size: 14px;
+          }
+        }
+      }
+
+      >th,
+      >td {
+        word-break: break-all;
+      }
+
+      >th.self-th-sortable {
+        cursor: pointer;
+      }
+    }
+  }
+
+  >thead {
+    >tr>th {
+      border-top: @table-th-border;
+    }
+  }
+
+  >caption {
+    padding: @table-cell-padding;
+    color: @gray-60;
+    line-height: @line-height-base;
+    font-size: @font-size-base;
+  }
+}
+
+.self-table-shadow {
+  .box-shadow(@box-shadow-base);
+}
+
+.self-table-caption-side(top);
+.self-table-caption-side(bottom);
+
+.self-table-caption-align(left);
+.self-table-caption-align(right);
+.self-table-caption-align(center);
+
+.self-table-align(left);
+.self-table-align(right);
+.self-table-align(center);
+
+.self-table-border {
+  border: @table-td-border;
+}
+
+.self-table-grid {
+
+  >thead,
+  >tbody {
+    >tr {
+
+      >th,
+      >td {
+        border: @table-td-border;
+      }
+    }
+
+    >tr {
+      >th {
+        border-bottom: @table-th-border;
+      }
+    }
+  }
+}
+
+.self-table-stripe {
+  >tbody>tr:nth-child(even) {
+    background-color: @table-tr-bgColor;
+  }
+}
+
+.self-table-hover {
+  >tbody>tr:hover {
+    background-color: @table-tr-hover-bgColor;
+  }
+}
+
+.self-table-head(default; @table-deafult-bg);
+.self-table-head(success; @table-success-bg);
+.self-table-head(info; @table-info-bg);
+.self-table-head(warning; @table-warning-bg);
+.self-table-head(danger; @table-danger-bg);
+
+// .self-table-row(success; @table-success-bg);
+// .self-table-row(info; @table-info-bg);
+// .self-table-row(warning; @table-warning-bg);
+// .self-table-row(danger; @table-danger-bg);
+
+.self-table>tbody>tr>td.self-td-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0; // td 内容会被压缩在最小可能的空间内
+}
+
+// 移动端
+@media (max-width: @screen-sm-min) {
+  .self-table-responsive {
+    width: 100%;
+    margin-bottom: @line-height-computed;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-right: @table-border;
+    border-left: @table-border;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+
+    .box-shadow(@box-shadow-base);
+
+    .self-table-shadow {
+      .box-shadow(none);
+    }
+
+    .self-table {
+      margin-bottom: 0;
+
+      >thead,
+      >tbody {
+        >tr {
+
+          >th,
+          >td {
+            white-space: nowrap;
+          }
+
+          >td.self-td-ellipsis {
+            max-width: 100%;
+          }
+        }
+      }
+
+      >caption {
+        display: none;
+      }
+    }
+
+    .self-table-border {
+      border: 0;
+
+      >thead,
+      >tbody {
+        >tr {
+
+          >th:first-child,
+          >td:first-child {
+            border-left: 0;
+          }
+
+          >th:last-child,
+          >td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
