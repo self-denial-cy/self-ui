@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import App from './App.vue';
+import router from './router';
 import 'packages/styles/index.less';
-import { installSelf } from './libs';
-
-installSelf(Vue);
+import './styles/index.less';
 
 Vue.config.productionTip = false;
 
 new Vue({
+  router,
   render: (h) => h(App)
 }).$mount('#app');
