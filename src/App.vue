@@ -20,6 +20,7 @@
       <self-table-column prop="address" label="地址" width="25" ellipsis />
       <self-table-column prop="remark" label="备注" width="25" />
     </self-table>
+    <self-icon type="indent" size="24" />
   </div>
 </template>
 

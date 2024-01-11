@@ -4,8 +4,9 @@ import Row from 'packages/row';
 import Col from 'packages/col';
 import Table from 'packages/table';
 import TableColumn from 'packages/table-column';
+import Icon from 'packages/icon';
 
-const components = [Button, ButtonGroup, Row, Col, Table, TableColumn];
+const components = [Button, ButtonGroup, Row, Col, Table, TableColumn, Icon];
 
 export function installSelf(Vue) {
   components.forEach((component) => {

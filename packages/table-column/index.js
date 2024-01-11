@@ -5,7 +5,6 @@ export default {
     label: String,
     width: [Number, String],
     ellipsis: Boolean,
-    sortable: Boolean,
     customCls: String
   },
   render() {},
@@ -16,8 +15,6 @@ export default {
       label: this.label,
       width: this.width,
       ellipsis: this.ellipsis,
-      sortable: this.sortable,
-      sort: 'default',
       customCls: this.customCls
     });
     store.states.columns.push(column);

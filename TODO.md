@@ -1,5 +1,5 @@
 - [ ] packages 中组件开发
-- [ ] 引入字体图标【Icon 组件】
+- [x] 引入字体图标【Icon 组件】
 - [ ] 组件使用示例【后续考虑 VuePress 搭建】
 - [ ] 整体打包方案【使用 webpack 和 gulp】
 - [ ] 切换至 pnpm monorepo
