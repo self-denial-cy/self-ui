@@ -1,3 +1,4 @@
+// @ts-check
 const Home = () => import('@/views/home.vue');
 
 /** @type {Array<import('vue-router').RouteConfig>} */
