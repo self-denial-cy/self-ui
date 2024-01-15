@@ -1,4 +1,4 @@
-@navbar-margin-bottom: @margin-bottom-default;
+@navbar-height: 66px;
 @navbar-padding-default: 0 30px;
 @navbar-default-bg: #fff;
 @navbar-item-padding: 15px;
@@ -36,7 +36,7 @@
 
 .self-navbar {
   width: 100%;
-  margin-bottom: @navbar-margin-bottom;
+  height: @navbar-height;
   padding: @navbar-padding-default;
   background-color: @navbar-default-bg;
   margin: auto;
@@ -71,6 +71,8 @@
     background-color: @gray-95;
     border: none;
     position: relative;
+    width: @navbar-height;
+    height: @navbar-height;
     padding: 0;
     outline-style: none;
 
@@ -104,6 +106,7 @@
 .self-navbar-fade-enter,
 .self-navbar-fade-leave-to {
   opacity: 0;
+  transform: translateY(-66px);
 }
 
 .self-navbar.self-navbar-semantic-default {
@@ -134,7 +137,7 @@
   .self-navbar-item {
     float: left;
     padding: @navbar-item-padding;
-    line-height: @navbar-brand-line-height ;
+    line-height: @navbar-brand-line-height;
     cursor: pointer;
     .fade-background();
 
@@ -172,15 +175,10 @@
 .self-navbar {
   .self-dropdown {
     float: left;
-    display: block;
     cursor: pointer;
 
     &:hover {
       background-color: @gray-95;
-    }
-
-    .self-btn {
-      color: @font-color;
     }
 
     .self-dropdown-trigger {
@@ -191,6 +189,7 @@
         color: @font-color;
         padding: @navbar-item-padding;
         line-height: @navbar-brand-line-height;
+        height: @navbar-height;
         margin: 0;
       }
     }
@@ -209,9 +208,9 @@
 
     .self-input {
       float: left;
+      margin: @navbar-default-margin;
 
       .self-input-text {
-        padding: @input-default-padding;
         line-height: @input-default-height;
         height: @input-default-height;
       }
@@ -220,8 +219,6 @@
         line-height: @input-default-height;
         height: @input-default-height;
       }
-
-      margin: @navbar-default-margin;
     }
 
     .self-btn+.self-input,
@@ -246,7 +243,6 @@
 
     .self-navbar-menu {
       display: none;
-      .clearfix();
     }
   }
 
@@ -258,7 +254,6 @@
       margin-right: -15px;
 
       .self-navbar-item {
-        display: block;
         float: none;
         padding-left: 30px;
         padding-right: 30px;
@@ -270,14 +265,14 @@
       .self-input {
         display: block;
         float: none;
-        padding: 0 30px 0 30px;
+        padding: 0 30px;
         margin: 0;
         border-top: 1px solid @gray-90;
 
         .self-input-text {
           margin-top: 10px;
           margin-bottom: 10px;
-          width: 100%;
+          width: 100% !important;
           margin-left: 0;
           margin-right: 0;
         }
@@ -290,12 +285,12 @@
 
       .self-btn {
         display: block;
+        width: 100%;
         float: none;
-        margin: 10px 30px 10px 30px;
+        margin: 10px 0;
       }
 
       .self-dropdown {
-        display: block;
         float: none;
         border-top: 1px solid @gray-90;
         height: 50px;
@@ -303,7 +298,6 @@
 
         .self-btn {
           margin: 0;
-          width: 100%;
           padding-left: 0;
           padding-right: 0;
           text-align: left;

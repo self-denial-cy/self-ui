@@ -30,10 +30,6 @@ export default {
   name: 'SelfNav',
   components: { Icon },
   props: {
-    height: {
-      type: Number,
-      default: 66
-    },
     brand: String,
     to: String,
     fixed: Boolean,
