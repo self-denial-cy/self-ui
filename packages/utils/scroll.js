@@ -1,10 +1,14 @@
-import dom from './dom';
+import { addEventListener, removeEventListener } from '../utils';
 
-export default {
-  on(handler) {
-    dom.addEventListener(document, 'scroll', handler);
-  },
-  off(handler) {
-    dom.removeEventListener(document, 'scroll', handler);
-  }
-};
+export function scrollOn(handler) {
+  addEventListener(window, 'scroll', handler);
+}
+
+export function scrollOff(handler) {
+  removeEventListener(window, 'scroll', handler);
+}
+
+export function positionToTop(ele) {
+  if (!ele.scrollTop) return;
+  ele.scrollTop = 0;
+}

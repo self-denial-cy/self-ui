@@ -25,6 +25,7 @@
 
 <script>
 import Icon from '../icon';
+import { scrollOn, scrollOff, getWindowScrollOffsets } from '../utils';
 
 export default {
   name: 'SelfNav',
@@ -32,7 +33,7 @@ export default {
   props: {
     brand: String,
     to: String,
-    fixed: Boolean,
+    fixed: Boolean, // 是否开启 fixed
     semantic: String,
     router: Boolean
   },
@@ -40,8 +41,20 @@ export default {
     return {
       isActive: false,
       isFixed: false,
-      isVisible: true
+      isVisible: true,
+      timer: null,
+      distance: 0,
+      scrollTop: 0
     };
+  },
+  created() {
+    scrollOn(this.scrollHandler);
+    this.$on('nav:close', this.close);
+  },
+  destroyed() {
+    this.timer && clearTimeout(this.timer);
+    scrollOff(this.scrollHandler);
+    this.$off('nav:close', this.close);
   },
   methods: {
     routerTo() {
@@ -58,6 +71,34 @@ export default {
     },
     toggle() {
       this.isActive = !this.isActive;
+    },
+    scrollHandler() {
+      if (!this.fixed) return;
+      this.close();
+      this.timer && clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        const scrollTop = getWindowScrollOffsets().y;
+        this.distance = scrollTop - this.scrollTop;
+        if (scrollTop > 66 && this.distance > 0) {
+          this.isVisible = false;
+        }
+        if (this.distance > 66) {
+          this.isVisible = false;
+        }
+        if (this.distance < -66) {
+          this.isVisible = true;
+          if (scrollTop !== 0) {
+            this.isFixed = true;
+          } else {
+            this.isFixed = false;
+          }
+        }
+        if (scrollTop === 0) {
+          this.isVisible = true;
+          this.isFixed = false;
+        }
+        this.scrollTop = scrollTop;
+      }, 100);
     }
   }
 };
