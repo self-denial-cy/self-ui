@@ -1,7 +1,8 @@
 <template>
-  <transition name="self-navbar-fade">
+  <transition name="self-navbar-fade" @after-leave="leave">
     <nav
       v-show="isVisible"
+      v-clickout="close"
       class="self-navbar"
       :class="[
         isFixed ? 'self-navbar-fixed' : '',
@@ -12,8 +13,8 @@
       <div class="self-navbar-brand">
         <a @click="routerTo">{{ brand }}</a>
         <button class="self-navbar-burger" @click="toggle">
-          <Icon v-show="isActive" type="close" />
-          <Icon v-show="!isActive" type="menu" />
+          <Icon v-show="isActive" type="close" size="32" color="#666" />
+          <Icon v-show="!isActive" type="menu" size="32" color="#666" />
         </button>
       </div>
       <div class="self-navbar-menu">
@@ -26,10 +27,18 @@
 <script>
 import Icon from '../icon';
 import { scrollOn, scrollOff, getWindowScrollOffsets } from '../utils';
+import { clickout } from '../directives';
 
 export default {
   name: 'SelfNav',
   components: { Icon },
+  directives: { clickout },
+  provide() {
+    return {
+      close: this.close,
+      router: this.router
+    };
+  },
   props: {
     brand: String,
     to: String,
@@ -71,6 +80,9 @@ export default {
     },
     toggle() {
       this.isActive = !this.isActive;
+    },
+    leave() {
+      this.isFixed = false;
     },
     scrollHandler() {
       if (!this.fixed) return;

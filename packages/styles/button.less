@@ -139,3 +139,193 @@
   height: @btn-small-height;
   padding: @btn-small-padding;
 }
+
+.self-btn-semantic-init() {
+  .self-btn-group {
+    .self-btn[class*=self-btn-semantic-] {
+      color: @font-color;
+      border: 1px solid @gray-80;
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        border-color: @gray-70;
+        background-color: transparent;
+      }
+
+      &:active {
+        border-color: @gray-80;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.self-btn-shadow-init() {
+  .self-btn-group {
+    .self-btn.self-btn-shadow {
+      .box-shadow(none);
+    }
+  }
+}
+
+.self-btn-radius-init() {
+  .self-btn-group {
+    .self-btn[class*=self-btn-radius-] {
+      border-radius: @border-radius-none;
+    }
+  }
+}
+
+.self-btn-size-init() {
+  .self-btn-group {
+    .self-btn[class*=self-btn-size-] {
+      height: @btn-group-default-height;
+      padding: @btn-group-default-padding;
+    }
+  }
+}
+
+.self-btn-group-semantic(@color) {
+  button.self-btn {
+    background-color: lighten(@color, 10%);
+    border-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: lighten(@color, 5%);
+      border-color: transparent;
+    }
+
+    &:active {
+      background-color: lighten(@color, 10%);
+      border-color: transparent;
+    }
+  }
+}
+
+.self-btn-group-radius(@radius) {
+  button.self-btn {
+    border-radius: @radius;
+  }
+
+  .self-btn:not(:first-child):not(:last-child) {
+    border-radius: @border-radius-none;
+  }
+
+  .self-btn:first-child:not(:last-child) {
+    .border-right-radius(@border-radius-none);
+    .border-left-radius(@radius);
+  }
+
+  .self-btn:last-child:not(:first-child) {
+    .border-right-radius(@radius);
+    .border-left-radius(@border-radius-none);
+  }
+}
+
+.self-btn-group-size(@size, @height) {
+  button.self-btn {
+    height: @height;
+    padding: @size;
+  }
+}
+
+.self-btn-semantic-init();
+.self-btn-shadow-init();
+.self-btn-radius-init();
+.self-btn-size-init();
+
+.self-btn-group {
+  display: inline-block;
+  .clearfix();
+
+  button.self-btn {
+    float: left;
+    border: 1px solid @gray-80;
+    .box-shadow(none);
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: @gray-70;
+      z-index: @btn-group-index;
+    }
+
+    &:active {
+      background-color: transparent;
+      border-color: @gray-80;
+      z-index: @btn-group-index;
+    }
+  }
+}
+
+.self-btn-group {
+
+  .self-btn+.self-btn,
+  .self-btn+.self-btn-group,
+  .self-btn-group+.self-btn,
+  .self-btn-group+.self-btn-group {
+    margin-left: -1px;
+    float: left;
+  }
+
+  // .self-btn:not(:last-child) {
+  //   margin-left: -1px;
+  // }
+}
+
+.self-btn+.self-btn-group,
+.self-btn-group+.self-btn,
+.self-btn-group+.self-btn-group {
+  margin-left: @margin-left-default;
+}
+
+.self-btn-group.self-btn-group-semantic-default {
+  .self-btn-group-semantic(@default);
+}
+
+.self-btn-group.self-btn-group-semantic-primary {
+  .self-btn-group-semantic(@primary);
+}
+
+.self-btn-group.self-btn-group-semantic-success {
+  .self-btn-group-semantic(@success);
+}
+
+.self-btn-group.self-btn-group-semantic-info {
+  .self-btn-group-semantic(@info);
+}
+
+.self-btn-group.self-btn-group-semantic-warning {
+  .self-btn-group-semantic(@warning);
+}
+
+.self-btn-group.self-btn-group-semantic-danger {
+  .self-btn-group-semantic(@danger);
+}
+
+.self-btn-group.self-btn-group-radius-small {
+  .self-btn-group-radius(@border-radius-small);
+}
+
+.self-btn-group.self-btn-group-radius-large {
+  .self-btn-group-radius(@border-radius-large);
+}
+
+.self-btn-group.self-btn-group-radius-circle {
+  .self-btn-group-radius(@btn-group-radius-circle);
+}
+
+.self-btn-group-shadow {
+  .box-shadow(@box-shadow-base);
+  border: none;
+}
+
+.self-btn-group.self-btn-group-size-large {
+  .self-btn-group-size(@btn-group-large-padding, @btn-group-large-height);
+}
+
+.self-btn-group.self-btn-group-size-small {
+  .self-btn-group-size(@btn-group-small-padding, @btn-group-small-height);
+}
