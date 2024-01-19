@@ -18,6 +18,10 @@
       >
         <div ref="content" class="self-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <slot></slot>
+          <div v-if="isResponsive">
+            <a class="self-dropdown-item-close"></a>
+            <a class="self-dropdown-item-list" @click="close">关闭</a>
+          </div>
         </div>
       </div>
     </transition>
@@ -25,12 +29,18 @@
 </template>
 
 <script>
-import { addEventListener, removeEventListener, getViewPortSize } from '../utils';
+import { addEventListener, removeEventListener, getViewPortSize, mask, positionToTop } from '../utils';
 import { clickout } from '../directives';
 
 export default {
   name: 'SelfDropdown',
   directives: { clickout },
+  provide() {
+    return {
+      close: this.close,
+      router: this.router
+    };
+  },
   model: {
     prop: 'value',
     event: 'update:value'
@@ -48,6 +58,7 @@ export default {
     hover: Boolean,
     disabled: Boolean,
     position: {
+      type: String,
       validator(val) {
         return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].includes(val);
       },
@@ -79,15 +90,28 @@ export default {
     value(val) {
       this.$emit('change', val);
     },
-    isActive(val) {}
+    isActive(val) {
+      if (val) {
+        this.$emit('open');
+        if (this.isResponsive) mask.show();
+        this.$nextTick(() => {
+          positionToTop(this.$refs.content); // 滚动条位置初始化
+        });
+      } else {
+        this.$emit('close');
+        if (this.isResponsive) mask.hide();
+      }
+    }
   },
   created() {
     addEventListener(window, 'resize', this.isResponsiveClient);
     this.isResponsiveClient();
+    mask.create();
   },
   destroyed() {
     this.timer && clearTimeout(this.timer);
     removeEventListener(window, 'resize', this.isResponsiveClient);
+    mask.destroy();
   },
   methods: {
     isResponsiveClient() {

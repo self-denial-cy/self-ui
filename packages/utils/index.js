@@ -51,3 +51,4 @@ export function removeClass(el, cls) {
 
 export * from './screen';
 export * from './scroll';
+export * from './mask';

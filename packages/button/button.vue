@@ -12,17 +12,20 @@
     :disabled="disabled"
     @click="handleClick"
   >
-    <i v-if="prefix" :class="prefix"></i>
+    <Icon v-if="prefix" :type="prefix" />
     <span v-if="$slots.default">
       <slot></slot>
     </span>
-    <i v-if="suffix" :class="suffix"></i>
+    <Icon v-if="suffix" :type="suffix" />
   </button>
 </template>
 
 <script>
+import Icon from '../icon';
+
 export default {
   name: 'SelfButton',
+  components: { Icon },
   props: {
     semantic: {
       type: String,
