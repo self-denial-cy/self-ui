@@ -9,7 +9,10 @@
   <a
     v-else-if="type === 'custom'"
     class="self-dropdown-item-custom"
-    :class="[disabled ? 'self-dropdown-item-custom-disabled' : '']"
+    :class="[
+      disabled ? 'self-dropdown-item-custom-disabled' : '',
+      highlight && isCurrent ? 'self-dropdown-item-current' : ''
+    ]"
     @click="handleClick"
   >
     <slot></slot>
@@ -17,7 +20,10 @@
   <a
     v-else
     class="self-dropdown-item-list"
-    :class="[disabled ? 'self-dropdown-item-list-disabled' : '']"
+    :class="[
+      disabled ? 'self-dropdown-item-list-disabled' : '',
+      highlight && isCurrent ? 'self-dropdown-item-current' : ''
+    ]"
     @click="handleClick"
   >
     <Icon v-if="icon" :type="icon" class="self-dropdown-item-list-icon" />
@@ -33,9 +39,12 @@ export default {
   name: 'SelfDropdownItem',
   components: { Icon },
   mixins: [dispatch],
-  inject: ['close', 'router'],
+  inject: ['close', 'router', 'current', 'highlight'],
   props: {
-    value: [String, Number],
+    value: {
+      type: [String, Number],
+      required: true
+    },
     disabled: Boolean,
     type: {
       type: String,
@@ -53,10 +62,25 @@ export default {
   computed: {
     isClick() {
       return !this.disabled && this.type !== 'title' && this.type !== 'separator';
+    },
+    isCurrent() {
+      return this.current === this.value;
     }
   },
   methods: {
-    handleClick() {}
+    handleClick() {
+      if (!this.isClick) return;
+      this.dispatch('SelfDropdown', 'update:value', this.value);
+      this.dispatch('SelfNav', 'nav:close');
+      this.$emit('click', this.value);
+      this.close();
+      if (!this.to) return;
+      if (this.router && this.$router) {
+        this.$router.push(this.to);
+      } else {
+        window.open(this.to, '_self');
+      }
+    }
   }
 };
 </script>

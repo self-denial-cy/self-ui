@@ -1,13 +1,12 @@
 <template>
   <div>
-    <self-nav brand="UI" fixed></self-nav>
-    <div style="height: 20000px"></div>
+    <self-button semantic="dark" radius="circle" size="large" prefix="yuan">Click me</self-button>
   </div>
 </template>
 
 <script>
-import SelfNav from 'packages/nav';
+import SelfButton from 'packages/button';
 export default {
-  components: { SelfNav }
+  components: { SelfButton }
 };
 </script>

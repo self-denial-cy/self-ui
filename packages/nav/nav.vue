@@ -43,7 +43,13 @@ export default {
     brand: String,
     to: String,
     fixed: Boolean, // 是否开启 fixed
-    semantic: String,
+    semantic: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['default', 'primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+      }
+    },
     router: Boolean
   },
   data() {

@@ -29,7 +29,10 @@ export default {
   props: {
     semantic: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['default', 'dark', 'primary', 'success', 'info', 'warning', 'danger', 'text', ''].includes(val);
+      }
     },
     shadow: {
       type: Boolean,
@@ -37,15 +40,24 @@ export default {
     },
     radius: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['small', 'large', 'circle', ''].includes(val);
+      }
     },
     size: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['large', 'small', ''].includes(val);
+      }
     },
     type: {
       type: String,
-      default: 'button'
+      default: 'button',
+      validator(val) {
+        return ['reset', 'button', 'submit'].includes(val);
+      }
     },
     autofocus: {
       type: Boolean,

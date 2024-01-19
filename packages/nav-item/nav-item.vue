@@ -15,7 +15,13 @@ export default {
   props: {
     to: String,
     disabled: Boolean,
-    align: String
+    align: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['right', 'left', ''].includes(val);
+      }
+    }
   },
   methods: {
     routerTo() {

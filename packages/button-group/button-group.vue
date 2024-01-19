@@ -18,7 +18,10 @@ export default {
   props: {
     semantic: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['default', 'primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+      }
     },
     shadow: {
       type: Boolean,
@@ -26,11 +29,17 @@ export default {
     },
     radius: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['small', 'large', 'circle', ''].includes(val);
+      }
     },
     size: {
       type: String,
-      default: ''
+      default: '',
+      validator(val) {
+        return ['large', 'small', ''].includes(val);
+      }
     }
   }
 };

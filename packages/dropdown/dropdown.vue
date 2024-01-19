@@ -38,7 +38,9 @@ export default {
   provide() {
     return {
       close: this.close,
-      router: this.router
+      router: this.router,
+      current: this.value,
+      highlight: this.highlight
     };
   },
   model: {
@@ -64,8 +66,15 @@ export default {
       },
       default: 'bottom-left'
     },
-    align: String,
-    router: Boolean
+    align: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['left', 'right', ''].includes(val);
+      }
+    },
+    router: Boolean,
+    highlight: Boolean // 是否高亮当前项
   },
   data() {
     return {

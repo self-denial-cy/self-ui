@@ -51,7 +51,10 @@ export default {
     },
     align: {
       type: String,
-      default: 'left'
+      default: 'left',
+      validator(val) {
+        return ['left', 'right', 'center'].includes(val);
+      }
     },
     hover: {
       type: Boolean,
@@ -75,11 +78,17 @@ export default {
     },
     captionSide: {
       type: String,
-      default: 'top'
+      default: 'top',
+      validator(val) {
+        return ['top', 'bottom'].includes(val);
+      }
     },
     captionAlign: {
       type: String,
-      default: 'center'
+      default: 'center',
+      validator(val) {
+        return ['left', 'right', 'center'].includes(val);
+      }
     },
     rowStyle: [String, Function],
     headCls: String
