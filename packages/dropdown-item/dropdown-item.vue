@@ -9,10 +9,7 @@
   <a
     v-else-if="type === 'custom'"
     class="self-dropdown-item-custom"
-    :class="[
-      disabled ? 'self-dropdown-item-custom-disabled' : '',
-      highlight && isCurrent ? 'self-dropdown-item-current' : ''
-    ]"
+    :class="[disabled ? 'self-dropdown-item-custom-disabled' : '', isCurrent ? 'self-dropdown-item-current' : '']"
     @click="handleClick"
   >
     <slot></slot>
@@ -20,10 +17,7 @@
   <a
     v-else
     class="self-dropdown-item-list"
-    :class="[
-      disabled ? 'self-dropdown-item-list-disabled' : '',
-      highlight && isCurrent ? 'self-dropdown-item-current' : ''
-    ]"
+    :class="[disabled ? 'self-dropdown-item-list-disabled' : '', isCurrent ? 'self-dropdown-item-current' : '']"
     @click="handleClick"
   >
     <Icon v-if="icon" :type="icon" class="self-dropdown-item-list-icon" />
@@ -39,7 +33,7 @@ export default {
   name: 'SelfDropdownItem',
   components: { Icon },
   mixins: [dispatch],
-  inject: ['close', 'router', 'current', 'highlight'],
+  inject: ['close', 'router', 'current', 'highlight', 'isResponsive'],
   props: {
     value: {
       type: [String, Number],
@@ -64,7 +58,7 @@ export default {
       return !this.disabled && this.type !== 'title' && this.type !== 'separator';
     },
     isCurrent() {
-      return this.current === this.value;
+      return !this.isResponsive && this.highlight && this.current === this.value;
     }
   },
   methods: {

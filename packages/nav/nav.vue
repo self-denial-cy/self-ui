@@ -26,7 +26,7 @@
 
 <script>
 import Icon from '../icon';
-import { scrollOn, scrollOff, getWindowScrollOffsets } from '../utils';
+import { scrollOn, scrollOff, getWindowScrollOffsets, getViewPortSize } from '../utils';
 import { clickout } from '../directives';
 
 export default {
@@ -59,19 +59,30 @@ export default {
       isVisible: true,
       timer: null,
       distance: 0,
-      scrollTop: 0
+      scrollTop: 0,
+      isResponsive: false
     };
   },
   created() {
     scrollOn(this.scrollHandler);
+    addEventListener(window, 'resize', this.isResponsiveClient);
+    this.isResponsiveClient();
     this.$on('nav:close', this.close);
   },
   destroyed() {
     this.timer && clearTimeout(this.timer);
     scrollOff(this.scrollHandler);
+    removeEventListener(window, 'resize', this.isResponsiveClient);
     this.$off('nav:close', this.close);
   },
   methods: {
+    isResponsiveClient() {
+      this.timer && clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        const { w } = getViewPortSize();
+        w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
+      }, 100);
+    },
     routerTo() {
       if (!this.to) return;
       if (this.router && this.$router) {
@@ -91,7 +102,7 @@ export default {
       this.isFixed = false;
     },
     scrollHandler() {
-      if (!this.fixed) return;
+      if (!this.fixed || this.isResponsive) return;
       this.close();
       this.timer && clearTimeout(this.timer);
       this.timer = setTimeout(() => {

@@ -9,7 +9,7 @@
     <div ref="trigger" class="self-dropdown-trigger" @click="toggle" @mouseenter="handleMouseEnter">
       <slot name="trigger"></slot>
     </div>
-    <transition name="self-dropdown-fade">
+    <transition :name="fadeName">
       <div
         v-show="isActive"
         class="self-dropdown-menu"
@@ -19,7 +19,7 @@
         <div ref="content" class="self-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <slot></slot>
           <div v-if="isResponsive">
-            <a class="self-dropdown-item-close"></a>
+            <a class="self-dropdown-item-split"></a>
             <a class="self-dropdown-item-list" @click="close">关闭</a>
           </div>
         </div>
@@ -40,7 +40,8 @@ export default {
       close: this.close,
       router: this.router,
       current: this.value,
-      highlight: this.highlight
+      highlight: this.highlight,
+      isResponsive: this.isResponsive
     };
   },
   model: {
@@ -93,6 +94,11 @@ export default {
       if (typeof this.maxHeight === 'number') return `${this.maxHeight}px`;
       if (typeof this.maxHeight === 'string' && !this.maxHeight.includes('px')) return `${this.maxHeight}px`;
       return this.maxHeight;
+    },
+    fadeName() {
+      if (this.isResponsive) return 'self-dropdown-responsive-fade';
+      if (this.position.includes('bottom')) return 'self-dropdown-bottom-fade';
+      return 'self-dropdown-top-fade';
     }
   },
   watch: {
