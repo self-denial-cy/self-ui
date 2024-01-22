@@ -13,9 +13,7 @@
     @click="handleClick"
   >
     <Icon v-if="prefix" :type="prefix" />
-    <span v-if="$slots.default">
-      <slot></slot>
-    </span>
+    <span><slot></slot></span>
     <Icon v-if="suffix" :type="suffix" />
   </button>
 </template>

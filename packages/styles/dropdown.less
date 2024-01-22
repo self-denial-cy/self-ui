@@ -32,12 +32,10 @@
     cursor: pointer;
     text-decoration: none;
     display: block;
-    height: @dropdown-item-height;
-    line-height: @line-height-computed;
     padding: @dropdown-item-padding;
     position: relative;
-    white-space: nowrap;
     color: @font-color;
+    height: @dropdown-item-height;
     .fade-background();
 
     &:hover {
@@ -46,12 +44,18 @@
 
     .self-dropdown-item-list-icon {
       margin-right: @dropdown-item-list-icon-margin;
-      color: @font-color;
       line-height: @line-height-computed;
       height: @line-height-computed;
       width: @line-height-computed;
       font-size: @font-size-base;
       text-align: center;
+    }
+
+    >span {
+      line-height: @line-height-computed;
+      white-space: nowrap;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 

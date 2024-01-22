@@ -21,7 +21,7 @@
     @click="handleClick"
   >
     <Icon v-if="icon" :type="icon" class="self-dropdown-item-list-icon" />
-    <slot></slot>
+    <span><slot></slot></span>
   </a>
 </template>
 

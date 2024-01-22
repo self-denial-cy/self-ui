@@ -26,7 +26,14 @@
 
 <script>
 import Icon from '../icon';
-import { scrollOn, scrollOff, getWindowScrollOffsets, getViewPortSize } from '../utils';
+import {
+  scrollOn,
+  scrollOff,
+  getWindowScrollOffsets,
+  getViewPortSize,
+  addEventListener,
+  removeEventListener
+} from '../utils';
 import { clickout } from '../directives';
 
 export default {
