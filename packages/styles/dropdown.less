@@ -31,11 +31,13 @@
   .self-dropdown-item-list {
     cursor: pointer;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: @dropdown-item-padding;
     position: relative;
     color: @font-color;
     height: @dropdown-item-height;
+    line-height: @line-height-computed;
     .fade-background();
 
     &:hover {
@@ -43,8 +45,8 @@
     }
 
     .self-dropdown-item-list-icon {
-      margin-right: @dropdown-item-list-icon-margin;
       line-height: @line-height-computed;
+      margin-right: @dropdown-item-list-icon-margin;
       height: @line-height-computed;
       width: @line-height-computed;
       font-size: @font-size-base;
@@ -52,10 +54,7 @@
     }
 
     >span {
-      line-height: @line-height-computed;
       white-space: nowrap;
-      display: inline-block;
-      vertical-align: middle;
     }
   }
 

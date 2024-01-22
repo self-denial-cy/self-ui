@@ -6,7 +6,6 @@
         <self-dropdown-item value="font" icon="font-size">字体</self-dropdown-item>
       </self-dropdown>
     </self-nav>
-    <self-button suffix="font-size">click me</self-button>
   </div>
 </template>
 

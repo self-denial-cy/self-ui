@@ -18,14 +18,14 @@
 }
 
 .self-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: @btn-default-padding;
   font-size: @font-size-base;
   font-weight: normal;
   line-height: @line-height-computed;
   height: @btn-default-height;
   text-align: center;
-  white-space: nowrap;
   outline-style: none;
   background-image: none;
   background-color: transparent;
@@ -46,10 +46,13 @@
     border-color: @gray-80;
   }
 
+  >span {
+    white-space: nowrap;
+  }
+
   i {
     font-size: @font-size-small;
     line-height: @line-height-computed;
-    vertical-align: middle;
   }
 
   i+span,
