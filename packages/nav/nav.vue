@@ -88,6 +88,10 @@ export default {
       this.timer = setTimeout(() => {
         const { w } = getViewPortSize();
         w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
+        if (this.isResponsive) {
+          this.isFixed = false;
+          this.isActive = false;
+        }
       }, 100);
     },
     routerTo() {

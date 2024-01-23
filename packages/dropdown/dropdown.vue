@@ -134,6 +134,7 @@ export default {
       this.timer = setTimeout(() => {
         const { w } = getViewPortSize();
         w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
+        if (!this.isResponsive) mask.hide();
       }, 100);
     },
     toggle() {

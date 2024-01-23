@@ -1,7 +1,9 @@
 @navbar-height: 66px;
+@navbar-inner-height: 64px; // 比 @navbar-height 小 2px
 @navbar-padding-default: 0 30px;
 @navbar-default-bg: #fff;
 @navbar-item-padding: 15px;
+@navbar-inner-item-padding: 14px;
 @navbar-brand-font: 20px;
 @navbar-brand-line-height: 36px;
 @navbar-default-margin: 15px;
@@ -36,17 +38,18 @@
 
 .self-navbar {
   width: 100%;
-  height: @navbar-height;
+  min-height: @navbar-height;
   padding: @navbar-padding-default;
   background-color: @navbar-default-bg;
   margin: auto;
-  // box-shadow: @box-shadow-base;
+  box-shadow: @box-shadow-base;
   border: 1px solid @gray-90;
   .clearfix();
   .user-select(none);
 
   .self-navbar-brand {
     float: left;
+    height: @navbar-inner-height;
     .clearfix();
 
     a {
@@ -56,7 +59,7 @@
       line-height: @navbar-brand-line-height;
       font-size: @navbar-brand-font;
       color: @font-color;
-      padding: @navbar-item-padding;
+      padding: @navbar-inner-item-padding;
       cursor: pointer;
 
       &:hover {
@@ -71,8 +74,8 @@
     background-color: @gray-95;
     border: none;
     position: relative;
-    width: @navbar-height;
-    height: @navbar-height;
+    width: @navbar-inner-height;
+    height: @navbar-inner-height;
     padding: 0;
     outline-style: none;
 
@@ -136,7 +139,7 @@
 .self-navbar-menu {
   .self-navbar-item {
     float: left;
-    padding: @navbar-item-padding;
+    padding: @navbar-inner-item-padding;
     line-height: @navbar-brand-line-height;
     cursor: pointer;
     .fade-background();
@@ -144,14 +147,15 @@
     &:hover {
       background-color: @gray-95;
 
-      a {
+      >a {
         color: @font-color;
       }
     }
 
-    a {
+    >a {
       text-decoration: none;
       color: @font-color;
+      display: inline-block;
     }
   }
 }
@@ -187,9 +191,9 @@
       .self-btn {
         border: none;
         color: @font-color;
-        padding: @navbar-item-padding;
+        padding: @navbar-inner-item-padding;
         line-height: @line-height-computed;
-        height: @navbar-height;
+        height: @navbar-inner-height;
         margin: 0;
       }
     }
@@ -291,6 +295,7 @@
       }
 
       .self-dropdown {
+        display: block;
         float: none;
         border-top: 1px solid @gray-90;
         height: 50px;
@@ -301,7 +306,7 @@
           padding-left: 0;
           padding-right: 0;
           text-align: left;
-          display: block;
+          display: flex;
           height: 50px;
           line-height: 20px;
         }

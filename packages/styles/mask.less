@@ -1,0 +1,21 @@
+.self-mask {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(10, 10, 10, .5);
+  z-index: @mask-index;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: @screen-sm-min) {
+  .self-mask-show {
+    display: block;
+  }
+}
+
+.self-mask-show {
+  display: block;
+}
