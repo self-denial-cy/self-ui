@@ -5,7 +5,9 @@ export default {
     label: String,
     width: [Number, String],
     ellipsis: Boolean,
-    customCls: String
+    customCls: String,
+    customStyle: [String, Function],
+    meta: Object
   },
   render() {},
   created() {
@@ -15,7 +17,9 @@ export default {
       label: this.label,
       width: this.width,
       ellipsis: this.ellipsis,
-      customCls: this.customCls
+      customCls: this.customCls,
+      customStyle: this.customStyle,
+      meta: this.meta
     });
     store.states.columns.push(column);
   },

@@ -26,7 +26,7 @@
       <slot></slot>
       <self-table-colgroup />
       <self-table-header :head-cls="headCls" />
-      <self-table-body :row-style="rowStyle" />
+      <self-table-body :row-style="rowStyle" :row-cls="rowCls" />
     </table>
   </div>
 </template>
@@ -91,6 +91,7 @@ export default {
       }
     },
     rowStyle: [String, Function],
+    rowCls: String,
     headCls: String
   },
   data() {
