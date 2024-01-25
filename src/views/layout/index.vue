@@ -7,6 +7,10 @@
         <self-dropdown-item to="/color" value="color" icon="font-colors">色彩</self-dropdown-item>
       </self-dropdown>
       <self-nav-item to="/icon">图标</self-nav-item>
+      <self-dropdown hover router>
+        <self-button slot="trigger" suffix="down">布局</self-button>
+        <self-dropdown-item to="/grid" value="grid" icon="layout">栅格</self-dropdown-item>
+      </self-dropdown>
       <self-button
         to="https://github.com/self-denial-cy/self-ui"
         radius="small"

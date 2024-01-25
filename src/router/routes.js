@@ -3,6 +3,7 @@ const Layout = () => import('@/views/layout/index.vue');
 const Font = () => import('@/views/font/index.vue');
 const Color = () => import('@/views/color/index.vue');
 const Icon = () => import('@/views/icon/index.vue');
+const Grid = () => import('@/views/grid/index.vue');
 
 /** @type {Array<import('vue-router').RouteConfig>} */
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
         path: '/icon',
         name: 'Icon',
         component: Icon
+      },
+      {
+        path: '/grid',
+        name: 'Grid',
+        component: Grid
       }
     ]
   }
