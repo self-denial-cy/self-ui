@@ -7,4 +7,3 @@
 - [ ] 试用实践【devDependencies 中的 vue 和 core-js 是否会影响使用】
 - [ ] 自动生成更新日志
 - [ ] 类型声明文件
-- [ ] Nav 组件下边距 1px问题处理

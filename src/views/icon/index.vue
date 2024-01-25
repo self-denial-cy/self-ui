@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h3>参数列表</h3>
+    <prop-table :data="tableData" />
     <h3>图标集合</h3>
     <icon-set :sets="sets" />
   </div>
@@ -7,13 +9,45 @@
 
 <script>
 import IconSet from '@/components/icon-set';
+import PropTable from '@/components/prop-table';
 
 export default {
   components: {
-    IconSet
+    IconSet,
+    PropTable
   },
   data() {
     return {
+      tableData: [
+        {
+          param: 'type',
+          desc: '指定图标名称',
+          type: 'String',
+          option: '见图标集合',
+          default: '-'
+        },
+        {
+          param: 'size',
+          desc: '指定图标大小',
+          type: 'String | Number',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'color',
+          desc: '指定图标颜色',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'custom',
+          desc: '指定自定义图标',
+          type: 'String',
+          option: '-',
+          default: '-'
+        }
+      ],
       sets: [
         'timeout',
         'crown',
