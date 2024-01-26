@@ -5,6 +5,7 @@
         <self-button slot="trigger" suffix="down">基础</self-button>
         <self-dropdown-item to="/font" value="font" icon="font-size">字体</self-dropdown-item>
         <self-dropdown-item to="/color" value="color" icon="font-colors">色彩</self-dropdown-item>
+        <self-dropdown-item to="/button" value="button" icon="build-fill">按钮</self-dropdown-item>
       </self-dropdown>
       <self-nav-item to="/icon">图标</self-nav-item>
       <self-dropdown hover router>
