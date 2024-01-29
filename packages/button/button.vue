@@ -9,12 +9,13 @@
     ]"
     :type="type"
     :autofocus="autofocus"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     @click="handleClick"
   >
-    <Icon v-if="prefix" :type="prefix" />
+    <Icon v-if="loading" type="reload" class="loading"></Icon>
+    <Icon v-if="prefix && !loading" :type="prefix" />
     <span><slot></slot></span>
-    <Icon v-if="suffix" :type="suffix" />
+    <Icon v-if="suffix && !loading" :type="suffix" />
   </button>
 </template>
 
@@ -80,10 +81,15 @@ export default {
     to: {
       type: String,
       default: ''
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     handleClick(e) {
+      if (this.disabled || this.loading) return;
       this.$emit('click', e);
       if (!this.to) return;
       if (this.router && this.$router) {
