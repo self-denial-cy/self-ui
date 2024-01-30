@@ -1,7 +1,9 @@
 <template>
   <div>
     <h3>参数列表</h3>
-    <prop-table :data="tableData" />
+    <prop-table :data="tableData1" />
+    <h3>事件列表</h3>
+    <event-table :data="tableData2" />
     <h3>图标集合</h3>
     <icon-set :sets="sets" />
   </div>
@@ -10,15 +12,17 @@
 <script>
 import IconSet from '@/components/icon-set';
 import PropTable from '@/components/prop-table';
+import EventTable from '@/components/event-table';
 
 export default {
   components: {
     IconSet,
-    PropTable
+    PropTable,
+    EventTable
   },
   data() {
     return {
-      tableData: [
+      tableData1: [
         {
           param: 'type',
           desc: '指定图标名称',
@@ -46,6 +50,13 @@ export default {
           type: 'String',
           option: '-',
           default: '-'
+        }
+      ],
+      tableData2: [
+        {
+          name: 'on-click',
+          desc: '点击图标时触发',
+          return: 'event'
         }
       ],
       sets: [

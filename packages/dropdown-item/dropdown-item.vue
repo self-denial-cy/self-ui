@@ -21,7 +21,11 @@
     @click="handleClick"
   >
     <Icon v-if="icon" :type="icon" class="self-dropdown-item-list-icon" />
-    <span><slot></slot></span>
+    <template v-if="$slots.default">
+      <span>
+        <slot></slot>
+      </span>
+    </template>
   </a>
 </template>
 
@@ -66,7 +70,7 @@ export default {
       if (!this.isClick) return;
       this.dispatch('SelfDropdown', 'update:value', this.value);
       this.dispatch('SelfNav', 'nav:close');
-      this.$emit('click', this.value);
+      this.$emit('on-click', this.value);
       this.close();
       if (!this.to) return;
       if (this.router && this.$router) {

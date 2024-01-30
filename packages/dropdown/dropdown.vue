@@ -103,17 +103,17 @@ export default {
   },
   watch: {
     value(val) {
-      this.$emit('change', val);
+      this.$emit('on-change', val);
     },
     isActive(val) {
       if (val) {
-        this.$emit('open');
+        this.$emit('on-open');
         if (this.isResponsive) mask.show();
         this.$nextTick(() => {
           positionToTop(this.$refs.content); // 滚动条位置初始化
         });
       } else {
-        this.$emit('close');
+        this.$emit('on-close');
         if (this.isResponsive) mask.hide();
       }
     }

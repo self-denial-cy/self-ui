@@ -4,7 +4,9 @@
     :class="[disabled ? 'self-navbar-item-disabled' : '', align ? `self-navbar-item-align-${align}` : '']"
     @click="routerTo"
   >
-    <a><slot></slot></a>
+    <a>
+      <slot></slot>
+    </a>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
   },
   methods: {
     routerTo() {
-      this.$emit('click'); // 当无 to 属性时，将 click 事件处理抛出
+      this.$emit('on-click'); // 当无 to 属性时，将 click 事件处理抛出
       this.close();
       if (!this.to || this.disabled) return;
       if (this.router && this.$router) {

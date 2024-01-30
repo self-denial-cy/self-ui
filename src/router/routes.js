@@ -5,6 +5,7 @@ const Color = () => import('@/views/color/index.vue');
 const Icon = () => import('@/views/icon/index.vue');
 const Grid = () => import('@/views/grid/index.vue');
 const Button = () => import('@/views/button/index.vue');
+const Table = () => import('@/views/table/index.vue');
 
 /** @type {Array<import('vue-router').RouteConfig>} */
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
         path: '/button',
         name: 'Button',
         component: Button
+      },
+      {
+        path: '/table',
+        name: 'Table',
+        component: Table
       }
     ]
   }

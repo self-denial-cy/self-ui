@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     handleClick(e) {
-      this.$emit('click', e);
+      this.$emit('on-click', e);
     }
   }
 };

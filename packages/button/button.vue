@@ -14,7 +14,11 @@
   >
     <Icon v-if="loading" type="reload" class="loading"></Icon>
     <Icon v-if="prefix && !loading" :type="prefix" />
-    <span><slot></slot></span>
+    <template v-if="$slots.default">
+      <span>
+        <slot></slot>
+      </span>
+    </template>
     <Icon v-if="suffix && !loading" :type="suffix" />
   </button>
 </template>
@@ -90,7 +94,7 @@ export default {
   methods: {
     handleClick(e) {
       if (this.disabled || this.loading) return;
-      this.$emit('click', e);
+      this.$emit('on-click', e);
       if (!this.to) return;
       if (this.router && this.$router) {
         this.$router.push(this.to);
