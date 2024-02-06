@@ -78,6 +78,83 @@ export default {
           type: 'Boolean',
           option: 'true | false',
           default: 'false'
+        },
+        {
+          param: 'align',
+          desc: '指定表格排列方式',
+          type: 'String',
+          option: 'left | right | center',
+          default: 'left'
+        },
+        {
+          param: 'hover',
+          desc: '指定表格是否开启鼠标悬停阴影效果',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
+        },
+        {
+          param: 'stripe',
+          desc: '指定表格是否开启斑马纹效果',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
+        },
+        {
+          param: 'border',
+          desc: '指定表格是否开启外边框',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
+        },
+        {
+          param: 'grid',
+          desc: '指定表格是否开启内边框',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
+        },
+        {
+          param: 'caption',
+          desc: '指定表格标题',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'captionSide',
+          desc: '指定表格标题纵向排列方式',
+          type: 'String',
+          option: 'top | bottom',
+          default: 'top'
+        },
+        {
+          param: 'captionAlign',
+          desc: '指定表格标题横向排列方式',
+          type: 'String',
+          option: 'left | right | center',
+          default: 'center'
+        },
+        {
+          param: 'rowStyle',
+          desc: '指定表格行样式，Function 接收【行数据，行索引】作为参数，需返回样式对象',
+          type: 'String | Function',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'rowCls',
+          desc: '指定表格行的类名称',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'headCls',
+          desc: '指定表格头的类名称',
+          type: 'String',
+          option: '-',
+          default: '-'
         }
       ],
       tableData3: []
