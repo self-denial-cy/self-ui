@@ -15,6 +15,7 @@
       <self-dropdown hover router>
         <self-button slot="trigger" suffix="down">表单</self-button>
         <self-dropdown-item to="/table" value="table" icon="table">表格</self-dropdown-item>
+        <self-dropdown-item to="/select" value="select" icon="select">选择框</self-dropdown-item>
       </self-dropdown>
       <self-button
         to="https://github.com/self-denial-cy/self-ui"

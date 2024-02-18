@@ -1,6 +1,7 @@
 <template>
   <div
     ref="select"
+    v-clickout="close"
     :class="[
       'self-select',
       radius ? `self-select-radius-${radius}` : '',
@@ -13,14 +14,57 @@
       <span :class="['self-selected-value', { 'self-select-placeholder': !text && placeholder }]">
         {{ text || placeholder }}
       </span>
+      <span class="self-select-arrow">
+        <Icon type="down" />
+      </span>
     </div>
-    <transition name="self-select-fade"></transition>
+    <transition name="self-select-fade">
+      <ul v-show="dropdown" class="self-select-dropdown" :style="{ 'max-height': _maxHeight }">
+        <li
+          v-for="option in options"
+          :key="option.value"
+          :class="[
+            'self-select-item',
+            { 'self-selected-item': selected === option.value },
+            { 'self-select-item-disabled': option.disabled }
+          ]"
+          @click="handleClick(option)"
+        >
+          {{ option.label }}
+        </li>
+        <ul v-for="group in groups" :key="group.title" class="self-select-dropdown-group">
+          <li class="self-select-dropdown-group-title">{{ group.title }}</li>
+          <li
+            v-for="option in group.options"
+            :key="option.value"
+            :class="[
+              'self-select-item',
+              { 'self-selected-item': selected === option.value },
+              { 'self-select-item-disabled': option.disabled }
+            ]"
+            @click="handleClick(option)"
+          >
+            {{ option.label }}
+          </li>
+        </ul>
+        <li v-if="!options.length && !groups.length" class="self-select-item-placeholder">暂无数据</li>
+      </ul>
+    </transition>
   </div>
 </template>
 
 <script>
+import { clickout } from '../directives';
+import Icon from '../icon';
+
 export default {
   name: 'SelfSelect',
+  directives: { clickout },
+  components: { Icon },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     placeholder: {
       type: String,
@@ -66,7 +110,7 @@ export default {
     return {
       text: '',
       dropdown: false,
-      selected: this.value
+      selected: ''
     };
   },
   computed: {
@@ -87,10 +131,47 @@ export default {
       return this.maxWidth;
     }
   },
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.selected = val;
+        let hit = false;
+        for (let i = 0; i < this.options.length; i++) {
+          if (this.selected === this.options[i].value) {
+            this.text = this.options[i].label;
+            hit = true;
+            break;
+          }
+        }
+        if (hit) return; // 若在 options 中命中选项，就不必到 groups 中再查询
+        for (let i = 0; i < this.groups.length; i++) {
+          const group = this.groups[i];
+          for (let j; j < group.options.length; j++) {
+            if (this.selected === group.options[j].value) {
+              this.text = group.options[j].label;
+              hit = true;
+              break;
+            }
+          }
+          if (hit) break;
+        }
+      }
+    }
+  },
   methods: {
+    close() {
+      this.dropdown = false;
+    },
     handleSelect() {
       if (this.disabled) return;
       this.dropdown = !this.dropdown;
+    },
+    handleClick(option) {
+      if (option.disabled) return;
+      this.dropdown = false;
+      this.$emit('change', option.value);
+      this.$emit('on-change', option.value);
     }
   }
 };
