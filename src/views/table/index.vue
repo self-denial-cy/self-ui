@@ -157,7 +157,57 @@ export default {
           default: '-'
         }
       ],
-      tableData3: []
+      tableData3: [
+        {
+          param: 'prop',
+          desc: '指定表格列属性',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'label',
+          desc: '指定表格列描述',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'width',
+          desc: '指定表格列宽度',
+          type: 'Number | String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'ellipsis',
+          desc: '指定表格列是否开启超出内容以省略号形式显示',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
+        },
+        {
+          param: 'customCls',
+          desc: '指定表格列的类名称',
+          type: 'String',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'customStyle',
+          desc: '指定表格列样式，Function 接收【行数据，行索引，列数据，列索引】作为参数，需返回样式对象',
+          type: 'String | Function',
+          option: '-',
+          default: '-'
+        },
+        {
+          param: 'meta',
+          desc: '指定表格列的元信息【动态列场景下，配合 customStyle 可自定义样式】',
+          type: 'Object',
+          option: '-',
+          default: '-'
+        }
+      ]
     };
   }
 };

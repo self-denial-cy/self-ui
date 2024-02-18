@@ -3,3 +3,26 @@ body {
   padding: 0;
   margin: 0;
 }
+
+// 设置滚动条默认样式
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: lighten(#000, 90%);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: lighten(#000, 90%);
+}
