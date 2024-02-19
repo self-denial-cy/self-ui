@@ -25,6 +25,7 @@ module.exports = {
     'no-unused-vars': 0,
     'vue/require-default-prop': 0,
     'vue/no-unused-components': 0,
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'vue/no-reserved-component-names': 0
   }
 };

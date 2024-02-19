@@ -13,6 +13,10 @@
         <self-dropdown-item to="/grid" value="grid" icon="layout">栅格</self-dropdown-item>
       </self-dropdown>
       <self-dropdown hover router>
+        <self-button slot="trigger" suffix="down">导航</self-button>
+        <self-dropdown-item to="/pagination" value="pagination" icon="filesearch">分页</self-dropdown-item>
+      </self-dropdown>
+      <self-dropdown hover router>
         <self-button slot="trigger" suffix="down">表单</self-button>
         <self-dropdown-item to="/table" value="table" icon="table">表格</self-dropdown-item>
         <self-dropdown-item to="/select" value="select" icon="select">选择框</self-dropdown-item>
