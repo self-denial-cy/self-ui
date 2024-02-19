@@ -147,7 +147,7 @@ export default {
         if (hit) return; // 若在 options 中命中选项，就不必到 groups 中再查询
         for (let i = 0; i < this.groups.length; i++) {
           const group = this.groups[i];
-          for (let j; j < group.options.length; j++) {
+          for (let j = 0; j < group.options.length; j++) {
             if (this.selected === group.options[j].value) {
               this.text = group.options[j].label;
               hit = true;
