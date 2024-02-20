@@ -18,15 +18,18 @@
     <self-select v-model="value3" :options="options4" :groups="groups1"></self-select>
     <h3>参数列表</h3>
     <prop-table :data="tableData1" />
+    <h3>事件列表</h3>
+    <event-table :data="tableData2" />
   </div>
 </template>
 
 <script>
 import SelfSelect from 'packages/select';
 import PropTable from '@/components/prop-table';
+import EventTable from '@/components/event-table';
 
 export default {
-  components: { SelfSelect, PropTable },
+  components: { SelfSelect, PropTable, EventTable },
   data() {
     return {
       value1: '',
@@ -175,6 +178,13 @@ export default {
           type: 'String | Number',
           option: '-',
           default: '-'
+        }
+      ],
+      tableData2: [
+        {
+          name: 'on-change',
+          desc: '切换选项时触发，传入当前选中项',
+          return: '当前选中项'
         }
       ]
     };

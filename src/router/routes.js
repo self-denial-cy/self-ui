@@ -8,6 +8,7 @@ const Button = () => import('@/views/button/index.vue');
 const Table = () => import('@/views/table/index.vue');
 const Select = () => import('@/views/select/index.vue');
 const Pagination = () => import('@/views/pagination/index.vue');
+const Dropdown = () => import('@/views/dropdown/index.vue');
 
 /** @type {Array<import('vue-router').RouteConfig>} */
 const routes = [
@@ -56,6 +57,11 @@ const routes = [
         path: '/pagination',
         name: 'Pagination',
         component: Pagination
+      },
+      {
+        path: '/dropdown',
+        name: 'Dropdown',
+        component: Dropdown
       }
     ]
   }

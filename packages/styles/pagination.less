@@ -1,8 +1,4 @@
 .self-page {
-  li {
-    list-style: none;
-  }
-
   .self-page-total {
     display: inline-block;
     margin: 20px 10px 20px 0;
@@ -47,6 +43,7 @@
   margin: 20px 0;
 
   li {
+    list-style: none;
     display: inline-block;
     min-width: 40px;
     text-align: center;
@@ -78,6 +75,50 @@
     cursor: not-allowed;
     background-color: #dbdbdb;
     border-color: #dbdbdb;
+    opacity: 0.5;
+  }
+
+  .pager {
+    display: inline-block;
+
+    input {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 0 3px;
+      outline: none;
+      text-align: center;
+      width: 45px;
+      border: 1px solid #d9d9d9;
+      transition: all .2s ease;
+
+      &:hover,
+      &:focus {
+        border: 1px solid #b3b3b3;
+      }
+
+      &:focus {
+        box-shadow: @box-shadow-base;
+      }
+    }
+
+    span:last-child {
+      display: inline-block;
+      margin: 0 5px;
+    }
+  }
+}
+
+.self-pagination-simple {
+  li {
+    border: none;
+    padding: 7px 12px;
+  }
+
+  .disabled,
+  .disabled:hover {
+    color: #7a7a7a;
+    cursor: not-allowed;
+    background-color: transparent;
     opacity: 0.5;
   }
 }

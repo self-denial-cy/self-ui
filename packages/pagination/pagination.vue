@@ -1,5 +1,5 @@
 <template>
-  <nav class="self-page">
+  <nav v-if="!simple" class="self-page">
     <span v-if="showTotal" class="self-page-total">共 {{ total }} 条</span>
     <ul :class="['self-pagination', radius ? `self-pagination-radius-${radius}` : '']">
       <li :class="{ disabled: page === 1 }" @click="handlePageChange(page - 1)">上一页</li>
@@ -62,6 +62,19 @@
       <span>页</span>
     </div>
   </nav>
+  <ul v-else class="self-pagination self-pagination-simple">
+    <li title="上一页" :class="{ disabled: page === 1 }" @click="handlePageChange(page - 1)">
+      <Icon type="left" />
+    </li>
+    <div class="pager" :title="page + ' / ' + totalPages">
+      <input v-model="target" type="text" autocomplete="off" spellcheck="false" @keyup.enter="handleEnter" />
+      <span>/</span>
+      <span>{{ totalPages }}</span>
+    </div>
+    <li title="下一页" :class="{ disabled: page === totalPages }" @click="handlePageChange(page + 1)">
+      <Icon type="right" />
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -106,6 +119,10 @@ export default {
         return ['', 'small', 'base', 'large'].includes(val);
       },
       default: ''
+    },
+    simple: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -122,6 +139,23 @@ export default {
     totalPages() {
       const val = Math.ceil(this.total / this.pageSize);
       return val === 0 ? 1 : val;
+    }
+  },
+  watch: {
+    page(val) {
+      this.target = val;
+    },
+    total(val) {
+      const maxPage = Math.ceil(val / this.pageSize);
+      if (this.page > maxPage) {
+        this.$emit('update:page', maxPage || 1);
+      }
+    },
+    pageSize(val) {
+      const maxPage = Math.ceil(this.total / val);
+      if (this.page > maxPage) {
+        this.$emit('update:page', maxPage || 1);
+      }
     }
   },
   methods: {
