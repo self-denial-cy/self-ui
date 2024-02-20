@@ -9,6 +9,8 @@
       :total="total"
       :page="page"
       :page-size="pageSize"
+      @on-page-change="handlePageChange"
+      @on-page-size-change="handlePageSizeChange"
     />
   </div>
 </template>
@@ -20,10 +22,18 @@ export default {
   components: { SelfPagination },
   data() {
     return {
-      total: 100,
+      total: 1000,
       page: 1,
       pageSize: 10
     };
+  },
+  methods: {
+    handlePageChange(val) {
+      this.page = val;
+    },
+    handlePageSizeChange(val) {
+      this.pageSize = val;
+    }
   }
 };
 </script>

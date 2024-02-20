@@ -3,9 +3,9 @@
     <span v-if="showTotal" class="self-page-total">共 {{ total }} 条</span>
     <ul :class="['self-pagination', radius ? `self-pagination-radius-${radius}` : '']">
       <li :class="{ disabled: page === 1 }" @click="handlePageChange(page - 1)">上一页</li>
-      <li v-if="hasFirst" :class="[{ active: isActive(1) }, 'number']" title="1" @click="handlePageChange(1)">1</li>
+      <li :class="[{ active: isActive(1) }, 'number']" title="1" @click="handlePageChange(1)">1</li>
       <li
-        v-if="hasFirstEllipsis"
+        v-if="page > 5"
         class="ellipsis"
         title="向前 5 页"
         @click="handlePageChange(page - 5)"
@@ -14,17 +14,21 @@
       >
         <Icon :type="prev" />
       </li>
-      <li
-        v-for="item in pages"
-        :key="item"
-        :title="item"
-        :class="[{ active: isActive(item) }, 'number']"
-        @click="handlePageChange(item)"
-      >
-        {{ item }}
+      <li v-if="page === 5" :title="page - 3" class="number" @click="handlePageChange(page - 3)">{{ page - 3 }}</li>
+      <li v-if="page - 2 > 1" :title="page - 2" class="number" @click="handlePageChange(page - 2)">{{ page - 2 }}</li>
+      <li v-if="page - 1 > 1" :title="page - 1" class="number" @click="handlePageChange(page - 1)">{{ page - 1 }}</li>
+      <li v-if="page !== 1 && page !== totalPages" :title="page" class="number active">{{ page }}</li>
+      <li v-if="page + 1 < totalPages" :title="page + 1" class="number" @click="handlePageChange(page + 1)">
+        {{ page + 1 }}
+      </li>
+      <li v-if="page + 2 < totalPages" :title="page + 2" class="number" @click="handlePageChange(page + 2)">
+        {{ page + 2 }}
+      </li>
+      <li v-if="page + 4 === totalPages" :title="page + 3" class="number" @click="handlePageChange(page + 3)">
+        {{ page + 3 }}
       </li>
       <li
-        v-if="hasLastEllipsis"
+        v-if="page + 5 <= totalPages"
         class="ellipsis"
         title="向后 5 页"
         @click="handlePageChange(page + 5)"
@@ -34,7 +38,7 @@
         <Icon :type="next" />
       </li>
       <li
-        v-if="hasLast && totalPages > 1"
+        v-if="totalPages > 1"
         :class="[{ active: isActive(totalPages) }, 'number']"
         :title="totalPages"
         @click="handlePageChange(totalPages)"
@@ -54,7 +58,7 @@
     ></Select>
     <div v-if="showElevator" class="self-page-elevator">
       <span>前往</span>
-      <input type="text" :value="page" />
+      <input v-model="target" type="text" @keyup.enter="handleEnter" />
       <span>页</span>
     </div>
   </nav>
@@ -107,7 +111,8 @@ export default {
   data() {
     return {
       prev: 'ellipsis',
-      next: 'ellipsis'
+      next: 'ellipsis',
+      target: this.page
     };
   },
   computed: {
@@ -115,29 +120,8 @@ export default {
       return this.pageSizeOpts.map((_) => ({ label: _ + ' 条/页', value: _ }));
     },
     totalPages() {
-      return this.total % this.pageSize ? parseInt(this.total / this.pageSize) + 1 : this.total / this.pageSize;
-    },
-    hasFirst() {
-      return this.page >= 4 || this.totalPages < 10;
-    },
-    hasLast() {
-      return this.page <= this.totalPages - 3 || this.totalPages < 10;
-    },
-    hasFirstEllipsis() {
-      return this.page >= 4 || this.totalPages >= 10;
-    },
-    hasLastEllipsis() {
-      return this.page <= this.totalPages - 3 || this.totalPages >= 10;
-    },
-    pages() {
-      if (!this.totalPages) return [];
-      const arr = [];
-      let left = 2;
-      let right = this.totalPages - 1;
-      for (let i = left; i <= right; i++) {
-        arr.push(i);
-      }
-      return arr;
+      const val = Math.ceil(this.total / this.pageSize);
+      return val === 0 ? 1 : val;
     }
   },
   methods: {
@@ -145,7 +129,7 @@ export default {
       return this.page === val;
     },
     handlePageChange(val) {
-      if (this.page === val || this.page === 1 || this.page === this.totalPages) return;
+      if (this.page === val) return;
       if (val < 1) val = 1;
       if (val > this.totalPages) val = this.totalPages;
       this.$emit('on-page-change', val);
@@ -166,6 +150,15 @@ export default {
     },
     handlePageSizeChange(val) {
       this.$emit('on-page-size-change', val);
+    },
+    handleEnter() {
+      if (!/^[1-9]\d*$/.test(this.target)) {
+        this.target = 1;
+      }
+      if (this.target > this.totalPages) {
+        this.target = this.totalPages;
+      }
+      this.handlePageChange(parseInt(this.target));
     }
   }
 };
