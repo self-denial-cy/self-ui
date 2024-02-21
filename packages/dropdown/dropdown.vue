@@ -39,9 +39,10 @@ export default {
     return {
       close: this.close,
       router: this.router,
-      current: this.value,
-      highlight: this.highlight,
-      isResponsive: this.isResponsive
+      // 保持 provide/inject 注入的依赖的响应性
+      current: () => this.value,
+      highlight: () => this.highlight,
+      isResponsive: () => this.isResponsive
     };
   },
   model: {

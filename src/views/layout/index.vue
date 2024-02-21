@@ -16,6 +16,7 @@
         <self-button slot="trigger" suffix="down">导航</self-button>
         <self-dropdown-item to="/pagination" value="pagination" icon="filesearch">分页</self-dropdown-item>
         <self-dropdown-item to="/dropdown" value="dropdown" icon="unorderedlist">下拉菜单</self-dropdown-item>
+        <self-dropdown-item to="/nav" value="nav" icon="flag">导航条</self-dropdown-item>
       </self-dropdown>
       <self-dropdown hover router>
         <self-button slot="trigger" suffix="down">表单</self-button>

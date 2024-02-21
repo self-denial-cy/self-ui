@@ -39,10 +39,7 @@ export default {
   mixins: [dispatch],
   inject: ['close', 'router', 'current', 'highlight', 'isResponsive'],
   props: {
-    value: {
-      type: [String, Number],
-      required: true
-    },
+    value: [String, Number],
     disabled: Boolean,
     type: {
       type: String,
@@ -58,11 +55,21 @@ export default {
     return {};
   },
   computed: {
+    // 保持 provide/inject 注入的依赖的响应性
+    computedCurrent() {
+      return this.current();
+    },
+    computedHighlight() {
+      return this.highlight();
+    },
+    computedIsResponsive() {
+      return this.isResponsive();
+    },
     isClick() {
       return !this.disabled && this.type !== 'title' && this.type !== 'separator';
     },
     isCurrent() {
-      return !this.isResponsive && this.highlight && this.current === this.value;
+      return !this.computedIsResponsive && this.computedHighlight && this.computedCurrent === this.value;
     }
   },
   methods: {
