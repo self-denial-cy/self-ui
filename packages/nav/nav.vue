@@ -49,7 +49,7 @@ export default {
   props: {
     brand: String,
     to: String,
-    fixed: Boolean, // 是否开启 fixed
+    fixed: Boolean, // 是否开启吸顶
     semantic: {
       type: String,
       default: '',
