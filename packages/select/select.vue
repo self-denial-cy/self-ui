@@ -116,17 +116,19 @@ export default {
   computed: {
     _maxHeight() {
       if (typeof this.maxHeight === 'number') return `${this.maxHeight}px`;
+      if (!this.maxHeight) return;
       if (typeof this.maxHeight === 'string' && !this.maxHeight.includes('px')) return `${this.maxHeight}px`;
       return this.maxHeight;
     },
     _minWidth() {
       if (typeof this.minWidth === 'number') return `${this.minWidth}px`;
+      if (!this.minWidth) return;
       if (typeof this.minWidth === 'string' && !this.minWidth.includes('px')) return `${this.minWidth}px`;
       return this.minWidth;
     },
     _maxWidth() {
-      if (!this.maxWidth) return;
       if (typeof this.maxWidth === 'number') return `${this.maxWidth}px`;
+      if (!this.maxWidth) return;
       if (typeof this.maxWidth === 'string' && !this.maxWidth.includes('px')) return `${this.maxWidth}px`;
       return this.maxWidth;
     }

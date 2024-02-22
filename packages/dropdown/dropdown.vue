@@ -88,11 +88,13 @@ export default {
   computed: {
     _minWidth() {
       if (typeof this.minWidth === 'number') return `${this.minWidth}px`;
+      if (!this.minWidth) return;
       if (typeof this.minWidth === 'string' && !this.minWidth.includes('px')) return `${this.minWidth}px`;
       return this.minWidth;
     },
     _maxHeight() {
       if (typeof this.maxHeight === 'number') return `${this.maxHeight}px`;
+      if (!this.maxHeight) return;
       if (typeof this.maxHeight === 'string' && !this.maxHeight.includes('px')) return `${this.maxHeight}px`;
       return this.maxHeight;
     },
