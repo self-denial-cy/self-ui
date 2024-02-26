@@ -57,7 +57,7 @@ export default {
     },
     width: {
       type: [String, Number],
-      default: '200px'
+      default: '150px'
     },
     block: Boolean,
     semantic: {

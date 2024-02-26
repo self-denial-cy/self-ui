@@ -2,18 +2,18 @@
   <div>
     <h3>选择框</h3>
     <h5>基础用法</h5>
-    <self-select v-model="value1" :options="options1"></self-select>
-    <button class="ml10" @click="value1 = 'apple'">苹果</button>
-    <button class="ml10" @click="value1 = 'orange'">橘子</button>
-    <button class="ml10" @click="value1 = 'banana'">香蕉</button>
-    <span class="ml10">{{ value1 }}</span>
+    <self-select v-model="value1" class="mr5 mb5" :options="options1"></self-select>
+    <button class="mr5 mb5" @click="value1 = 'apple'">苹果</button>
+    <button class="mr5 mb5" @click="value1 = 'orange'">橘子</button>
+    <button class="mr5 mb5" @click="value1 = 'banana'">香蕉</button>
+    <span>{{ value1 }}</span>
     <h5>禁用选项 & 禁用状态</h5>
-    <self-select v-model="value2" :options="options2"></self-select>
-    <self-select v-model="value2" disabled class="ml10" :options="options2"></self-select>
+    <self-select v-model="value2" class="mr5 mb5" :options="options2"></self-select>
+    <self-select v-model="value2" disabled :options="options2"></self-select>
     <h5>圆角效果</h5>
-    <self-select value="small" :options="options3" radius="small"></self-select>
-    <self-select value="base" class="ml10" :options="options3" radius="base"></self-select>
-    <self-select value="large" class="ml10" :options="options3" radius="large"></self-select>
+    <self-select value="small" :options="options3" radius="small" class="mr5 mb5"></self-select>
+    <self-select value="base" class="mr5 mb5" :options="options3" radius="base"></self-select>
+    <self-select value="large" :options="options3" radius="large"></self-select>
     <h5>数据分组</h5>
     <self-select v-model="value3" :options="options4" :groups="groups1"></self-select>
     <h3>参数列表</h3>
@@ -193,8 +193,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.ml10 {
-  margin-left: 10px;
+.mr5 {
+  margin-right: 5px;
+}
+
+.mb5 {
+  margin-bottom: 5px;
 }
 
 button {

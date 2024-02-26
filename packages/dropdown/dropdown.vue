@@ -129,7 +129,7 @@ export default {
   destroyed() {
     this.timer && clearTimeout(this.timer);
     removeEventListener(window, 'resize', this.isResponsiveClient);
-    mask.destroy();
+    // mask.destroy();
   },
   methods: {
     isResponsiveClient() {

@@ -12,6 +12,15 @@
         <self-dropdown-item value="3">选项3</self-dropdown-item>
       </self-dropdown>
       <self-button radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
+      <self-input
+        maxlength="20"
+        placeholder="搜索"
+        size="large"
+        radius="circle"
+        search
+        style="float: right"
+        width="180"
+      />
     </self-nav>
   </div>
 </template>
@@ -22,8 +31,9 @@ import SelfNavItem from 'packages/nav-item';
 import SelfDropdown from 'packages/dropdown';
 import SelfDropdownItem from 'packages/dropdown-item';
 import SelfButton from 'packages/button';
+import SelfInput from 'packages/input';
 
 export default {
-  components: { SelfNav, SelfNavItem, SelfDropdown, SelfDropdownItem, SelfButton }
+  components: { SelfNav, SelfNavItem, SelfDropdown, SelfDropdownItem, SelfButton, SelfInput }
 };
 </script>

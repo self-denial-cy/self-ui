@@ -2,6 +2,20 @@
   border: 1px solid lighten(@color, 10%);
 }
 
+.self-icon-semantic(@color) {
+  .self-icon {
+    color: @color;
+  }
+
+  &.self-input-search {
+    .self-icon {
+      &:hover {
+        color: darken(@color, 10%);
+      }
+    }
+  }
+}
+
 .self-input {
   display: inline-block;
   vertical-align: bottom;
@@ -37,46 +51,6 @@
 .self-input-textarea[disabled] {
   .disabled();
   background-color: @gray-90;
-}
-
-.self-input-semantic-primary {
-
-  .self-input-text,
-  .self-input-textarea {
-    .self-input-semantic(@primary);
-  }
-}
-
-.self-input-semantic-success {
-
-  .self-input-text,
-  .self-input-textarea {
-    .self-input-semantic(@success);
-  }
-}
-
-.self-input-semantic-warning {
-
-  .self-input-text,
-  .self-input-textarea {
-    .self-input-semantic(@warning);
-  }
-}
-
-.self-input-semantic-info {
-
-  .self-input-text,
-  .self-input-textarea {
-    .self-input-semantic(@info);
-  }
-}
-
-.self-input-semantic-danger {
-
-  .self-input-text,
-  .self-input-textarea {
-    .self-input-semantic(@danger);
-  }
 }
 
 .self-input-block {
@@ -164,6 +138,7 @@
   .self-icon {
     width: @input-small-height;
     line-height: @input-small-height;
+    font-size: @font-size-small;
   }
 }
 
@@ -171,6 +146,7 @@
   .self-icon {
     width: @input-large-height;
     line-height: @input-large-height;
+    font-size: @font-size-large;
   }
 }
 
@@ -207,5 +183,50 @@
 .self-input-suffix.self-input-size-large {
   .self-input-text {
     padding-right: @input-large-height;
+  }
+}
+
+.self-input-semantic-primary {
+  .self-icon-semantic(@primary);
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@primary);
+  }
+}
+
+.self-input-semantic-success {
+  .self-icon-semantic(@success);
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@success);
+  }
+}
+
+.self-input-semantic-warning {
+  .self-icon-semantic(@warning);
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@warning);
+  }
+}
+
+.self-input-semantic-info {
+  .self-icon-semantic(@info);
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@info);
+  }
+}
+
+.self-input-semantic-danger {
+  .self-icon-semantic(@danger);
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@danger);
   }
 }
