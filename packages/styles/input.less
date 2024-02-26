@@ -1,0 +1,211 @@
+.self-input-semantic(@color) {
+  border: 1px solid lighten(@color, 10%);
+}
+
+.self-input {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+
+  .self-input-text {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid @gray-80;
+    border-radius: @border-radius-none;
+    display: inline-block;
+    height: @input-default-height;
+    line-height: @input-default-height;
+    outline: none;
+    padding: @input-default-padding;
+    text-shadow: none;
+  }
+
+  .self-input-textarea {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid @gray-80;
+    border-radius: @border-radius-none;
+    display: inline-block;
+    line-height: @line-height-computed;
+    outline: none;
+    padding: @input-default-padding;
+    text-shadow: none;
+  }
+}
+
+.self-input-text[disabled],
+.self-input-textarea[disabled] {
+  .disabled();
+  background-color: @gray-90;
+}
+
+.self-input-semantic-primary {
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@primary);
+  }
+}
+
+.self-input-semantic-success {
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@success);
+  }
+}
+
+.self-input-semantic-warning {
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@warning);
+  }
+}
+
+.self-input-semantic-info {
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@info);
+  }
+}
+
+.self-input-semantic-danger {
+
+  .self-input-text,
+  .self-input-textarea {
+    .self-input-semantic(@danger);
+  }
+}
+
+.self-input-block {
+  display: block;
+}
+
+.self-input-radius-small {
+
+  .self-input-text,
+  .self-input-textarea {
+    border-radius: @border-radius-small;
+  }
+}
+
+.self-input-radius-large {
+
+  .self-input-text,
+  .self-input-textarea {
+    border-radius: @border-radius-large;
+  }
+}
+
+.self-input-radius-circle {
+  .self-input-text {
+    border-radius: @input-radius-circle;
+  }
+
+  .self-input-textarea {
+    border-radius: 2 * @border-radius-large;
+  }
+}
+
+.self-input-size-small {
+  .self-input-text {
+    height: @input-small-height;
+    padding: @input-small-padding;
+  }
+}
+
+.self-input-size-large {
+  .self-input-text {
+    height: @input-large-height;
+    padding: @input-large-padding;
+  }
+}
+
+.self-input {
+  .self-icon {
+    width: @input-default-height;
+    line-height: @input-default-height;
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    color: @gray-70;
+  }
+
+  &.self-input-prefix {
+    .self-icon {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &.self-input-suffix {
+    .self-icon {
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &.self-input-search {
+    .self-icon {
+      cursor: pointer;
+      z-index: @input-icon-index;
+      .fade-color();
+
+      &:hover {
+        color: @font-color;
+      }
+    }
+  }
+}
+
+.self-input-size-small {
+  .self-icon {
+    width: @input-small-height;
+    line-height: @input-small-height;
+  }
+}
+
+.self-input-size-large {
+  .self-icon {
+    width: @input-large-height;
+    line-height: @input-large-height;
+  }
+}
+
+.self-input-prefix {
+  .self-input-text {
+    padding-left: @input-default-height;
+  }
+}
+
+.self-input-prefix.self-input-size-small {
+  .self-input-text {
+    padding-left: @input-small-height;
+  }
+}
+
+.self-input-prefix.self-input-size-large {
+  .self-input-text {
+    padding-left: @input-large-height;
+  }
+}
+
+.self-input-suffix {
+  .self-input-text {
+    padding-right: @input-default-height;
+  }
+}
+
+.self-input-suffix.self-input-size-small {
+  .self-input-text {
+    padding-right: @input-small-height;
+  }
+}
+
+.self-input-suffix.self-input-size-large {
+  .self-input-text {
+    padding-right: @input-large-height;
+  }
+}

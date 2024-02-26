@@ -6,11 +6,12 @@
       radius ? `self-input-radius-${radius}` : '',
       size ? `self-input-size-${size}` : '',
       block ? 'self-input-block' : '',
-      prefix ? 'self-input-prefix' : '',
-      suffix ? 'self-input-suffix' : ''
+      !search && prefix ? 'self-input-prefix' : '',
+      search || suffix ? 'self-input-suffix' : '',
+      search ? 'self-input-search' : ''
     ]"
   >
-    <Icon v-if="prefix && type === 'text'" :type="prefix" />
+    <Icon v-if="!search && prefix && type === 'text'" :type="prefix" />
     <input
       v-if="type === 'text'"
       type="text"
@@ -19,6 +20,7 @@
       :style="{ width: _width }"
       v-bind="$attrs"
       @input="handleInput"
+      @keyup.enter="handleEnter"
     />
     <textarea
       v-else
@@ -28,7 +30,8 @@
       :style="{ width: _width, resize: resize ? 'vertical' : 'none' }"
       @input="handleInput"
     ></textarea>
-    <Icon v-if="suffix && type === 'text'" :type="suffix" />
+    <Icon v-if="!search && suffix && type === 'text'" :type="suffix" />
+    <Icon v-if="search && type === 'text'" type="search" @on-click="handleSearch" />
   </div>
 </template>
 
@@ -44,7 +47,7 @@ export default {
     event: 'update:value'
   },
   props: {
-    value: [String, Number],
+    value: String,
     type: {
       type: String,
       default: 'text',
@@ -57,9 +60,27 @@ export default {
       default: '200px'
     },
     block: Boolean,
-    semantic: String,
-    size: String,
-    radius: String,
+    semantic: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+      }
+    },
+    size: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['large', 'small', ''].includes(val);
+      }
+    },
+    radius: {
+      type: String,
+      default: '',
+      validator(val) {
+        return ['small', 'large', 'circle', ''].includes(val);
+      }
+    },
     prefix: String,
     suffix: String,
     resize: Boolean,
@@ -79,6 +100,14 @@ export default {
       const val = e.target.value;
       this.$emit('update:value', val);
       this.$emit('on-change', val);
+    },
+    handleSearch() {
+      this.$emit('on-search');
+    },
+    handleEnter(e) {
+      const val = e.target.value;
+      this.$emit('on-enter', val);
+      if (this.search) this.$emit('on-search');
     }
   }
 };

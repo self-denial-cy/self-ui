@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>输入框</h3>
-    <self-input />
+    <self-input type="text" size="" semantic="success" radius="circle" resize search />
   </div>
 </template>
 
