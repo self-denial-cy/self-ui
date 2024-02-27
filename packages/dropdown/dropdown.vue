@@ -12,6 +12,7 @@
     <transition :name="fadeName">
       <div
         v-show="isActive"
+        v-transfer
         class="self-dropdown-menu"
         :class="`self-dropdown-menu-${position}`"
         :style="{ 'min-width': _minWidth }"
@@ -30,11 +31,11 @@
 
 <script>
 import { addEventListener, removeEventListener, getViewPortSize, mask, positionToTop } from '../utils';
-import { clickout } from '../directives';
+import { clickout, transfer } from '../directives';
 
 export default {
   name: 'SelfDropdown',
-  directives: { clickout },
+  directives: { clickout, transfer },
   provide() {
     return {
       close: this.close,
