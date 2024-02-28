@@ -9,13 +9,16 @@
     <div ref="trigger" class="self-dropdown-trigger" @click="toggle" @mouseenter="handleMouseEnter">
       <slot name="trigger"></slot>
     </div>
-    <transition :name="fadeName">
+    <transition :name="transitionName">
       <div
         v-show="isActive"
+        ref="popper"
         v-transfer
         class="self-dropdown-menu"
         :class="`self-dropdown-menu-${position}`"
         :style="{ 'min-width': _minWidth }"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
       >
         <div ref="content" class="self-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <slot></slot>
@@ -30,6 +33,7 @@
 </template>
 
 <script>
+import { createPopper } from '@popperjs/core';
 import { addEventListener, removeEventListener, getViewPortSize, mask, positionToTop } from '../utils';
 import { clickout, transfer } from '../directives';
 
@@ -65,9 +69,9 @@ export default {
     position: {
       type: String,
       validator(val) {
-        return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].includes(val);
+        return ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end'].includes(val);
       },
-      default: 'bottom-left'
+      default: 'bottom-start'
     },
     align: {
       type: String,
@@ -81,9 +85,10 @@ export default {
   },
   data() {
     return {
+      popperInstance: null,
       isActive: false,
       isResponsive: false,
-      timer: null
+      timeout: null
     };
   },
   computed: {
@@ -99,7 +104,7 @@ export default {
       if (typeof this.maxHeight === 'string' && !this.maxHeight.includes('px')) return `${this.maxHeight}px`;
       return this.maxHeight;
     },
-    fadeName() {
+    transitionName() {
       if (this.isResponsive) return 'self-dropdown-responsive-fade';
       if (this.position.includes('bottom')) return 'self-dropdown-bottom-fade';
       return 'self-dropdown-top-fade';
@@ -112,13 +117,18 @@ export default {
     isActive(val) {
       if (val) {
         this.$emit('on-open');
-        if (this.isResponsive) mask.show();
+        if (this.isResponsive) {
+          mask.show();
+        } else {
+          this.updatePopper();
+        }
         this.$nextTick(() => {
           positionToTop(this.$refs.content); // 滚动条位置初始化
         });
       } else {
         this.$emit('on-close');
         if (this.isResponsive) mask.hide();
+        this.destroyPopper();
       }
     }
   },
@@ -128,17 +138,24 @@ export default {
     mask.create();
   },
   destroyed() {
-    this.timer && clearTimeout(this.timer);
+    this.timeout && clearTimeout(this.timeout);
     removeEventListener(window, 'resize', this.isResponsiveClient);
     // mask.destroy();
   },
+  beforeDestroy() {
+    if (this.popperInstance) {
+      this.popperInstance.destroy();
+      this.popperInstance = null;
+    }
+  },
   methods: {
     isResponsiveClient() {
-      this.timer && clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
+      this.timeout && clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
         const { w } = getViewPortSize();
         w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
         if (!this.isResponsive) mask.hide();
+        this.isActive = false;
       }, 100);
     },
     toggle() {
@@ -150,11 +167,55 @@ export default {
     },
     handleMouseEnter() {
       if (!this.hover || this.isResponsive || this.disabled) return;
-      this.isActive = true;
+      this.timeout && clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.isActive = true;
+      }, 250);
     },
     handleMouseLeave() {
       if (!this.hover || this.isResponsive || this.disabled) return;
-      this.isActive = false;
+      this.timeout && clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.isActive = false;
+      }, 250);
+    },
+    updatePopper() {
+      this.$nextTick(() => {
+        if (this.popperInstance) {
+          this.popperInstance.update();
+        } else {
+          this.popperInstance = createPopper(this.$refs.trigger, this.$refs.popper, {
+            placement: this.position,
+            modifiers: [
+              {
+                name: 'computeStyles',
+                options: {
+                  gpuAcceleration: false
+                }
+              }
+            ],
+            onFirstUpdate: () => {
+              this.resetTransformOrigin();
+              this.$nextTick(this.popperInstance.update);
+            }
+          });
+        }
+      });
+    },
+    resetTransformOrigin() {
+      if (!this.popperInstance) return;
+      const placement = this.popperInstance.state.attributes.popper['data-popper-placement'];
+      const placementStart = placement.split('-')[0];
+      this.popperInstance.state.elements.popper.style.transformOrigin =
+        placementStart === 'bottom' ? 'center top' : 'center bottom';
+    },
+    destroyPopper() {
+      if (this.popperInstance) {
+        setTimeout(() => {
+          this.popperInstance.destroy();
+          this.popperInstance = null;
+        }, 300);
+      }
     }
   }
 };

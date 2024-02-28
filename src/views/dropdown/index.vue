@@ -130,8 +130,8 @@ export default {
           param: 'position',
           desc: '下拉菜单展开位置',
           type: 'String',
-          option: 'top-left | top-right | bottom-left | bottom-right',
-          default: 'bottom-left'
+          option: 'top | top-start | top-end | bottom | bottom-start | bottom-end',
+          default: 'bottom-start'
         },
         {
           param: 'align',
