@@ -1,12 +1,12 @@
 <template>
   <div
     ref="dropdown"
-    v-clickout="close"
     class="self-dropdown"
     :class="[disabled ? 'self-dropdown-disabled' : '', align ? `self-dropdown-align-${align}` : '']"
     @mouseleave="handleMouseLeave"
+    @mouseenter="handleMouseEnter"
   >
-    <div ref="trigger" class="self-dropdown-trigger" @click="toggle" @mouseenter="handleMouseEnter">
+    <div ref="trigger" class="self-dropdown-trigger" @click="toggle">
       <slot name="trigger"></slot>
     </div>
     <transition :name="transition">
