@@ -1,3 +1,6 @@
+@animation-time : .3s;
+@ease-in-out : ease-in-out;
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -9,5 +12,35 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.motion-base(@time) {
+  animation-duration: @time;
+  animation-fill-mode: both;
+}
+
+.motion(@className, @keyframeName, @time: @animation-time) {
+
+  .@{className}-enter-active,
+  .@{className}-appear {
+    .motion-base(@time);
+    animation-play-state: paused;
+  }
+
+  .@{className}-leave-active {
+    .motion-base(@time);
+    animation-play-state: paused;
+  }
+
+  .@{className}-enter-active,
+  .@{className}-appear {
+    animation-name:~"@{keyframeName}In";
+    animation-play-state: running;
+  }
+
+  .@{className}-leave-active {
+    animation-name:~"@{keyframeName}Out";
+    animation-play-state: running;
   }
 }

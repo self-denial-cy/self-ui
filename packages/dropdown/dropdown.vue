@@ -9,7 +9,7 @@
     <div ref="trigger" class="self-dropdown-trigger" @click="toggle" @mouseenter="handleMouseEnter">
       <slot name="trigger"></slot>
     </div>
-    <transition :name="transitionName">
+    <transition :name="transition">
       <div
         v-show="isActive"
         ref="popper"
@@ -22,7 +22,7 @@
       >
         <div ref="content" class="self-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <slot></slot>
-          <div v-if="isResponsive">
+          <div v-if="isMobile">
             <a class="self-dropdown-item-split"></a>
             <a class="self-dropdown-item-list" @click="close">关闭</a>
           </div>
@@ -47,7 +47,7 @@ export default {
       // 保持 provide/inject 注入的依赖的响应性
       current: () => this.value,
       highlight: () => this.highlight,
-      isResponsive: () => this.isResponsive
+      isMobile: () => this.isMobile
     };
   },
   model: {
@@ -87,7 +87,7 @@ export default {
     return {
       popperInstance: null,
       isActive: false,
-      isResponsive: false,
+      isMobile: false,
       timeout: null
     };
   },
@@ -104,10 +104,9 @@ export default {
       if (typeof this.maxHeight === 'string' && !this.maxHeight.includes('px')) return `${this.maxHeight}px`;
       return this.maxHeight;
     },
-    transitionName() {
-      if (this.isResponsive) return 'self-dropdown-responsive-fade';
-      if (this.position.includes('bottom')) return 'self-dropdown-bottom-fade';
-      return 'self-dropdown-top-fade';
+    transition() {
+      if (this.isMobile) return 'self-dropdown-mobile-transition';
+      return 'self-dropdown-transition';
     }
   },
   watch: {
@@ -117,7 +116,7 @@ export default {
     isActive(val) {
       if (val) {
         this.$emit('on-open');
-        if (this.isResponsive) {
+        if (this.isMobile) {
           mask.show();
         } else {
           this.updatePopper();
@@ -127,19 +126,19 @@ export default {
         });
       } else {
         this.$emit('on-close');
-        if (this.isResponsive) mask.hide();
+        if (this.isMobile) mask.hide();
         this.destroyPopper();
       }
     }
   },
   created() {
-    addEventListener(window, 'resize', this.isResponsiveClient);
-    this.isResponsiveClient();
+    addEventListener(window, 'resize', this.isMobileClient);
+    this.isMobileClient();
     mask.create();
   },
   destroyed() {
     this.timeout && clearTimeout(this.timeout);
-    removeEventListener(window, 'resize', this.isResponsiveClient);
+    removeEventListener(window, 'resize', this.isMobileClient);
     // mask.destroy();
   },
   beforeDestroy() {
@@ -149,12 +148,12 @@ export default {
     }
   },
   methods: {
-    isResponsiveClient() {
+    isMobileClient() {
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         const { w } = getViewPortSize();
-        w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
-        if (!this.isResponsive) mask.hide();
+        this.isMobile = w < 768;
+        if (!this.isMobile) mask.hide();
         this.isActive = false;
       }, 100);
     },
@@ -166,14 +165,14 @@ export default {
       this.isActive = false;
     },
     handleMouseEnter() {
-      if (!this.hover || this.isResponsive || this.disabled) return;
+      if (!this.hover || this.isMobile || this.disabled) return;
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.isActive = true;
       }, 250);
     },
     handleMouseLeave() {
-      if (!this.hover || this.isResponsive || this.disabled) return;
+      if (!this.hover || this.isMobile || this.disabled) return;
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.isActive = false;
@@ -196,7 +195,6 @@ export default {
             ],
             onFirstUpdate: () => {
               this.resetTransformOrigin();
-              this.$nextTick(this.popperInstance.update);
             }
           });
         }

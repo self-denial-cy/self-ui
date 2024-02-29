@@ -7,7 +7,6 @@
 @navbar-brand-font: 20px;
 @navbar-brand-line-height: 36px;
 @navbar-default-margin: 15px;
-@navbar-item-responsive-height: 46px;
 
 .self-navbar-semantic(@color) {
   background-color: @color;
@@ -91,25 +90,6 @@
     height: auto;
     .clearfix();
   }
-}
-
-.self-navbar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: @navbar-fixed-index;
-}
-
-.self-navbar-fade-enter-active,
-.self-navbar-fade-leave-active {
-  .fade-all();
-}
-
-.self-navbar-fade-enter,
-.self-navbar-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-66px);
 }
 
 .self-navbar.self-navbar-semantic-default {

@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <self-nav brand="SelfUI" to="/" router fixed>
+    <self-nav brand="SelfUI" to="/" router>
       <self-dropdown hover router>
         <self-button slot="trigger" suffix="down">基础</self-button>
         <self-dropdown-item to="/font" value="font" icon="font-size">字体</self-dropdown-item>

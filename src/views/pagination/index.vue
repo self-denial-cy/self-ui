@@ -32,7 +32,7 @@ export default {
     return {
       timer: null,
       simple: false,
-      isResponsive: false,
+      isMobile: false,
       total: 1000,
       page: 1,
       pageSize: 10,
@@ -116,20 +116,20 @@ export default {
     };
   },
   created() {
-    window.addEventListener('resize', this.isResponsiveClient, false);
-    this.isResponsiveClient();
+    window.addEventListener('resize', this.isMobileClient, false);
+    this.isMobileClient();
   },
   destroyed() {
     this.timer && clearTimeout(this.timer);
-    window.removeEventListener('resize', this.isResponsiveClient, false);
+    window.removeEventListener('resize', this.isMobileClient, false);
   },
   methods: {
-    isResponsiveClient() {
+    isMobileClient() {
       this.timer && clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         const { w } = getViewPortSize();
-        w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
-        if (this.isResponsive) {
+        this.isMobile = w < 768;
+        if (this.isMobile) {
           this.simple = true;
         } else {
           this.simple = false;

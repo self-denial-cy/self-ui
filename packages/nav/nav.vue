@@ -1,39 +1,25 @@
 <template>
-  <transition name="self-navbar-fade" @after-leave="leave">
-    <nav
-      v-show="isVisible"
-      v-clickout="close"
-      class="self-navbar"
-      :class="[
-        isFixed ? 'self-navbar-fixed' : '',
-        isActive ? 'self-navbar-show' : '',
-        semantic ? `self-navbar-semantic-${semantic}` : ''
-      ]"
-    >
-      <div class="self-navbar-brand">
-        <a @click="routerTo">{{ brand }}</a>
-        <button class="self-navbar-burger" @click="toggle">
-          <Icon v-show="isActive" type="close" size="32" color="#666" />
-          <Icon v-show="!isActive" type="menu" size="32" color="#666" />
-        </button>
-      </div>
-      <div class="self-navbar-menu">
-        <slot></slot>
-      </div>
-    </nav>
-  </transition>
+  <nav
+    v-clickout="close"
+    class="self-navbar"
+    :class="[isActive ? 'self-navbar-show' : '', semantic ? `self-navbar-semantic-${semantic}` : '']"
+  >
+    <div class="self-navbar-brand">
+      <a @click="routerTo">{{ brand }}</a>
+      <button class="self-navbar-burger" @click="toggle">
+        <Icon v-show="isActive" type="close" size="32" color="#666" />
+        <Icon v-show="!isActive" type="menu" size="32" color="#666" />
+      </button>
+    </div>
+    <div class="self-navbar-menu">
+      <slot></slot>
+    </div>
+  </nav>
 </template>
 
 <script>
 import Icon from '../icon';
-import {
-  scrollOn,
-  scrollOff,
-  getWindowScrollOffsets,
-  getViewPortSize,
-  addEventListener,
-  removeEventListener
-} from '../utils';
+import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
 import { clickout } from '../directives';
 
 export default {
@@ -49,7 +35,6 @@ export default {
   props: {
     brand: String,
     to: String,
-    fixed: Boolean, // 是否开启吸顶
     semantic: {
       type: String,
       default: '',
@@ -62,34 +47,27 @@ export default {
   data() {
     return {
       isActive: false,
-      isFixed: false,
-      isVisible: true,
       timer: null,
-      distance: 0,
-      scrollTop: 0,
-      isResponsive: false
+      isMobile: false
     };
   },
   created() {
-    scrollOn(this.scrollHandler);
-    addEventListener(window, 'resize', this.isResponsiveClient);
-    this.isResponsiveClient();
+    addEventListener(window, 'resize', this.isMobileClient);
+    this.isMobileClient();
     this.$on('nav:close', this.close);
   },
   destroyed() {
     this.timer && clearTimeout(this.timer);
-    scrollOff(this.scrollHandler);
-    removeEventListener(window, 'resize', this.isResponsiveClient);
+    removeEventListener(window, 'resize', this.isMobileClient);
     this.$off('nav:close', this.close);
   },
   methods: {
-    isResponsiveClient() {
+    isMobileClient() {
       this.timer && clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         const { w } = getViewPortSize();
-        w < 768 ? (this.isResponsive = true) : (this.isResponsive = false);
-        if (this.isResponsive) {
-          this.isFixed = false;
+        this.isMobile = w < 768;
+        if (this.isMobile) {
           this.isActive = false;
         }
       }, 100);
@@ -108,37 +86,6 @@ export default {
     },
     toggle() {
       this.isActive = !this.isActive;
-    },
-    leave() {
-      this.isFixed = false;
-    },
-    scrollHandler() {
-      if (!this.fixed || this.isResponsive) return;
-      this.close();
-      this.timer && clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        const scrollTop = getWindowScrollOffsets().y;
-        this.distance = scrollTop - this.scrollTop;
-        if (scrollTop > 66 && this.distance > 0) {
-          this.isVisible = false;
-        }
-        if (this.distance > 66) {
-          this.isVisible = false;
-        }
-        if (this.distance < -66) {
-          this.isVisible = true;
-          if (scrollTop !== 0) {
-            this.isFixed = true;
-          } else {
-            this.isFixed = false;
-          }
-        }
-        if (scrollTop === 0) {
-          this.isVisible = true;
-          this.isFixed = false;
-        }
-        this.scrollTop = scrollTop;
-      }, 100);
     }
   }
 };

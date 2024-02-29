@@ -37,7 +37,7 @@ export default {
   name: 'SelfDropdownItem',
   components: { Icon },
   mixins: [dispatch],
-  inject: ['close', 'router', 'current', 'highlight', 'isResponsive'],
+  inject: ['close', 'router', 'current', 'highlight', 'isMobile'],
   props: {
     value: [String, Number],
     disabled: Boolean,
@@ -62,14 +62,14 @@ export default {
     computedHighlight() {
       return this.highlight();
     },
-    computedIsResponsive() {
-      return this.isResponsive();
+    computedIsMobile() {
+      return this.isMobile();
     },
     isClick() {
       return !this.disabled && this.type !== 'title' && this.type !== 'separator';
     },
     isCurrent() {
-      return !this.computedIsResponsive && this.computedHighlight && this.computedCurrent === this.value;
+      return !this.computedIsMobile && this.computedHighlight && this.computedCurrent === this.value;
     }
   },
   methods: {

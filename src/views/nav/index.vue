@@ -187,13 +187,6 @@ export default {
           default: '-'
         },
         {
-          param: 'fixed',
-          desc: '是否开启吸顶【移动端暂不可用】',
-          type: 'Boolean',
-          option: 'true | false',
-          default: 'false'
-        },
-        {
           param: 'semantic',
           desc: '指定导航条语义类型',
           type: 'String',
