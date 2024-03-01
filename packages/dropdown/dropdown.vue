@@ -1,6 +1,7 @@
 <template>
   <div
     ref="dropdown"
+    v-clickout="close"
     class="self-dropdown"
     :class="[disabled ? 'self-dropdown-disabled' : '', align ? `self-dropdown-align-${align}` : '']"
     @mouseleave="handleMouseLeave"
