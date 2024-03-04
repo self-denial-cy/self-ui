@@ -163,21 +163,23 @@ export default {
       this.isActive = !this.isActive;
     },
     close() {
-      this.isActive = false;
+      this.timeout = setTimeout(() => {
+        this.isActive = false;
+      }, 100);
     },
     handleMouseEnter() {
       if (!this.hover || this.isMobile || this.disabled) return;
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.isActive = true;
-      }, 250);
+      }, 300);
     },
     handleMouseLeave() {
       if (!this.hover || this.isMobile || this.disabled) return;
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.isActive = false;
-      }, 250);
+      }, 300);
     },
     updatePopper() {
       this.$nextTick(() => {

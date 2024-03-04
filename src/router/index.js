@@ -5,14 +5,10 @@ import routes from './routes';
 const originalPush = Router.prototype.push;
 const originalReplace = Router.prototype.replace;
 Router.prototype.push = function (location) {
-  return originalPush.call(this, location).catch(function (err) {
-    console.log(err);
-  });
+  return originalPush.call(this, location).catch(function (err) {});
 };
 Router.prototype.replace = function (location) {
-  return originalReplace.call(this, location).catch(function (err) {
-    console.log(err);
-  });
+  return originalReplace.call(this, location).catch(function (err) {});
 };
 
 Vue.use(Router);

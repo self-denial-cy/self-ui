@@ -9,7 +9,10 @@
   <a
     v-else-if="type === 'custom'"
     class="self-dropdown-item-custom"
-    :class="[disabled ? 'self-dropdown-item-custom-disabled' : '', isCurrent ? 'self-dropdown-item-current' : '']"
+    :class="[
+      disabled ? 'self-dropdown-item-custom-disabled' : '',
+      selected || isCurrent ? 'self-dropdown-item-current' : ''
+    ]"
     @click="handleClick"
   >
     <slot></slot>
@@ -17,7 +20,10 @@
   <a
     v-else
     class="self-dropdown-item-list"
-    :class="[disabled ? 'self-dropdown-item-list-disabled' : '', isCurrent ? 'self-dropdown-item-current' : '']"
+    :class="[
+      disabled ? 'self-dropdown-item-list-disabled' : '',
+      selected || isCurrent ? 'self-dropdown-item-current' : ''
+    ]"
     @click="handleClick"
   >
     <Icon v-if="icon" :type="icon" class="self-dropdown-item-list-icon" />
@@ -52,7 +58,9 @@ export default {
     to: String
   },
   data() {
-    return {};
+    return {
+      selected: false
+    };
   },
   computed: {
     // 保持 provide/inject 注入的依赖的响应性
@@ -75,10 +83,14 @@ export default {
   methods: {
     handleClick() {
       if (!this.isClick) return;
+      this.selected = true;
       this.dispatch('SelfDropdown', 'update:value', this.value);
       this.dispatch('SelfNav', 'nav:close');
       this.$emit('on-click', this.value);
       this.close();
+      setTimeout(() => {
+        this.selected = false;
+      }, 300);
       if (!this.to) return;
       if (this.router && this.$router) {
         this.$router.push(this.to);
