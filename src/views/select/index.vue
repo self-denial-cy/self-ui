@@ -15,7 +15,7 @@
     <self-select value="base" class="mr5 mb5" :options="options3" radius="base"></self-select>
     <self-select value="large" :options="options3" radius="large"></self-select>
     <h5>数据分组</h5>
-    <self-select v-model="value3" :options="options4" :groups="groups1"></self-select>
+    <self-select v-model="value3" block :options="options4" :groups="groups1"></self-select>
     <h3>参数列表</h3>
     <prop-table :data="tableData1" />
     <h3>事件列表</h3>
@@ -117,6 +117,13 @@ export default {
       ],
       tableData1: [
         {
+          param: 'value',
+          desc: '指定选择框当前选中项，可以使用 sync 修饰符或 v-model 指令',
+          type: 'String | Number',
+          option: '-',
+          default: '-'
+        },
+        {
           param: 'placeholder',
           desc: '指定选择框占位符',
           type: 'String',
@@ -152,11 +159,18 @@ export default {
           default: '[]'
         },
         {
-          param: 'value',
-          desc: '指定选择框当前选中项',
+          param: 'width',
+          desc: '指定选择框宽度',
           type: 'String | Number',
           option: '-',
-          default: '-'
+          default: '150px'
+        },
+        {
+          param: 'block',
+          desc: '是否块级元素',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
         },
         {
           param: 'maxHeight',
@@ -167,17 +181,10 @@ export default {
         },
         {
           param: 'minWidth',
-          desc: '指定选择框最小宽度',
+          desc: '指定选择框下拉菜单最小宽度',
           type: 'String | Number',
           option: '-',
           default: '200px'
-        },
-        {
-          param: 'maxWidth',
-          desc: '指定选择框最大宽度',
-          type: 'String | Number',
-          option: '-',
-          default: '-'
         }
       ],
       tableData2: [

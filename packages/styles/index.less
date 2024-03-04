@@ -7,7 +7,7 @@
 // 初始化
 @body-bg: #fff;
 @hr-border: @gray-90;
-@headings-font-family: inherit; //从 body 元素继承
+@headings-font-family: inherit;
 @headings-font-weight: 500;
 @headings-line-height: 1.1;
 @headings-color: inherit;
@@ -18,12 +18,6 @@
 @font-size-h4: ceil((@font-size-base * 1.25)); // 18px
 @font-size-h5: @font-size-base; // 14px
 @font-size-h6: ceil((@font-size-base * 0.85)); // 12px
-
-.box-sizing(@box-sizing) {
-  -webkit-box-sizing: @box-sizing;
-  -moz-box-sizing: @box-sizing;
-  box-sizing: @box-sizing;
-}
 
 * {
   .box-sizing(border-box);
@@ -37,7 +31,7 @@
 html {
   font-family: @font-family-base;
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -161,7 +155,7 @@ h6,
 }
 
 p {
-  margin: 0 0 (@line-height-computed / 2);
+  margin: 0;
 }
 
 small,
@@ -175,18 +169,11 @@ cite {
 
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: (@line-height-computed / 2);
-
-  ul,
-  ol {
-    margin-bottom: 0;
-  }
+  margin: 0;
 }
 
 dl {
-  margin-top: 0;
-  margin-bottom: @line-height-computed;
+  margin: 0;
 }
 
 dt,
@@ -199,7 +186,7 @@ dt {
 }
 
 dd {
-  margin-left: 0;
+  margin: 0;
 }
 
 abbr[title],

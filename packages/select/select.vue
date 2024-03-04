@@ -2,15 +2,16 @@
   <div
     ref="select"
     v-clickout="close"
+    class="self-select"
     :class="[
-      'self-select',
       radius ? `self-select-radius-${radius}` : '',
-      { 'self-select-show self-select-focus': dropdown },
-      { 'self-select-disabled': disabled }
+      { 'self-select-show self-select-focus': isActive },
+      { 'self-select-disabled': disabled },
+      block ? 'self-select-block' : ''
     ]"
-    :style="{ 'min-width': _minWidth, 'max-width': _maxWidth }"
+    :style="{ width: _width }"
   >
-    <div class="self-select-selector" @click="handleSelect">
+    <div ref="trigger" class="self-select-selector" @click="handleSelect">
       <span :class="['self-selected-value', { 'self-select-placeholder': !text && placeholder }]">
         {{ text || placeholder }}
       </span>
@@ -18,54 +19,68 @@
         <Icon type="down" />
       </span>
     </div>
-    <transition name="self-select-fade">
-      <ul v-show="dropdown" class="self-select-dropdown" :style="{ 'max-height': _maxHeight }">
-        <li
-          v-for="option in options"
-          :key="option.value"
-          :class="[
-            'self-select-item',
-            { 'self-selected-item': selected === option.value },
-            { 'self-select-item-disabled': option.disabled }
-          ]"
-          @click="handleClick(option)"
-        >
-          {{ option.label }}
-        </li>
-        <ul v-for="group in groups" :key="group.title" class="self-select-dropdown-group">
-          <li class="self-select-dropdown-group-title">{{ group.title }}</li>
+    <transition name="self-select-transition">
+      <div
+        v-show="isActive"
+        ref="popper"
+        v-transfer
+        class="self-select-dropdown-menu"
+        :style="{ 'min-width': _minWidth }"
+      >
+        <ul class="self-select-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <li
-            v-for="option in group.options"
+            v-for="option in options"
             :key="option.value"
             :class="[
               'self-select-item',
-              { 'self-selected-item': selected === option.value },
+              { 'self-select-item-selected': selected === option.value },
               { 'self-select-item-disabled': option.disabled }
             ]"
             @click="handleClick(option)"
           >
             {{ option.label }}
           </li>
+          <ul v-for="group in groups" :key="group.title" class="self-select-dropdown-group">
+            <li class="self-select-dropdown-group-title">{{ group.title }}</li>
+            <li
+              v-for="option in group.options"
+              :key="option.value"
+              :class="[
+                'self-select-item',
+                { 'self-select-item-selected': selected === option.value },
+                { 'self-select-item-disabled': option.disabled }
+              ]"
+              @click="handleClick(option)"
+            >
+              {{ option.label }}
+            </li>
+          </ul>
+          <li v-if="!options.length && !groups.length" class="self-select-item-placeholder">暂无数据</li>
         </ul>
-        <li v-if="!options.length && !groups.length" class="self-select-item-placeholder">暂无数据</li>
-      </ul>
+      </div>
     </transition>
   </div>
 </template>
 
 <script>
-import { clickout } from '../directives';
+import { createPopper } from '@popperjs/core';
+import { clickout, transfer } from '../directives';
+import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
 import Icon from '../icon';
 
 export default {
   name: 'SelfSelect',
-  directives: { clickout },
+  directives: { clickout, transfer },
   components: { Icon },
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'update:value'
   },
   props: {
+    value: {
+      type: [String, Number],
+      default: ''
+    },
     placeholder: {
       type: String,
       default: '请选择'
@@ -89,10 +104,11 @@ export default {
       type: Array,
       default: () => []
     },
-    value: {
+    width: {
       type: [String, Number],
-      default: ''
+      default: '150px'
     },
+    block: Boolean,
     maxHeight: {
       type: [String, Number],
       default: '300px'
@@ -100,20 +116,26 @@ export default {
     minWidth: {
       type: [String, Number],
       default: '200px'
-    },
-    maxWidth: {
-      type: [String, Number],
-      default: ''
     }
   },
   data() {
     return {
+      popperInstance: null,
       text: '',
-      dropdown: false,
-      selected: ''
+      isActive: false,
+      selected: '',
+      isMobile: false,
+      timeout: null
     };
   },
   computed: {
+    _width() {
+      if (this.block) return '100%';
+      if (typeof this.width === 'number') return `${this.width}px`;
+      if (!this.width) return;
+      if (typeof this.width === 'string' && !this.width.includes('px')) return `${this.width}px`;
+      return this.width;
+    },
     _maxHeight() {
       if (typeof this.maxHeight === 'number') return `${this.maxHeight}px`;
       if (!this.maxHeight) return;
@@ -125,12 +147,6 @@ export default {
       if (!this.minWidth) return;
       if (typeof this.minWidth === 'string' && !this.minWidth.includes('px')) return `${this.minWidth}px`;
       return this.minWidth;
-    },
-    _maxWidth() {
-      if (typeof this.maxWidth === 'number') return `${this.maxWidth}px`;
-      if (!this.maxWidth) return;
-      if (typeof this.maxWidth === 'string' && !this.maxWidth.includes('px')) return `${this.maxWidth}px`;
-      return this.maxWidth;
     }
   },
   watch: {
@@ -159,21 +175,94 @@ export default {
           if (hit) break;
         }
       }
+    },
+    isActive(val) {
+      if (val) {
+        this.updatePopper();
+      } else {
+        this.destroyPopper();
+      }
+    }
+  },
+  created() {
+    addEventListener(window, 'resize', this.isMobileClient);
+    this.isMobileClient();
+  },
+  mounted() {
+    this.resetPopperWidth();
+  },
+  beforeDestroy() {
+    this.timeout && clearTimeout(this.timeout);
+    removeEventListener(window, 'resize', this.isMobileClient);
+    if (this.popperInstance) {
+      this.popperInstance.destroy();
+      this.popperInstance = null;
     }
   },
   methods: {
+    resetPopperWidth() {
+      if (this.block && this.$refs.popper && this.$refs.trigger) {
+        this.$refs.popper.style.width = `${this.$refs.trigger.offsetWidth}px`;
+      }
+    },
+    isMobileClient() {
+      this.resetPopperWidth();
+      this.timeout && clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        const { w } = getViewPortSize();
+        this.isMobile = w < 768;
+        this.resetTransformOrigin();
+      }, 100);
+    },
     close() {
-      this.dropdown = false;
+      this.isActive = false;
     },
     handleSelect() {
       if (this.disabled) return;
-      this.dropdown = !this.dropdown;
+      this.isActive = !this.isActive;
     },
     handleClick(option) {
       if (option.disabled) return;
-      this.dropdown = false;
-      this.$emit('change', option.value);
+      this.isActive = false;
+      this.$emit('update:value', option.value);
       this.$emit('on-change', option.value);
+    },
+    updatePopper() {
+      this.$nextTick(() => {
+        if (this.popperInstance) {
+          this.popperInstance.update();
+        } else {
+          this.popperInstance = createPopper(this.$refs.trigger, this.$refs.popper, {
+            placement: 'bottom-start',
+            modifiers: [
+              {
+                name: 'computeStyles',
+                options: {
+                  gpuAcceleration: false
+                }
+              }
+            ],
+            onFirstUpdate: () => {
+              this.resetTransformOrigin();
+            }
+          });
+        }
+      });
+    },
+    resetTransformOrigin() {
+      if (!this.popperInstance) return;
+      const placement = this.popperInstance.state.attributes.popper['data-popper-placement'];
+      const placementStart = placement.split('-')[0];
+      this.popperInstance.state.elements.popper.style.transformOrigin =
+        placementStart === 'bottom' ? 'center top' : 'center bottom';
+    },
+    destroyPopper() {
+      if (this.popperInstance) {
+        setTimeout(() => {
+          this.popperInstance.destroy();
+          this.popperInstance = null;
+        }, 300);
+      }
     }
   }
 };

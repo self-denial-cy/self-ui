@@ -16,7 +16,6 @@
         ref="popper"
         v-transfer
         class="self-dropdown-menu"
-        :class="`self-dropdown-menu-${position}`"
         :style="{ 'min-width': _minWidth }"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
@@ -89,7 +88,8 @@ export default {
       popperInstance: null,
       isActive: false,
       isMobile: false,
-      timeout: null
+      timeout: null,
+      resizing: false
     };
   },
   computed: {
@@ -106,6 +106,7 @@ export default {
       return this.maxHeight;
     },
     transition() {
+      if (this.resizing) return;
       if (this.isMobile) return 'self-dropdown-mobile-transition';
       return 'self-dropdown-transition';
     }
@@ -150,13 +151,18 @@ export default {
   },
   methods: {
     isMobileClient() {
+      this.resizing = true;
       this.timeout && clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         const { w } = getViewPortSize();
         this.isMobile = w < 768;
         if (!this.isMobile) mask.hide();
         this.isActive = false;
-      }, 100);
+        this.resetTransformOrigin();
+        setTimeout(() => {
+          this.resizing = false;
+        }, 150);
+      }, 50);
     },
     toggle() {
       if (this.disabled) return;
