@@ -7,12 +7,12 @@ export function getWindowScrollOffsets() {
   }
   if (document.compatMode === 'CSS1Compat') {
     return {
-      x: document.documentElement.scrollLeft,
+      x: document.documentElement.scrollLeft, // html 元素
       y: document.documentElement.scrollTop
     };
   }
   return {
-    x: document.body.scrollLeft,
+    x: document.body.scrollLeft, // body 元素
     y: document.body.scrollTop
   };
 }

@@ -34,7 +34,7 @@
 
 <script>
 import { createPopper } from '@popperjs/core';
-import { addEventListener, removeEventListener, getViewPortSize, mask, positionToTop } from '../utils';
+import { addEventListener, removeEventListener, getViewPortSize, Mask, positionToTop } from '../utils';
 import { clickout, transfer } from '../directives';
 
 export default {
@@ -89,7 +89,8 @@ export default {
       isActive: false,
       isMobile: false,
       timeout: null,
-      resizing: false
+      resizing: false,
+      maskInstance: null
     };
   },
   computed: {
@@ -119,7 +120,8 @@ export default {
       if (val) {
         this.$emit('on-open');
         if (this.isMobile) {
-          mask.show();
+          this.maskInstance = new Mask();
+          this.maskInstance.show();
         } else {
           this.updatePopper();
         }
@@ -128,7 +130,7 @@ export default {
         });
       } else {
         this.$emit('on-close');
-        if (this.isMobile) mask.hide();
+        if (this.maskInstance) this.maskInstance.hide();
         this.destroyPopper();
       }
     }
@@ -136,14 +138,11 @@ export default {
   created() {
     addEventListener(window, 'resize', this.isMobileClient);
     this.isMobileClient();
-    mask.create();
-  },
-  destroyed() {
-    this.timeout && clearTimeout(this.timeout);
-    removeEventListener(window, 'resize', this.isMobileClient);
-    // mask.destroy();
   },
   beforeDestroy() {
+    this.timeout && clearTimeout(this.timeout);
+    removeEventListener(window, 'resize', this.isMobileClient);
+    this.maskInstance && this.maskInstance.destroy();
     if (this.popperInstance) {
       this.popperInstance.destroy();
       this.popperInstance = null;
@@ -156,7 +155,6 @@ export default {
       this.timeout = setTimeout(() => {
         const { w } = getViewPortSize();
         this.isMobile = w < 768;
-        if (!this.isMobile) mask.hide();
         this.isActive = false;
         this.resetTransformOrigin();
         setTimeout(() => {

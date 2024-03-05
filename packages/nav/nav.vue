@@ -56,7 +56,7 @@ export default {
     this.isMobileClient();
     this.$on('nav:close', this.close);
   },
-  destroyed() {
+  beforeDestroy() {
     this.timer && clearTimeout(this.timer);
     removeEventListener(window, 'resize', this.isMobileClient);
     this.$off('nav:close', this.close);
