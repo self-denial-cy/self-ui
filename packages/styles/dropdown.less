@@ -1,8 +1,6 @@
 @dropdown-menu-padding: 4px;
 @dropdown-content-bg: #fff;
 @dropdown-content-padding: 8px 0;
-@dropdown-content-opacity: 1;
-@dropdown-content-max-height: 300px;
 @dropdown-item-separator-margin: 7px 10px;
 @dropdown-item-list-icon-margin: 5px;
 
@@ -21,7 +19,6 @@
   background-color: @dropdown-content-bg;
   border-radius: @border-radius-base;
   padding: @dropdown-content-padding;
-  opacity: @dropdown-content-opacity;
   box-shadow: @box-shadow-base;
   overflow-y: auto;
   .user-select(none);
@@ -157,11 +154,12 @@
 
     .self-dropdown-content {
       border-radius: @border-radius-none;
-      padding: 0;
+      padding: 0 0 5px;
       overflow-y: auto;
-      max-height: @dropdown-content-max-height;
+      background-color: @gray-95;
 
       .self-dropdown-item-list {
+        background-color: @dropdown-content-bg;
         border-bottom: 1px solid @gray-90;
         padding-left: 15px;
         padding-right: 15px;
@@ -172,6 +170,7 @@
       }
 
       .self-dropdown-item-title {
+        background-color: @dropdown-content-bg;
         border-bottom: 1px solid @gray-90;
         padding-left: 15px;
         padding-right: 15px;
@@ -184,11 +183,24 @@
       .self-dropdown-item-separator {
         display: none;
       }
+    }
 
-      .self-dropdown-item-split {
-        height: 10px;
-        display: block;
-        background-color: @gray-95;
+    .self-dropdown-close {
+      background-color: @dropdown-content-bg;
+      text-decoration: none;
+      padding: 10px 15px;
+      height: @dropdown-item-height + 10px;
+      line-height: @line-height-computed + 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: @font-color;
+      .fade-background();
+
+      &:active {
+        background-color: @gray-90;
       }
     }
   }

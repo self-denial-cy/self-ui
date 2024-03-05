@@ -22,10 +22,9 @@
       >
         <div ref="content" class="self-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <slot></slot>
-          <div v-if="isMobile">
-            <a class="self-dropdown-item-split"></a>
-            <a class="self-dropdown-item-list" @click="close">关闭</a>
-          </div>
+        </div>
+        <div v-if="isMobile">
+          <a class="self-dropdown-close" @click="close">关闭</a>
         </div>
       </div>
     </transition>

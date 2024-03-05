@@ -56,3 +56,4 @@ export function setStyle(el, key, val, priority) {
 export * from './screen';
 export * from './scroll';
 export * from './mask';
+export * from './queue';
