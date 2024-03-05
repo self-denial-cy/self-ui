@@ -1,4 +1,13 @@
-import { setClass, addClass, removeClass, addEventListener, removeEventListener, setStyle } from '../utils';
+import {
+  setClass,
+  addClass,
+  removeClass,
+  addEventListener,
+  removeEventListener,
+  setStyle,
+  zIndex,
+  zIncrease
+} from '../utils';
 
 const __init_html_overflow__ = getComputedStyle(document.documentElement).overflow;
 const __init_body_overflow__ = getComputedStyle(document.body).overflow;
@@ -13,11 +22,17 @@ class Mask {
     e.stopPropagation();
   }
 
+  getZIndex() {
+    zIncrease();
+    return zIndex;
+  }
+
   create() {
     if (this.instance) return;
     this.instance = document.createElement('div');
     addEventListener(this.instance, 'touchmove', this._prevent, { passive: false });
     setClass(this.instance, 'self-mask');
+    setStyle(this.instance, 'z-index', 1000 + this.getZIndex());
     addEventListener(this.instance, 'click', this.hide);
     document.body.append(this.instance);
   }

@@ -16,7 +16,7 @@
         ref="popper"
         v-transfer
         class="self-dropdown-menu"
-        :style="{ 'min-width': _minWidth }"
+        :style="{ 'min-width': _minWidth, 'z-index': _zIndex }"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
       >
@@ -33,7 +33,15 @@
 
 <script>
 import { createPopper } from '@popperjs/core';
-import { addEventListener, removeEventListener, getViewPortSize, Mask, positionToTop } from '../utils';
+import {
+  addEventListener,
+  removeEventListener,
+  getViewPortSize,
+  Mask,
+  positionToTop,
+  zIndex,
+  zIncrease
+} from '../utils';
 import { clickout, transfer } from '../directives';
 
 export default {
@@ -89,7 +97,8 @@ export default {
       isMobile: false,
       timeout: null,
       resizing: false,
-      maskInstance: null
+      maskInstance: new Mask(),
+      zIndex: this.getZIndex()
     };
   },
   computed: {
@@ -109,6 +118,10 @@ export default {
       if (this.resizing) return;
       if (this.isMobile) return 'self-dropdown-mobile-transition';
       return 'self-dropdown-transition';
+    },
+    _zIndex() {
+      if (this.isMobile) return 1000 + this.zIndex;
+      return 900;
     }
   },
   watch: {
@@ -119,17 +132,17 @@ export default {
       if (val) {
         this.$emit('on-open');
         if (this.isMobile) {
-          this.maskInstance = new Mask();
           this.maskInstance.show();
         } else {
           this.updatePopper();
         }
+        this.zIndex = this.getZIndex();
         this.$nextTick(() => {
           positionToTop(this.$refs.content); // 滚动条位置初始化
         });
       } else {
         this.$emit('on-close');
-        if (this.maskInstance) this.maskInstance.hide();
+        this.maskInstance.hide();
         this.destroyPopper();
       }
     }
@@ -141,13 +154,17 @@ export default {
   beforeDestroy() {
     this.timeout && clearTimeout(this.timeout);
     removeEventListener(window, 'resize', this.isMobileClient);
-    this.maskInstance && this.maskInstance.destroy();
+    this.maskInstance.destroy();
     if (this.popperInstance) {
       this.popperInstance.destroy();
       this.popperInstance = null;
     }
   },
   methods: {
+    getZIndex() {
+      zIncrease();
+      return zIndex;
+    },
     isMobileClient() {
       this.resizing = true;
       this.timeout && clearTimeout(this.timeout);

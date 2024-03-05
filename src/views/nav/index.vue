@@ -206,13 +206,6 @@ export default {
           type: 'Boolean',
           option: 'true | false',
           default: 'false'
-        },
-        {
-          param: 'z-index',
-          desc: '开启 fixed 后的 z-index 层级',
-          type: 'Number',
-          option: '-',
-          default: '999'
         }
       ],
       tableData2: [

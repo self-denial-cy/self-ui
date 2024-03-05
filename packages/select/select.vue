@@ -25,7 +25,7 @@
         ref="popper"
         v-transfer
         class="self-select-dropdown-menu"
-        :style="{ 'min-width': _minWidth }"
+        :style="{ 'min-width': _minWidth, 'z-index': _zIndex }"
       >
         <ul class="self-select-dropdown-content" :style="{ 'max-height': _maxHeight }">
           <li
@@ -65,7 +65,7 @@
 <script>
 import { createPopper } from '@popperjs/core';
 import { clickout, transfer } from '../directives';
-import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
+import { getViewPortSize, addEventListener, removeEventListener, zIndex, zIncrease } from '../utils';
 import Icon from '../icon';
 
 export default {
@@ -125,7 +125,8 @@ export default {
       isActive: false,
       selected: '',
       isMobile: false,
-      timeout: null
+      timeout: null,
+      zIndex: this.getZIndex()
     };
   },
   computed: {
@@ -147,6 +148,10 @@ export default {
       if (!this.minWidth) return;
       if (typeof this.minWidth === 'string' && !this.minWidth.includes('px')) return `${this.minWidth}px`;
       return this.minWidth;
+    },
+    _zIndex() {
+      if (this.isMobile) return 1000 + this.zIndex;
+      return 900;
     }
   },
   watch: {
@@ -179,6 +184,7 @@ export default {
     isActive(val) {
       if (val) {
         this.updatePopper();
+        this.zIndex = this.getZIndex();
       } else {
         this.destroyPopper();
       }
@@ -200,6 +206,10 @@ export default {
     }
   },
   methods: {
+    getZIndex() {
+      zIncrease();
+      return zIndex;
+    },
     resetPopperWidth() {
       if (this.block && this.$refs.popper && this.$refs.trigger) {
         this.$refs.popper.style.width = `${this.$refs.trigger.offsetWidth}px`;
