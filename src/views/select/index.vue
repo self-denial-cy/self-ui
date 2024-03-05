@@ -173,14 +173,14 @@ export default {
           default: 'false'
         },
         {
-          param: 'maxHeight',
+          param: 'max-height',
           desc: '指定选择框下拉菜单最大高度',
           type: 'String | Number',
           option: '-',
           default: '300px'
         },
         {
-          param: 'minWidth',
+          param: 'min-width',
           desc: '指定选择框下拉菜单最小宽度',
           type: 'String | Number',
           option: '-',

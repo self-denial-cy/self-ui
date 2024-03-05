@@ -99,14 +99,14 @@ export default {
           default: '-'
         },
         {
-          param: 'minWidth',
+          param: 'min-width',
           desc: '指定下拉菜单的最小宽度',
           type: 'String | Number',
           option: '-',
           default: '200px'
         },
         {
-          param: 'maxHeight',
+          param: 'max-height',
           desc: '指定下拉菜单的最大高度',
           type: 'String | Number',
           option: '-',

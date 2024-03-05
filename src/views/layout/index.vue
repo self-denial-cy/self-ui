@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <self-nav brand="SelfUI" to="/" router>
+    <self-nav brand="SelfUI" to="/" router fixed>
       <self-dropdown hover router>
         <self-button slot="trigger" suffix="down">基础</self-button>
         <self-dropdown-item to="/font" value="font" icon="font-size">字体</self-dropdown-item>
@@ -58,7 +58,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.layout {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .container {
   padding: 16px 32px;
+  height: calc(100% - 68px);
+  overflow: auto;
+  margin-top: 68px;
 }
 </style>

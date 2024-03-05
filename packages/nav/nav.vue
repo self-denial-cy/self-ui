@@ -2,7 +2,12 @@
   <nav
     v-clickout="close"
     class="self-navbar"
-    :class="[isActive ? 'self-navbar-show' : '', semantic ? `self-navbar-semantic-${semantic}` : '']"
+    :class="[
+      isActive ? 'self-navbar-show' : '',
+      semantic ? `self-navbar-semantic-${semantic}` : '',
+      fixed ? 'self-navbar-fixed' : ''
+    ]"
+    :style="{ 'z-index': _zIndex }"
   >
     <div class="self-navbar-brand">
       <a @click="routerTo">{{ brand }}</a>
@@ -42,7 +47,12 @@ export default {
         return ['default', 'primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
       }
     },
-    router: Boolean
+    router: Boolean,
+    fixed: Boolean,
+    zIndex: {
+      type: Number,
+      default: 999
+    }
   },
   data() {
     return {
@@ -50,6 +60,12 @@ export default {
       timer: null,
       isMobile: false
     };
+  },
+  computed: {
+    _zIndex() {
+      if (!this.fixed) return;
+      return this.zIndex;
+    }
   },
   created() {
     addEventListener(window, 'resize', this.isMobileClient);

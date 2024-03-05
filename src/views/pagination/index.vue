@@ -53,35 +53,35 @@ export default {
           default: '1'
         },
         {
-          param: 'pageSize',
+          param: 'page-size',
           desc: '指定每页数据条数',
           type: 'Number',
           option: '-',
           default: '10'
         },
         {
-          param: 'pageSizeOpts',
+          param: 'page-size-opts',
           desc: '指定每页条数可切换配置',
           type: 'Array',
           option: '-',
           default: '[10, 20, 30, 40]'
         },
         {
-          param: 'showTotal',
+          param: 'show-total',
           desc: '指定是否显示数据总数',
           type: 'Boolean',
           option: 'true | false',
           default: 'false'
         },
         {
-          param: 'showElevator',
+          param: 'show-elevator',
           desc: '指定是否显示电梯，可以快速切换到某一页',
           type: 'Boolean',
           option: 'true | false',
           default: 'false'
         },
         {
-          param: 'showSizer',
+          param: 'show-sizer',
           desc: '指定是否显示每页条数可切换配置',
           type: 'Boolean',
           option: 'true | false',

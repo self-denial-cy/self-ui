@@ -122,35 +122,35 @@ export default {
           default: '-'
         },
         {
-          param: 'captionSide',
+          param: 'caption-side',
           desc: '指定表格标题纵向排列方式',
           type: 'String',
           option: 'top | bottom',
           default: 'top'
         },
         {
-          param: 'captionAlign',
+          param: 'caption-align',
           desc: '指定表格标题横向排列方式',
           type: 'String',
           option: 'left | right | center',
           default: 'center'
         },
         {
-          param: 'rowStyle',
+          param: 'row-style',
           desc: '指定表格行样式，Function 接收【行数据，行索引】作为参数，需返回样式对象',
           type: 'String | Function',
           option: '-',
           default: '-'
         },
         {
-          param: 'rowCls',
+          param: 'row-cls',
           desc: '指定表格行的类名称',
           type: 'String',
           option: '-',
           default: '-'
         },
         {
-          param: 'headCls',
+          param: 'head-cls',
           desc: '指定表格头的类名称',
           type: 'String',
           option: '-',
@@ -187,14 +187,14 @@ export default {
           default: 'false'
         },
         {
-          param: 'customCls',
+          param: 'custom-cls',
           desc: '指定表格列的类名称',
           type: 'String',
           option: '-',
           default: '-'
         },
         {
-          param: 'customStyle',
+          param: 'custom-style',
           desc: '指定表格列样式，Function 接收【行数据，行索引，列数据，列索引】作为参数，需返回样式对象',
           type: 'String | Function',
           option: '-',
