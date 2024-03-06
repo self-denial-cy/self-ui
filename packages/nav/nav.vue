@@ -24,7 +24,7 @@
 
 <script>
 import Icon from '../icon';
-import { getViewPortSize, addEventListener, removeEventListener, zIndex, zIncrease } from '../utils';
+import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
 import { clickout } from '../directives';
 
 export default {
@@ -54,14 +54,12 @@ export default {
     return {
       isActive: false,
       timer: null,
-      isMobile: false,
-      zIndex: this.getZIndex()
+      isMobile: false
     };
   },
   computed: {
     _zIndex() {
       if (!this.fixed) return;
-      if (this.isMobile) return 1000 + this.zIndex; // TODO 当 select 升层级后给 nav 也升一下
       return 999;
     }
   },
@@ -76,10 +74,6 @@ export default {
     this.$off('nav:close', this.close);
   },
   methods: {
-    getZIndex() {
-      zIncrease();
-      return zIndex;
-    },
     isMobileClient() {
       this.timer && clearTimeout(this.timer);
       this.timer = setTimeout(() => {

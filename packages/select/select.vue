@@ -23,7 +23,7 @@
       <div
         v-show="isActive"
         ref="popper"
-        v-transfer
+        v-transfer="transfer"
         class="self-select-dropdown-menu"
         :style="{ 'min-width': _minWidth, 'z-index': _zIndex }"
       >
@@ -116,6 +116,10 @@ export default {
     minWidth: {
       type: [String, Number],
       default: '200px'
+    },
+    transfer: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -150,7 +154,7 @@ export default {
       return this.minWidth;
     },
     _zIndex() {
-      if (this.isMobile) return 1000 + this.zIndex;
+      if (this.transfer) return 1000 + this.zIndex;
       return 900;
     }
   },

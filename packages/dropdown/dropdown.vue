@@ -14,7 +14,7 @@
       <div
         v-show="isActive"
         ref="popper"
-        v-transfer
+        v-transfer="_transfer"
         class="self-dropdown-menu"
         :style="{ 'min-width': _minWidth, 'z-index': _zIndex }"
         @mouseenter="handleMouseEnter"
@@ -88,7 +88,11 @@ export default {
       }
     },
     router: Boolean,
-    highlight: Boolean // 是否高亮当前项
+    highlight: Boolean, // 是否高亮当前项
+    transfer: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -119,8 +123,12 @@ export default {
       if (this.isMobile) return 'self-dropdown-mobile-transition';
       return 'self-dropdown-transition';
     },
+    _transfer() {
+      if (this.isMobile) return true;
+      return this.transfer;
+    },
     _zIndex() {
-      if (this.isMobile) return 1000 + this.zIndex;
+      if (this._transfer) return 1000 + this.zIndex;
       return 900;
     }
   },

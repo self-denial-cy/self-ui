@@ -153,6 +153,13 @@ export default {
           type: 'Boolean',
           option: 'true | false',
           default: 'false'
+        },
+        {
+          param: 'transfer',
+          desc: '是否将弹层提升至 body 内',
+          type: 'Boolean',
+          option: 'true | false',
+          default: 'false'
         }
       ],
       tableData2: [
