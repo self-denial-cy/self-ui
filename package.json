@@ -16,7 +16,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "eslint": "eslint . --ext .vue,.js --ignore-path .gitignore --fix",
-    "dist:style": "gulp --gulpfile build/build-style.js"
+    "style": "gulp --gulpfile build/build-style.js"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
