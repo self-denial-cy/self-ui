@@ -6,26 +6,23 @@ const { resolve } = require('./utils');
 process.env.NODE_ENV = 'production';
 
 /** @type {import('webpack').Configuration} */
-module.exports = [
-  merge(base, {
-    devtool: 'source-map',
-    entry: resolve('./build-entry.js'),
-    output: {
-      path: resolve('../dist'),
-      filename: 'selfui.js',
-      library: 'selfui',
-      libraryTarget: 'umd',
-      umdNamedDefine: true
-    },
-    externals: {
-      vue: {
-        root: 'Vue',
-        commonjs: 'vue',
-        commonjs2: 'vue',
-        amd: 'vue'
-      }
-    },
-    plugins: [new CleanWebpackPlugin()]
-  }),
-  merge(base, {})
-];
+module.exports = merge(base, {
+  devtool: 'source-map',
+  entry: resolve('./build-entry.js'),
+  output: {
+    path: resolve('../dist'),
+    filename: 'selfui.js',
+    library: 'selfui',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
+  },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
+  },
+  plugins: [new CleanWebpackPlugin()]
+});

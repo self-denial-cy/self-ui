@@ -49,6 +49,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
+  version: process.env.VERSION,
   install,
   ...components
 };

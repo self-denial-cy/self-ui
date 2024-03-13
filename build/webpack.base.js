@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('@vue/vue-loader-v15');
+const WebpackBar = require('webpackbar');
 const pkg = require('../package.json');
 
 /** @type {import('webpack').Configuration} */
@@ -42,7 +43,12 @@ module.exports = {
       vue: 'vue/dist/vue.esm.js'
     }
   },
+  stats: 'errors-only',
   plugins: [
+    new WebpackBar({
+      color: '#85d',
+      basic: false
+    }),
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env.VERSION': `'${pkg.version}'`

@@ -1,7 +1,7 @@
 - [ ] packages 中组件开发
 - [x] 引入字体图标【Icon 组件】
 - [ ] 组件使用示例【后续考虑 VuePress 搭建】
-- [ ] 整体打包方案【使用 webpack 和 gulp】
+- [x] 整体打包方案【使用 webpack 和 gulp】
 - [ ] 切换至 pnpm monorepo
 - [ ] npm publish
 - [ ] 试用实践【devDependencies 中的 vue 和 core-js 是否会影响使用】
