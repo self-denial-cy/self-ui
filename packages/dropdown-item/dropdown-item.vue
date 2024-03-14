@@ -37,7 +37,7 @@
 
 <script>
 import { dispatch } from '../mixins';
-import Icon from '../icon';
+import Icon from 'icon';
 
 export default {
   name: 'SelfDropdownItem',

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Icon from '../icon';
+import Icon from 'icon';
 import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
 import { clickout } from '../directives';
 

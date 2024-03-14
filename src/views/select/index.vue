@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import SelfSelect from 'packages/select';
+import SelfSelect from 'select';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
 

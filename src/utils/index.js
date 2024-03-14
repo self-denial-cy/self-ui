@@ -13,3 +13,22 @@ export function removeEventListener(ele, event, handler, options = {}) {
     ele.detachEvent(`on${event}`, handler);
   }
 }
+
+export function getViewPortSize() {
+  if (window.innerWidth !== null && window.innerWidth !== undefined) {
+    return {
+      w: window.innerWidth,
+      h: window.innerHeight
+    };
+  }
+  if (document.compatMode === 'CSS1Compat') {
+    return {
+      w: document.documentElement.clientWidth,
+      h: document.documentElement.clientHeight
+    };
+  }
+  return {
+    w: document.body.clientWidth,
+    h: document.body.clientHeight
+  };
+}

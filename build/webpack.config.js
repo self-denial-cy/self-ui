@@ -10,7 +10,7 @@ module.exports = merge(base, {
   devtool: 'source-map',
   entry: resolve('./build-entry.js'),
   output: {
-    path: resolve('../dist'),
+    path: resolve('../lib'),
     filename: 'selfui.js',
     library: 'selfui',
     libraryTarget: 'umd',

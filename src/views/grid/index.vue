@@ -91,8 +91,8 @@
 
 <script>
 import PropTable from '@/components/prop-table';
-import SelfRow from 'packages/row';
-import SelfCol from 'packages/col';
+import SelfRow from 'row';
+import SelfCol from 'col';
 
 export default {
   components: {

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Icon from 'packages/icon';
+import Icon from 'icon';
 
 export default {
   name: 'IconSet',

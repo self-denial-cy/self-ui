@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import Icon from '../icon';
-import Select from '../select';
+import Icon from 'icon';
+import Select from 'select';
 
 export default {
   name: 'SelfPagination',

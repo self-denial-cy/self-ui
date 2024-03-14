@@ -12,12 +12,12 @@ function css() {
     .pipe(autoprefixer())
     .pipe(clean())
     .pipe(rename('selfui.css'))
-    .pipe(dest(resolve('../dist/styles')));
+    .pipe(dest(resolve('../lib/styles')));
 }
 
 // 拷贝字体图标文件
 function fonts() {
-  return src(resolve('../packages/styles/fonts/*.*')).pipe(dest(resolve('../dist/styles/fonts')));
+  return src(resolve('../packages/styles/fonts/*.*')).pipe(dest(resolve('../lib/styles/fonts')));
 }
 
 exports.default = series(css, fonts);

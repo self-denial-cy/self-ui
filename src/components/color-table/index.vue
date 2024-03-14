@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import SelfTable from 'packages/table';
-import SelfTableColumn from 'packages/table-column';
+import SelfTable from 'table';
+import SelfTableColumn from 'table-column';
 
 function lighten(color, amount) {
   let usePound = false;

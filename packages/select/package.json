@@ -1,5 +1,8 @@
 {
   "name": "select",
   "version": "1.0.0",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "icon": "workspace:^"
+  }
 }
