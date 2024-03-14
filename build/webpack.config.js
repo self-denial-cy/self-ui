@@ -11,8 +11,8 @@ module.exports = merge(base, {
   entry: resolve('./build-entry.js'),
   output: {
     path: resolve('../lib'),
-    filename: 'selfui.js',
-    library: 'selfui',
+    filename: 'self.js',
+    library: 'SelfUI',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

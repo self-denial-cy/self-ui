@@ -170,8 +170,8 @@
 </template>
 
 <script>
-import SelfButton from 'button';
-import SelfButtonGroup from 'button-group';
+import SelfButton from '@self-ui/button';
+import SelfButtonGroup from '@self-ui/button-group';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
 

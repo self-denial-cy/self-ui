@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import SelfPagination from 'pagination';
+import SelfPagination from '@self-ui/pagination';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
-import { addEventListener, removeEventListener, getViewPortSize } from '@/utils';
+import { addEventListener, removeEventListener, getViewPortSize } from '@self-ui/utils';
 
 export default {
   components: { SelfPagination, PropTable, EventTable },

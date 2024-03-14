@@ -11,7 +11,7 @@ function css() {
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(clean())
-    .pipe(rename('selfui.css'))
+    .pipe(rename('self.css'))
     .pipe(dest(resolve('../lib/styles')));
 }
 

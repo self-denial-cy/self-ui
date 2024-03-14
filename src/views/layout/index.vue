@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import SelfNav from 'nav';
-import SelfNavItem from 'nav-item';
-import SelfDropdown from 'dropdown';
-import SelfDropdownItem from 'dropdown-item';
-import SelfButton from 'button';
+import SelfNav from '@self-ui/nav';
+import SelfNavItem from '@self-ui/nav-item';
+import SelfDropdown from '@self-ui/dropdown';
+import SelfDropdownItem from '@self-ui/dropdown-item';
+import SelfButton from '@self-ui/button';
 
 export default {
   components: {

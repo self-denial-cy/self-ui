@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Store from './store';
+import Store from './store.js';
 import SelfTableColgroup from './colgroup.vue';
 import SelfTableHeader from './header.vue';
 import SelfTableBody from './body.vue';

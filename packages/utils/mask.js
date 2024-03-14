@@ -7,7 +7,7 @@ import {
   setStyle,
   zIndex,
   zIncrease
-} from '../utils';
+} from './index.js';
 
 const __init_html_overflow__ = getComputedStyle(document.documentElement).overflow;
 const __init_body_overflow__ = getComputedStyle(document.body).overflow;

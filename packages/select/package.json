@@ -1,8 +1,10 @@
 {
-  "name": "select",
+  "name": "@self-ui/select",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "icon": "workspace:^"
+    "@self-ui/directives": "workspace:^",
+    "@self-ui/icon": "workspace:^",
+    "@self-ui/utils": "workspace:^"
   }
 }

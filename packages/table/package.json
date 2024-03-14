@@ -1,5 +1,5 @@
 {
-  "name": "table",
+  "name": "@self-ui/table",
   "version": "1.0.0",
   "main": "index.js"
 }

@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import SelfTable from 'table';
-import SelfTableColumn from 'table-column';
+import SelfTable from '@self-ui/table';
+import SelfTableColumn from '@self-ui/table-column';
 import PropTable from '@/components/prop-table';
 
 export default {

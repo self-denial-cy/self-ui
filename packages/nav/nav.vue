@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import Icon from 'icon';
-import { getViewPortSize, addEventListener, removeEventListener } from '../utils';
-import { clickout } from '../directives';
+import Icon from '@self-ui/icon';
+import { getViewPortSize, addEventListener, removeEventListener } from '@self-ui/utils';
+import { clickout } from '@self-ui/directives';
 
 export default {
   name: 'SelfNav',

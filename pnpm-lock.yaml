@@ -14,51 +14,54 @@ importers:
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
-      button:
+      '@self-ui/button':
         specifier: workspace:^
         version: link:packages/button
-      button-group:
+      '@self-ui/button-group':
         specifier: workspace:^
         version: link:packages/button-group
-      col:
+      '@self-ui/col':
         specifier: workspace:^
         version: link:packages/col
-      dropdown:
+      '@self-ui/dropdown':
         specifier: workspace:^
         version: link:packages/dropdown
-      dropdown-item:
+      '@self-ui/dropdown-item':
         specifier: workspace:^
         version: link:packages/dropdown-item
-      icon:
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:packages/icon
-      input:
+      '@self-ui/input':
         specifier: workspace:^
         version: link:packages/input
-      nav:
+      '@self-ui/nav':
         specifier: workspace:^
         version: link:packages/nav
-      nav-item:
+      '@self-ui/nav-item':
         specifier: workspace:^
         version: link:packages/nav-item
-      pagination:
+      '@self-ui/pagination':
         specifier: workspace:^
         version: link:packages/pagination
-      row:
+      '@self-ui/row':
         specifier: workspace:^
         version: link:packages/row
-      select:
+      '@self-ui/select':
         specifier: workspace:^
         version: link:packages/select
-      styles:
+      '@self-ui/styles':
         specifier: workspace:^
         version: link:packages/styles
-      table:
+      '@self-ui/table':
         specifier: workspace:^
         version: link:packages/table
-      table-column:
+      '@self-ui/table-column':
         specifier: workspace:^
         version: link:packages/table-column
+      '@self-ui/utils':
+        specifier: workspace:^
+        version: link:packages/utils
     devDependencies:
       '@babel/core':
         specifier: ^7.20.5
@@ -174,7 +177,7 @@ importers:
 
   packages/button:
     dependencies:
-      icon:
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
 
@@ -182,36 +185,60 @@ importers:
 
   packages/col: {}
 
-  packages/dropdown: {}
+  packages/directives:
+    dependencies:
+      '@self-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
+
+  packages/dropdown:
+    dependencies:
+      '@self-ui/directives':
+        specifier: workspace:^
+        version: link:../directives
+      '@self-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   packages/dropdown-item:
     dependencies:
-      icon:
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
+      '@self-ui/mixins':
+        specifier: workspace:^
+        version: link:../mixins
 
   packages/icon: {}
 
   packages/input:
     dependencies:
-      icon:
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
 
+  packages/mixins: {}
+
   packages/nav:
     dependencies:
-      icon:
+      '@self-ui/directives':
+        specifier: workspace:^
+        version: link:../directives
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
+      '@self-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   packages/nav-item: {}
 
   packages/pagination:
     dependencies:
-      icon:
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
-      select:
+      '@self-ui/select':
         specifier: workspace:^
         version: link:../select
 
@@ -219,15 +246,23 @@ importers:
 
   packages/select:
     dependencies:
-      icon:
+      '@self-ui/directives':
+        specifier: workspace:^
+        version: link:../directives
+      '@self-ui/icon':
         specifier: workspace:^
         version: link:../icon
+      '@self-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   packages/styles: {}
 
   packages/table: {}
 
   packages/table-column: {}
+
+  packages/utils: {}
 
 packages:
 

@@ -79,9 +79,9 @@
 </template>
 
 <script>
-import SelfDropdown from 'dropdown';
-import SelfDropdownItem from 'dropdown-item';
-import SelfButton from 'button';
+import SelfDropdown from '@self-ui/dropdown';
+import SelfDropdownItem from '@self-ui/dropdown-item';
+import SelfButton from '@self-ui/button';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
 

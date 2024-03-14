@@ -64,9 +64,9 @@
 
 <script>
 import { createPopper } from '@popperjs/core';
-import { clickout, transfer } from '../directives';
-import { getViewPortSize, addEventListener, removeEventListener, zIndex, zIncrease } from '../utils';
-import Icon from 'icon';
+import { clickout, transfer } from '@self-ui/directives';
+import { getViewPortSize, addEventListener, removeEventListener, zIndex, zIncrease } from '@self-ui/utils';
+import Icon from '@self-ui/icon';
 
 export default {
   name: 'SelfSelect',

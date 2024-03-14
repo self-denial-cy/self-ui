@@ -1,5 +1,5 @@
 {
-  "name": "nav-item",
+  "name": "@self-ui/nav-item",
   "version": "1.0.0",
   "main": "index.js"
 }

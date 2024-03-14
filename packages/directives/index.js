@@ -1,2 +1,2 @@
-export * from './clickout';
-export * from './transfer';
+export * from './clickout.js';
+export * from './transfer.js';

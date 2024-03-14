@@ -1,8 +1,8 @@
 {
-  "name": "button",
+  "name": "@self-ui/button",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "icon": "workspace:^"
+    "@self-ui/icon": "workspace:^"
   }
 }

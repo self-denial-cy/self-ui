@@ -53,7 +53,7 @@ export function setStyle(el, key, val, priority) {
   el.style.setProperty(key, val, priority); // priority 设置为 important 使该样式属性具有最高优先级【!important】
 }
 
-export * from './screen';
-export * from './scroll';
-export * from './mask';
-export * from './queue';
+export * from './screen.js';
+export * from './scroll.js';
+export * from './mask.js';
+export * from './queue.js';

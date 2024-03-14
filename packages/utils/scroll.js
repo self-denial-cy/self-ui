@@ -1,4 +1,4 @@
-import { addEventListener, removeEventListener } from '../utils';
+import { addEventListener, removeEventListener } from './index.js';
 
 export function scrollOn(handler) {
   addEventListener(window, 'scroll', handler);

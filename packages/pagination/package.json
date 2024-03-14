@@ -1,9 +1,9 @@
 {
-  "name": "pagination",
+  "name": "@self-ui/pagination",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "icon": "workspace:^",
-    "select": "workspace:^"
+    "@self-ui/icon": "workspace:^",
+    "@self-ui/select": "workspace:^"
   }
 }

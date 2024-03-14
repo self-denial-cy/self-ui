@@ -1,5 +1,5 @@
 {
-  "name": "button-group",
+  "name": "@self-ui/button-group",
   "version": "1.0.0",
   "main": "index.js"
 }
