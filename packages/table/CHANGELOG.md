@@ -1,4 +1,4 @@
-# @self-ui/table
+# @selfui/table
 
 ## 1.0.1
 

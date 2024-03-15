@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import SelfInput from '@self-ui/input';
+import SelfInput from '@selfui/input';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
 

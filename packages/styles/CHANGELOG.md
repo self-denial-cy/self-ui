@@ -1,4 +1,4 @@
-# @self-ui/styles
+# @selfui/styles
 
 ## 1.0.1
 

@@ -41,8 +41,8 @@ import {
   positionToTop,
   zIndex,
   zIncrease
-} from '@self-ui/utils';
-import { clickout, transfer } from '@self-ui/directives';
+} from '@selfui/utils';
+import { clickout, transfer } from '@selfui/directives';
 
 export default {
   name: 'SelfDropdown',

@@ -1,4 +1,4 @@
-# @self-ui/nav-item
+# @selfui/nav-item
 
 ## 1.0.1
 

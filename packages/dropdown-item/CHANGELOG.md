@@ -1,4 +1,4 @@
-# @self-ui/dropdown-item
+# @selfui/dropdown-item
 
 ## 1.0.1
 
@@ -6,5 +6,5 @@
 
 - 730b0a8: Initial release
 - Updated dependencies [730b0a8]
-  - @self-ui/icon@1.0.1
-  - @self-ui/mixins@1.0.1
+  - @selfui/icon@1.0.1
+  - @selfui/mixins@1.0.1

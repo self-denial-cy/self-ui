@@ -1,4 +1,4 @@
-# @self-ui/table-column
+# @selfui/table-column
 
 ## 1.0.1
 

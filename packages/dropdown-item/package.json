@@ -1,9 +1,9 @@
 {
-  "name": "@self-ui/dropdown-item",
+  "name": "@selfui/dropdown-item",
   "version": "1.0.1",
   "main": "index.js",
   "dependencies": {
-    "@self-ui/icon": "workspace:^",
-    "@self-ui/mixins": "workspace:^"
+    "@selfui/icon": "workspace:^",
+    "@selfui/mixins": "workspace:^"
   }
 }

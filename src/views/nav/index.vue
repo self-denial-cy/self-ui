@@ -158,12 +158,12 @@
 </template>
 
 <script>
-import SelfNav from '@self-ui/nav';
-import SelfNavItem from '@self-ui/nav-item';
-import SelfDropdown from '@self-ui/dropdown';
-import SelfDropdownItem from '@self-ui/dropdown-item';
-import SelfButton from '@self-ui/button';
-import SelfInput from '@self-ui/input';
+import SelfNav from '@selfui/nav';
+import SelfNavItem from '@selfui/nav-item';
+import SelfDropdown from '@selfui/dropdown';
+import SelfDropdownItem from '@selfui/dropdown-item';
+import SelfButton from '@selfui/button';
+import SelfInput from '@selfui/input';
 import PropTable from '@/components/prop-table';
 import EventTable from '@/components/event-table';
 

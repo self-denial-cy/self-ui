@@ -1,4 +1,4 @@
-# @self-ui/pagination
+# @selfui/pagination
 
 ## 1.0.1
 
@@ -6,5 +6,5 @@
 
 - 730b0a8: Initial release
 - Updated dependencies [730b0a8]
-  - @self-ui/icon@1.0.1
-  - @self-ui/select@1.0.1
+  - @selfui/icon@1.0.1
+  - @selfui/select@1.0.1

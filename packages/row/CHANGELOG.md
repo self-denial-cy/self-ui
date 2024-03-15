@@ -1,4 +1,4 @@
-# @self-ui/row
+# @selfui/row
 
 ## 1.0.1
 

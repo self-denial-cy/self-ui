@@ -1,10 +1,10 @@
 {
-  "name": "@self-ui/nav",
+  "name": "@selfui/nav",
   "version": "1.0.1",
   "main": "index.js",
   "dependencies": {
-    "@self-ui/directives": "workspace:^",
-    "@self-ui/icon": "workspace:^",
-    "@self-ui/utils": "workspace:^"
+    "@selfui/directives": "workspace:^",
+    "@selfui/icon": "workspace:^",
+    "@selfui/utils": "workspace:^"
   }
 }

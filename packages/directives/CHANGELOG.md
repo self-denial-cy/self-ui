@@ -1,4 +1,4 @@
-# @self-ui/directives
+# @selfui/directives
 
 ## 1.0.1
 
@@ -6,4 +6,4 @@
 
 - 730b0a8: Initial release
 - Updated dependencies [730b0a8]
-  - @self-ui/utils@1.0.1
+  - @selfui/utils@1.0.1

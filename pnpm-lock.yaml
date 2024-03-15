@@ -14,52 +14,52 @@ importers:
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
-      '@self-ui/button':
+      '@selfui/button':
         specifier: workspace:^
         version: link:packages/button
-      '@self-ui/button-group':
+      '@selfui/button-group':
         specifier: workspace:^
         version: link:packages/button-group
-      '@self-ui/col':
+      '@selfui/col':
         specifier: workspace:^
         version: link:packages/col
-      '@self-ui/dropdown':
+      '@selfui/dropdown':
         specifier: workspace:^
         version: link:packages/dropdown
-      '@self-ui/dropdown-item':
+      '@selfui/dropdown-item':
         specifier: workspace:^
         version: link:packages/dropdown-item
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:packages/icon
-      '@self-ui/input':
+      '@selfui/input':
         specifier: workspace:^
         version: link:packages/input
-      '@self-ui/nav':
+      '@selfui/nav':
         specifier: workspace:^
         version: link:packages/nav
-      '@self-ui/nav-item':
+      '@selfui/nav-item':
         specifier: workspace:^
         version: link:packages/nav-item
-      '@self-ui/pagination':
+      '@selfui/pagination':
         specifier: workspace:^
         version: link:packages/pagination
-      '@self-ui/row':
+      '@selfui/row':
         specifier: workspace:^
         version: link:packages/row
-      '@self-ui/select':
+      '@selfui/select':
         specifier: workspace:^
         version: link:packages/select
-      '@self-ui/styles':
+      '@selfui/styles':
         specifier: workspace:^
         version: link:packages/styles
-      '@self-ui/table':
+      '@selfui/table':
         specifier: workspace:^
         version: link:packages/table
-      '@self-ui/table-column':
+      '@selfui/table-column':
         specifier: workspace:^
         version: link:packages/table-column
-      '@self-ui/utils':
+      '@selfui/utils':
         specifier: workspace:^
         version: link:packages/utils
     devDependencies:
@@ -180,7 +180,7 @@ importers:
 
   packages/button:
     dependencies:
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
 
@@ -190,25 +190,25 @@ importers:
 
   packages/directives:
     dependencies:
-      '@self-ui/utils':
+      '@selfui/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/dropdown:
     dependencies:
-      '@self-ui/directives':
+      '@selfui/directives':
         specifier: workspace:^
         version: link:../directives
-      '@self-ui/utils':
+      '@selfui/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/dropdown-item:
     dependencies:
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
-      '@self-ui/mixins':
+      '@selfui/mixins':
         specifier: workspace:^
         version: link:../mixins
 
@@ -216,7 +216,7 @@ importers:
 
   packages/input:
     dependencies:
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
 
@@ -224,13 +224,13 @@ importers:
 
   packages/nav:
     dependencies:
-      '@self-ui/directives':
+      '@selfui/directives':
         specifier: workspace:^
         version: link:../directives
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
-      '@self-ui/utils':
+      '@selfui/utils':
         specifier: workspace:^
         version: link:../utils
 
@@ -238,10 +238,10 @@ importers:
 
   packages/pagination:
     dependencies:
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
-      '@self-ui/select':
+      '@selfui/select':
         specifier: workspace:^
         version: link:../select
 
@@ -249,13 +249,13 @@ importers:
 
   packages/select:
     dependencies:
-      '@self-ui/directives':
+      '@selfui/directives':
         specifier: workspace:^
         version: link:../directives
-      '@self-ui/icon':
+      '@selfui/icon':
         specifier: workspace:^
         version: link:../icon
-      '@self-ui/utils':
+      '@selfui/utils':
         specifier: workspace:^
         version: link:../utils
 

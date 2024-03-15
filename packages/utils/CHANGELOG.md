@@ -1,4 +1,4 @@
-# @self-ui/utils
+# @selfui/utils
 
 ## 1.0.1
 

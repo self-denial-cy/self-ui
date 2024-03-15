@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import SelfTable from '@self-ui/table';
-import SelfTableColumn from '@self-ui/table-column';
+import SelfTable from '@selfui/table';
+import SelfTableColumn from '@selfui/table-column';
 
 function lighten(color, amount) {
   let usePound = false;

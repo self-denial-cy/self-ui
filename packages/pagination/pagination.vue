@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import Icon from '@self-ui/icon';
-import Select from '@self-ui/select';
+import Icon from '@selfui/icon';
+import Select from '@selfui/select';
 
 export default {
   name: 'SelfPagination',

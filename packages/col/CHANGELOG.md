@@ -1,4 +1,4 @@
-# @self-ui/col
+# @selfui/col
 
 ## 1.0.1
 

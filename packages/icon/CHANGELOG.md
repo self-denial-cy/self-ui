@@ -1,4 +1,4 @@
-# @self-ui/icon
+# @selfui/icon
 
 ## 1.0.1
 

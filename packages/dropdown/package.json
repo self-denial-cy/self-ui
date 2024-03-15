@@ -1,9 +1,9 @@
 {
-  "name": "@self-ui/dropdown",
+  "name": "@selfui/dropdown",
   "version": "1.0.1",
   "main": "index.js",
   "dependencies": {
-    "@self-ui/directives": "workspace:^",
-    "@self-ui/utils": "workspace:^"
+    "@selfui/directives": "workspace:^",
+    "@selfui/utils": "workspace:^"
   }
 }

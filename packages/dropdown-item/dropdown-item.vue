@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import { dispatch } from '@self-ui/mixins';
-import Icon from '@self-ui/icon';
+import { dispatch } from '@selfui/mixins';
+import Icon from '@selfui/icon';
 
 export default {
   name: 'SelfDropdownItem',

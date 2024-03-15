@@ -1,4 +1,4 @@
-# @self-ui/button-group
+# @selfui/button-group
 
 ## 1.0.1
 

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Icon from '@self-ui/icon';
+import Icon from '@selfui/icon';
 
 export default {
   name: 'SelfInput',

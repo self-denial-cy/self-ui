@@ -1,8 +1,8 @@
 {
-  "name": "@self-ui/input",
+  "name": "@selfui/input",
   "version": "1.0.1",
   "main": "index.js",
   "dependencies": {
-    "@self-ui/icon": "workspace:^"
+    "@selfui/icon": "workspace:^"
   }
 }

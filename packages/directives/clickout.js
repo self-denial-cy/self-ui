@@ -1,4 +1,4 @@
-import { addEventListener, removeEventListener } from '@self-ui/utils';
+import { addEventListener, removeEventListener } from '@selfui/utils';
 
 export const clickout = {
   bind(el, binding) {
