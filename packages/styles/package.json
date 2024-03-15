@@ -1,6 +1,6 @@
 {
   "name": "@selfui/styles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "exports": {
     ".": "./index.less"
   }

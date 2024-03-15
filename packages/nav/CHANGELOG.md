@@ -1,5 +1,15 @@
 # @selfui/nav
 
+## 1.0.2
+
+### Patch Changes
+
+- c2eadc2: Adjusting the publishing process
+- Updated dependencies [c2eadc2]
+  - @selfui/directives@1.0.2
+  - @selfui/icon@1.0.2
+  - @selfui/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
