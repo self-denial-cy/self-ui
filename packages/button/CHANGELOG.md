@@ -1,5 +1,11 @@
 # @selfui/button
 
+## 1.0.3
+
+### Patch Changes
+
+- ee3fd1d: Add explanatory document
+
 ## 1.0.2
 
 ### Patch Changes

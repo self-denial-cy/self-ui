@@ -1,5 +1,11 @@
 # @selfui/button-group
 
+## 1.0.3
+
+### Patch Changes
+
+- 5f3f3f1: Add explanatory document
+
 ## 1.0.2
 
 ### Patch Changes
