@@ -1,1 +1,11 @@
 name: Changeset Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo some message
+        run: echo "Hello PR"
