@@ -29,6 +29,7 @@ jobs:
           version: pnpm changeset:version
           commit: "chore: update versions"
           publish: pnpm changeset:publish
+          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
