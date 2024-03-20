@@ -1,5 +1,12 @@
 # @selfui/nav
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [932692d]
+  - @selfui/directives@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

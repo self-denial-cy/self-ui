@@ -1,5 +1,11 @@
 # @selfui/col
 
+## 1.0.3
+
+### Patch Changes
+
+- 789747e: Add explanatory document
+
 ## 1.0.2
 
 ### Patch Changes
