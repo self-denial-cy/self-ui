@@ -1,5 +1,11 @@
 # @selfui/directives
 
+## 1.0.3
+
+### Patch Changes
+
+- 932692d: Add explanatory document
+
 ## 1.0.2
 
 ### Patch Changes
