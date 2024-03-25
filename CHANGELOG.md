@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/self-denial-cy/self-ui/compare/v1.0.6...v1.0.7) (2024-03-25)
+
+
+### Bug Fixes
+
+* 修复包入口文件未指定问题 ([02aeba9](https://github.com/self-denial-cy/self-ui/commit/02aeba904a318d0ce205e4d219b90ffaabb6316d))
+
+
+
 ## [1.0.6](https://github.com/self-denial-cy/self-ui/compare/v1.0.5...v1.0.6) (2024-03-25)
 
 
