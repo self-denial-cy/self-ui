@@ -3,8 +3,9 @@
 - [ ] 组件使用示例【后续考虑 VuePress 搭建】
 - [x] 整体打包方案【使用 webpack 和 gulp】
 - [x] 切换至 pnpm monorepo
-- [ ] npm publish
+- [x] npm publish
 - [ ] 试用实践【devDependencies 中的 vue 和 core-js 是否会影响使用】
-- [ ] 自动生成更新日志
+- [x] 自动生成更新日志
+- [x] CI/CD
 - [ ] 类型声明文件
 - [ ] 单元测试
