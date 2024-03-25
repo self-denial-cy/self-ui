@@ -5,6 +5,7 @@ on:
       - v*
 env:
   CI: true
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -23,7 +24,7 @@ jobs:
         run: pnpm install
       - name: run test script
         run: pnpm test:unit
+      - name: setup npm token
+        run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
       - name: publish to npm
         run: pnpm publish --access public --no-git-checks
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
