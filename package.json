@@ -17,7 +17,8 @@
     "lib": "webpack --config build/webpack.config.js && pnpm style",
     "changeset:version": "pnpm changeset version",
     "changeset:publish": "pnpm changeset publish",
-    "test:unit": "echo 'unit test success'"
+    "test:unit": "echo 'unit test success'",
+    "version": "pnpm lib"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
