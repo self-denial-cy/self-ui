@@ -6,5 +6,6 @@ const resolve = (dir) => {
 };
 
 module.exports = defineConfig({
+  publicPath: process.env.VUE_APP_PUBLIC_PATH,
   transpileDependencies: true
 });
