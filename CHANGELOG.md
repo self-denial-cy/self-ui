@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/self-denial-cy/self-ui/compare/v1.0.5...v1.0.6) (2024-03-25)
+
+
+### Bug Fixes
+
+* 修复发布内容体积过大问题 ([274b3e4](https://github.com/self-denial-cy/self-ui/commit/274b3e465f2479f85de5546c19ee7b7196741d01))
+
+
+
 ## [1.0.5](https://github.com/self-denial-cy/self-ui/compare/v1.0.4...v1.0.5) (2024-03-25)
 
 
