@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/self-denial-cy/self-ui/compare/v1.0.4...v1.0.5) (2024-03-25)
+
+
+### Bug Fixes
+
+* 修复 publish 失败 ([fc59ffa](https://github.com/self-denial-cy/self-ui/commit/fc59ffa67ec874b316f9df73266c7e55e9daa999))
+
+
+
 ## [1.0.4](https://github.com/self-denial-cy/self-ui/compare/v1.0.3...v1.0.4) (2024-03-25)
 
 
