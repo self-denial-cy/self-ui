@@ -1,9 +1,9 @@
 import { PluginObject } from 'vue';
 
-interface Self extends PluginObject<any> {
+interface ISelf extends PluginObject<any> {
   version: string;
 }
 
-declare const self: Self;
+declare const Self: ISelf;
 
-export default self;
+export default Self;
