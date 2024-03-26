@@ -8,6 +8,7 @@
     "url": "https://github.com/self-denial-cy"
   },
   "main": "lib/self.js",
+  "typings": "types/index.d.ts",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
