@@ -1,33 +1,33 @@
-import Button from '@selfui/button';
-import ButtonGroup from '@selfui/button-group';
-import Col from '@selfui/col';
-import Dropdown from '@selfui/dropdown';
-import DropdownItem from '@selfui/dropdown-item';
-import Icon from '@selfui/icon';
-import Input from '@selfui/input';
-import Nav from '@selfui/nav';
-import NavItem from '@selfui/nav-item';
-import Pagination from '@selfui/pagination';
-import Row from '@selfui/row';
-import Select from '@selfui/select';
-import Table from '@selfui/table';
-import TableColumn from '@selfui/table-column';
+import SelfButton from '@selfui/button';
+import SelfButtonGroup from '@selfui/button-group';
+import SelfCol from '@selfui/col';
+import SelfDropdown from '@selfui/dropdown';
+import SelfDropdownItem from '@selfui/dropdown-item';
+import SelfIcon from '@selfui/icon';
+import SelfInput from '@selfui/input';
+import SelfNav from '@selfui/nav';
+import SelfNavItem from '@selfui/nav-item';
+import SelfPagination from '@selfui/pagination';
+import SelfRow from '@selfui/row';
+import SelfSelect from '@selfui/select';
+import SelfTable from '@selfui/table';
+import SelfTableColumn from '@selfui/table-column';
 
 const components = {
-  [Button.name]: Button,
-  [ButtonGroup.name]: ButtonGroup,
-  [Col.name]: Col,
-  [Dropdown.name]: Dropdown,
-  [DropdownItem.name]: DropdownItem,
-  [Icon.name]: Icon,
-  [Input.name]: Input,
-  [Nav.name]: Nav,
-  [NavItem.name]: NavItem,
-  [Pagination.name]: Pagination,
-  [Row.name]: Row,
-  [Select.name]: Select,
-  [Table.name]: Table,
-  [TableColumn.name]: TableColumn
+  SelfButton,
+  SelfButtonGroup,
+  SelfCol,
+  SelfDropdown,
+  SelfDropdownItem,
+  SelfIcon,
+  SelfInput,
+  SelfNav,
+  SelfNavItem,
+  SelfPagination,
+  SelfRow,
+  SelfSelect,
+  SelfTable,
+  SelfTableColumn
 };
 
 const install = (Vue, opts = {}) => {
@@ -38,7 +38,7 @@ const install = (Vue, opts = {}) => {
   });
 
   // TODO 全局配置
-  Vue.prototype.$SELF = {
+  Vue.prototype.$Self = {
     ...opts
   };
 };
@@ -48,8 +48,29 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
+const version = process.env.VERSION;
+
 export default {
-  version: process.env.VERSION,
+  version,
   install,
   ...components
+};
+
+export {
+  version,
+  install,
+  SelfButton,
+  SelfButtonGroup,
+  SelfCol,
+  SelfDropdown,
+  SelfDropdownItem,
+  SelfIcon,
+  SelfInput,
+  SelfNav,
+  SelfNavItem,
+  SelfPagination,
+  SelfRow,
+  SelfSelect,
+  SelfTable,
+  SelfTableColumn
 };
