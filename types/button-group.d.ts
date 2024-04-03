@@ -10,4 +10,12 @@ export declare class SelfButtonGroup extends Vue {
    * @default false
    */
   shadow?: boolean;
+  /**
+   * 按钮组圆角类型，可选值为 small、large、circle
+   */
+  radius?: 'small' | 'large' | 'circle';
+  /**
+   * 按钮组大小，可选值为 small、large
+   */
+  size?: 'small' | 'large';
 }
