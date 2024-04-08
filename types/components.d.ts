@@ -5,3 +5,4 @@ export { SelfDropdown } from './dropdown';
 export { SelfDropdownItem } from './dropdown-item';
 export { SelfIcon } from './icon';
 export { SelfInput } from './input';
+export { SelfNav } from './nav';
