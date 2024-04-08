@@ -18,9 +18,8 @@ export default {
   props: {
     semantic: {
       type: String,
-      default: '',
       validator(val) {
-        return ['default', 'primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+        return ['default', 'primary', 'success', 'info', 'warning', 'danger'].includes(val);
       }
     },
     shadow: {
@@ -29,16 +28,14 @@ export default {
     },
     radius: {
       type: String,
-      default: '',
       validator(val) {
-        return ['small', 'large', 'circle', ''].includes(val);
+        return ['small', 'large', 'circle'].includes(val);
       }
     },
     size: {
       type: String,
-      default: '',
       validator(val) {
-        return ['large', 'small', ''].includes(val);
+        return ['large', 'small'].includes(val);
       }
     }
   }
