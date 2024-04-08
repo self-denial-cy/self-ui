@@ -82,9 +82,8 @@ export default {
     },
     align: {
       type: String,
-      default: '',
       validator(val) {
-        return ['left', 'right', ''].includes(val);
+        return ['left', 'right'].includes(val);
       }
     },
     router: Boolean,
