@@ -47,7 +47,10 @@ export default {
     event: 'update:value'
   },
   props: {
-    value: String,
+    value: {
+      type: String,
+      required: true
+    },
     type: {
       type: String,
       default: 'text',
