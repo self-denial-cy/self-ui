@@ -19,9 +19,8 @@ export default {
     disabled: Boolean,
     align: {
       type: String,
-      default: '',
       validator(val) {
-        return ['right', 'left', ''].includes(val);
+        return ['right', 'left'].includes(val);
       }
     }
   },

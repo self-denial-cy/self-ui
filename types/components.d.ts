@@ -6,3 +6,4 @@ export { SelfDropdownItem } from './dropdown-item';
 export { SelfIcon } from './icon';
 export { SelfInput } from './input';
 export { SelfNav } from './nav';
+export { SelfNavItem } from './nav-item';
