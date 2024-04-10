@@ -7,3 +7,4 @@ export { SelfIcon } from './icon';
 export { SelfInput } from './input';
 export { SelfNav } from './nav';
 export { SelfNavItem } from './nav-item';
+export { SelfPagination } from './pagination';
