@@ -8,3 +8,4 @@ export { SelfInput } from './input';
 export { SelfNav } from './nav';
 export { SelfNavItem } from './nav-item';
 export { SelfPagination } from './pagination';
+export { SelfRow } from './row';
