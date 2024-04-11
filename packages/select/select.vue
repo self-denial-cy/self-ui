@@ -78,8 +78,7 @@ export default {
   },
   props: {
     value: {
-      type: [String, Number],
-      default: ''
+      type: [String, Number]
     },
     placeholder: {
       type: String,
@@ -162,7 +161,7 @@ export default {
     value: {
       immediate: true,
       handler(val) {
-        this.selected = val;
+        this.selected = val === undefined ? '' : val;
         let hit = false;
         for (let i = 0; i < this.options.length; i++) {
           if (this.selected === this.options[i].value) {
