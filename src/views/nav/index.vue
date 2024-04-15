@@ -13,7 +13,6 @@
       </self-dropdown>
       <self-button radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -36,7 +35,6 @@
       </self-dropdown>
       <self-button semantic="default" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -58,7 +56,6 @@
       </self-dropdown>
       <self-button semantic="primary" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -80,7 +77,6 @@
       </self-dropdown>
       <self-button semantic="success" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -102,7 +98,6 @@
       </self-dropdown>
       <self-button semantic="info" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -124,7 +119,6 @@
       </self-dropdown>
       <self-button semantic="warning" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -146,7 +140,6 @@
       </self-dropdown>
       <self-button semantic="danger" radius="small" prefix="github-fill" style="float: right">GitHub</self-button>
       <self-input
-        v-model="text"
         maxlength="20"
         placeholder="搜索"
         size="large"
@@ -178,7 +171,6 @@ export default {
   components: { SelfNav, SelfNavItem, SelfDropdown, SelfDropdownItem, SelfButton, SelfInput, PropTable, EventTable },
   data() {
     return {
-      text: '',
       tableData1: [
         {
           param: 'brand',

@@ -4,7 +4,7 @@ declare class SelfInput extends Vue {
   /**
    * 输入框值，可以使用 sync 修饰符或 v-model 指令
    */
-  value: string;
+  value?: string;
   /**
    * 输入框类型
    * @default text
