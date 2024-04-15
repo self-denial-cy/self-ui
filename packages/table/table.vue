@@ -72,10 +72,7 @@ export default {
       type: Boolean,
       default: false
     },
-    caption: {
-      type: String,
-      default: ''
-    },
+    caption: String,
     captionSide: {
       type: String,
       default: 'top',
