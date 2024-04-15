@@ -45,4 +45,28 @@ export declare class SelfSelect extends Vue {
    * @default 150px
    */
   width?: string | number;
+  /**
+   * 是否块级元素
+   * @default false
+   */
+  block?: boolean;
+  /**
+   * 选择框下拉菜单最大高度
+   * @default 300px
+   */
+  'max-height'?: string | number;
+  /**
+   * 选择框下拉菜单最小宽度
+   * @default 200px
+   */
+  'min-width'?: string | number;
+  /**
+   * 是否将弹层提升至 body 内
+   * @default false
+   */
+  transfer?: boolean;
+  /**
+   * 切换选项时触发，传入当前选中项
+   */
+  $emit(name: 'on-change', val: string | number): this;
 }

@@ -87,9 +87,8 @@ export default {
     radius: {
       type: String,
       validator(val) {
-        return ['', 'small', 'base', 'large'].includes(val);
-      },
-      default: ''
+        return ['small', 'base', 'large'].includes(val);
+      }
     },
     disabled: {
       type: Boolean,
