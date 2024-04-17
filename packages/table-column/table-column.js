@@ -29,7 +29,7 @@ export default {
       for (const key in options) {
         column[key] = options[key];
       }
-      return column;
+      return column; // 浅拷贝
     }
   }
 };

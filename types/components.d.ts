@@ -11,3 +11,4 @@ export { SelfPagination } from './pagination';
 export { SelfRow } from './row';
 export { SelfSelect } from './select';
 export { SelfTable } from './table';
+export { SelfTableColumn } from './table-column';
