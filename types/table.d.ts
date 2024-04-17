@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 type TRowStyle = (row: any, index: number) => object;
 
@@ -63,4 +63,13 @@ export declare class SelfTable extends Vue {
    * 表格头的类名称
    */
   'head-cls'?: string;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }

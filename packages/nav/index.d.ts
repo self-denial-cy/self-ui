@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 declare class SelfNav extends Vue {
   /**
@@ -23,6 +23,15 @@ declare class SelfNav extends Vue {
    * @default false
    */
   fixed?: boolean;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 导航菜单
+     */
+    '': VNode[];
+  }
 }
 
 export default SelfNav;

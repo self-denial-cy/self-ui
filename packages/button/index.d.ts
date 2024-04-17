@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 declare class SelfButton extends Vue {
   /**
@@ -59,6 +59,15 @@ declare class SelfButton extends Vue {
    * 点击时触发
    */
   $emit(name: 'on-click', event: MouseEvent): this;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }
 
 export default SelfButton;

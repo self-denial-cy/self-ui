@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 export declare class SelfDropdownItem extends Vue {
   /**
@@ -27,4 +27,13 @@ export declare class SelfDropdownItem extends Vue {
    * 点击选项时触发
    */
   $emit(name: 'on-click', val: string | number): this;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }

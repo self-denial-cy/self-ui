@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 export declare class SelfNavItem extends Vue {
   /**
@@ -18,4 +18,13 @@ export declare class SelfNavItem extends Vue {
    * 点击项目时触发
    */
   $emit(name: 'on-click'): this;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }

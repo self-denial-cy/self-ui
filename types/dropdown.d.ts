@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 export declare class SelfDropdown extends Vue {
   /**
@@ -61,4 +61,17 @@ export declare class SelfDropdown extends Vue {
    * 关闭下拉菜单时触发
    */
   $emit(name: 'on-close'): this;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 下拉内容
+     */
+    '': VNode[];
+    /**
+     * 触发器
+     */
+    'trigger': VNode[];
+  }
 }

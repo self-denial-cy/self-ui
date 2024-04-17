@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 type TCol = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 
@@ -43,6 +43,15 @@ declare class SelfCol extends Vue {
    * 大屏幕大桌面显示器（大于1200px）的span、offset、pull、push设置
    */
   lg?: TCol | ICol;
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }
 
 export default SelfCol;

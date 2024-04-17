@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 
 export declare class SelfButtonGroup extends Vue {
   /**
@@ -18,4 +18,13 @@ export declare class SelfButtonGroup extends Vue {
    * 按钮组大小，可选值为 small、large
    */
   size?: 'small' | 'large';
+  /**
+   * slot 插槽对象
+   */
+  $slots: {
+    /**
+     * 默认插槽
+     */
+    '': VNode[];
+  }
 }
