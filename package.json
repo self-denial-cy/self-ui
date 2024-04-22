@@ -9,6 +9,11 @@
   },
   "main": "lib/self.js",
   "typings": "types/index.d.ts",
+  "files": [
+    "lib",
+    "packages",
+    "types"
+  ],
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
