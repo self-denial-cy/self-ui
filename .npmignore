@@ -17,5 +17,4 @@ src
 babel.config.js
 jsconfig.json
 pnpm-lock.yaml
-pnpm-workspace.yaml
 vue.config.js
