@@ -187,19 +187,19 @@ importers:
         specifier: workspace:^
         version: link:../icon
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/button-group:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/col:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/directives:
@@ -208,7 +208,7 @@ importers:
         specifier: workspace:^
         version: link:../utils
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/dropdown:
@@ -220,7 +220,7 @@ importers:
         specifier: workspace:^
         version: link:../utils
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/dropdown-item:
@@ -232,13 +232,13 @@ importers:
         specifier: workspace:^
         version: link:../mixins
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/icon:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/input:
@@ -247,13 +247,13 @@ importers:
         specifier: workspace:^
         version: link:../icon
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/mixins:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/nav:
@@ -268,13 +268,13 @@ importers:
         specifier: workspace:^
         version: link:../utils
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/nav-item:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/pagination:
@@ -286,13 +286,13 @@ importers:
         specifier: workspace:^
         version: link:../select
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/row:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/select:
@@ -307,7 +307,7 @@ importers:
         specifier: workspace:^
         version: link:../utils
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/styles: {}
@@ -315,13 +315,13 @@ importers:
   packages/table:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/table-column:
     dependencies:
       vue:
-        specifier: ^2.6.14
+        specifier: ^2.7.16
         version: 2.7.16
 
   packages/utils: {}
