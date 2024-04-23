@@ -1,5 +1,15 @@
 # @selfui/directives
 
+## 1.0.4
+
+### Patch Changes
+
+- c1635a8: Add type declaration
+- 9107975: Upgrade dependencies
+- Updated dependencies [c1635a8]
+- Updated dependencies [9107975]
+  - @selfui/utils@1.0.3
+
 ## 1.0.3
 
 ### Patch Changes
