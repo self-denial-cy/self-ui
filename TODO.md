@@ -7,5 +7,6 @@
 - [ ] 试用实践【devDependencies 中的 vue 和 core-js 是否会影响使用】
 - [x] 自动生成更新日志
 - [x] CI/CD
-- [ ] 类型声明文件
+- [x] 类型声明文件
 - [ ] 单元测试
+- [x] 按需引用【借助 babel-plugin-import 实现】

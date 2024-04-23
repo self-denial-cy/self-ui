@@ -45,7 +45,10 @@ export default {
   mixins: [dispatch],
   inject: ['close', 'router', 'current', 'highlight', 'isMobile'],
   props: {
-    value: [String, Number],
+    value: {
+      type: [String, Number],
+      default: ''
+    },
     disabled: Boolean,
     type: {
       type: String,

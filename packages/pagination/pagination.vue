@@ -116,9 +116,8 @@ export default {
     radius: {
       type: String,
       validator(val) {
-        return ['', 'small', 'base', 'large'].includes(val);
-      },
-      default: ''
+        return ['small', 'base', 'large'].includes(val);
+      }
     },
     simple: {
       type: Boolean,

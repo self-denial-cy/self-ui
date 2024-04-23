@@ -62,7 +62,10 @@ export default {
     event: 'update:value'
   },
   props: {
-    value: [String, Number],
+    value: {
+      type: [String, Number],
+      default: ''
+    },
     minWidth: {
       type: [String, Number],
       default: '200px'
@@ -82,9 +85,8 @@ export default {
     },
     align: {
       type: String,
-      default: '',
       validator(val) {
-        return ['left', 'right', ''].includes(val);
+        return ['left', 'right'].includes(val);
       }
     },
     router: Boolean,

@@ -47,7 +47,10 @@ export default {
     event: 'update:value'
   },
   props: {
-    value: String,
+    value: {
+      type: String,
+      default: ''
+    },
     type: {
       type: String,
       default: 'text',
@@ -62,23 +65,20 @@ export default {
     block: Boolean,
     semantic: {
       type: String,
-      default: '',
       validator(val) {
-        return ['primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+        return ['primary', 'success', 'info', 'warning', 'danger'].includes(val);
       }
     },
     size: {
       type: String,
-      default: '',
       validator(val) {
-        return ['large', 'small', ''].includes(val);
+        return ['large', 'small'].includes(val);
       }
     },
     radius: {
       type: String,
-      default: '',
       validator(val) {
-        return ['small', 'large', 'circle', ''].includes(val);
+        return ['small', 'large', 'circle'].includes(val);
       }
     },
     prefix: String,

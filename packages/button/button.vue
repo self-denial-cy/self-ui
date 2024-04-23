@@ -32,9 +32,8 @@ export default {
   props: {
     semantic: {
       type: String,
-      default: '',
       validator(val) {
-        return ['default', 'dark', 'primary', 'success', 'info', 'warning', 'danger', 'text', ''].includes(val);
+        return ['default', 'dark', 'primary', 'success', 'info', 'warning', 'danger', 'text'].includes(val);
       }
     },
     shadow: {
@@ -43,16 +42,14 @@ export default {
     },
     radius: {
       type: String,
-      default: '',
       validator(val) {
-        return ['small', 'large', 'circle', ''].includes(val);
+        return ['small', 'large', 'circle'].includes(val);
       }
     },
     size: {
       type: String,
-      default: '',
       validator(val) {
-        return ['large', 'small', ''].includes(val);
+        return ['large', 'small'].includes(val);
       }
     },
     type: {
@@ -71,20 +68,17 @@ export default {
       default: false
     },
     prefix: {
-      type: String,
-      default: ''
+      type: String
     },
     suffix: {
-      type: String,
-      default: ''
+      type: String
     },
     router: {
       type: Boolean,
       default: false
     },
     to: {
-      type: String,
-      default: ''
+      type: String
     },
     loading: {
       type: Boolean,

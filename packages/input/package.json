@@ -2,6 +2,9 @@
   "name": "@selfui/input",
   "version": "1.0.2",
   "main": "index.js",
+  "peerDependencies": {
+    "vue": "^2.7.16"
+  },
   "dependencies": {
     "@selfui/icon": "workspace:^"
   }

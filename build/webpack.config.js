@@ -12,7 +12,7 @@ module.exports = merge(base, {
   output: {
     path: resolve('../lib'),
     filename: 'self.js',
-    library: 'SelfUI',
+    library: 'Self',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

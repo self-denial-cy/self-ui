@@ -8,7 +8,10 @@ const prefixCls = 'self-icon';
 export default {
   name: 'SelfIcon',
   props: {
-    type: String,
+    type: {
+      type: String,
+      required: true
+    },
     size: [String, Number],
     color: String,
     custom: String

@@ -2,8 +2,8 @@
   <div>
     <h3>输入框</h3>
     <h5>基础类型</h5>
-    <self-input v-model="value1" maxlength="20" />
-    <span class="val">{{ value1 }}</span>
+    <self-input v-model="val" maxlength="20" />
+    <span class="val">{{ val }}</span>
     <h5>语义类型</h5>
     <self-input class="mb5 mr5" semantic="primary" />
     <self-input class="mb5 mr5" semantic="success" />
@@ -41,7 +41,7 @@ export default {
   components: { SelfInput, PropTable, EventTable },
   data() {
     return {
-      value1: '',
+      val: '',
       tableData1: [
         {
           param: 'value',

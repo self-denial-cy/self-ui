@@ -10,7 +10,7 @@
     :style="{ 'z-index': _zIndex }"
   >
     <div class="self-navbar-brand">
-      <a @click="routerTo">{{ brand }}</a>
+      <a v-if="brand" @click="routerTo">{{ brand }}</a>
       <button class="self-navbar-burger" @click="toggle">
         <Icon v-show="isActive" type="close" size="32" color="#666" />
         <Icon v-show="!isActive" type="menu" size="32" color="#666" />
@@ -42,9 +42,8 @@ export default {
     to: String,
     semantic: {
       type: String,
-      default: '',
       validator(val) {
-        return ['default', 'primary', 'success', 'info', 'warning', 'danger', ''].includes(val);
+        return ['default', 'primary', 'success', 'info', 'warning', 'danger'].includes(val);
       }
     },
     router: Boolean,
