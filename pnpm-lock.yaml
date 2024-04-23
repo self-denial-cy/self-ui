@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@babel/runtime':
-        specifier: ^7.24.4
-        version: 7.24.4
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -78,6 +75,9 @@ importers:
       '@babel/preset-env':
         specifier: ^7.24.4
         version: 7.24.4(@babel/core@7.24.4)
+      '@babel/runtime':
+        specifier: ^7.24.4
+        version: 7.24.4
       '@changesets/cli':
         specifier: ^2.27.1
         version: 2.27.1
@@ -1580,6 +1580,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+    dev: true
 
   /@babel/template@7.24.0:
     resolution: {integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==}
@@ -9463,6 +9464,7 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
