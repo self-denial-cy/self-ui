@@ -1,3 +1,48 @@
+## [1.0.8](https://github.com/self-denial-cy/self-ui/compare/v1.0.7...v1.0.8) (2024-04-23)
+
+
+### Bug Fixes
+
+* 修复 button 多余类型枚举值 ([7bee43a](https://github.com/self-denial-cy/self-ui/commit/7bee43a7ab21f89c668577e2fd164429e64fd0ce))
+* 修复 button-group 多余类型枚举值 ([8d8a06b](https://github.com/self-denial-cy/self-ui/commit/8d8a06b3d2a8a13fee122e46dd1efdf6488d49e0))
+* 修复 dropdown 多余枚举值 ([f33c866](https://github.com/self-denial-cy/self-ui/commit/f33c8660e4955efaf7c86298bc88ab30e52efc57))
+* 修复 input 多余枚举值 ([a152610](https://github.com/self-denial-cy/self-ui/commit/a15261086e5ba6e51656d13f535183fe64aeea1c))
+* 修复组件默认值错误 ([24b5e78](https://github.com/self-denial-cy/self-ui/commit/24b5e787838a75f455fe34cbd4e19f82f9b392aa))
+
+
+### Features
+
+* 编写类型声明文件 ([d983459](https://github.com/self-denial-cy/self-ui/commit/d98345951437e0a6bc5ccc4032aa8f91316ce925))
+* 编写类型声明文件 ([a9cf0fe](https://github.com/self-denial-cy/self-ui/commit/a9cf0fe4505d36371a9adcad6c0a937ad0f823b0))
+* 编写类型声明文件 ([7cbbd92](https://github.com/self-denial-cy/self-ui/commit/7cbbd9239c6a3d925d5fea3b14aadf54cbc8ebfc))
+* 编写类型声明文件 ([45b6a0b](https://github.com/self-denial-cy/self-ui/commit/45b6a0be9a9da6303ab540567be73cb76e4d3966))
+* 类型声明文件编写 ([32a3b42](https://github.com/self-denial-cy/self-ui/commit/32a3b4260e9054f15afaf3e16182acea92f2881c))
+* 类型声明文件编写 ([12dbfb3](https://github.com/self-denial-cy/self-ui/commit/12dbfb31b974db8fef74376652f32a5f07867dd5))
+* 类型声明文件编写 ([32834ba](https://github.com/self-denial-cy/self-ui/commit/32834ba3f73662a78d22f854f49910c7f8451093))
+* 类型声明文件编写 ([a28e30e](https://github.com/self-denial-cy/self-ui/commit/a28e30e20cc804a43aa157373c0c63529209b595))
+* 类型声明文件编写 ([3aff81d](https://github.com/self-denial-cy/self-ui/commit/3aff81dfe5facf686bb2035e133c5004d9db7684))
+* 类型声明文件编写 ([e130fbb](https://github.com/self-denial-cy/self-ui/commit/e130fbb806e9038693b624123fe4ddd01a7d354f))
+* 类型声明文件编写 ([b1f2cd8](https://github.com/self-denial-cy/self-ui/commit/b1f2cd811ddad51de9d9b226e505b6b090fda739))
+* 类型声明文件编写 ([c3b7b67](https://github.com/self-denial-cy/self-ui/commit/c3b7b679701614eada2a48d058c81b14ed15ebf2))
+* 类型声明文件编写 ([b91dc88](https://github.com/self-denial-cy/self-ui/commit/b91dc88553008b0401365771744dc5ebb706e6a8))
+* 类型声明文件编写 ([960710e](https://github.com/self-denial-cy/self-ui/commit/960710eb4825d9bdf22b94fa61f9fa0fe30bb259))
+* 类型声明文件编写 ([9bf2a4d](https://github.com/self-denial-cy/self-ui/commit/9bf2a4df2f5116ae54ad79c5714889a826f08f8b))
+* 类型声明文件编写 ([25f7402](https://github.com/self-denial-cy/self-ui/commit/25f74026439ac63d859a906837b0b0e6e3a68193))
+* 类型声明文件编写 ([3ca6083](https://github.com/self-denial-cy/self-ui/commit/3ca608311f7985812078a03561c9247bea2b9610))
+* 类型声明文件编写 ([ee2c638](https://github.com/self-denial-cy/self-ui/commit/ee2c638103ebb375aa2cb3a0d3b596d43ebf325f))
+* 类型声明文件编写 ([e21bcfe](https://github.com/self-denial-cy/self-ui/commit/e21bcfee392cbd0377ef16dc48d4ec863f6900ef))
+* 类型声明文件编写 ([054764c](https://github.com/self-denial-cy/self-ui/commit/054764c0bad31490acfaed64c126c0ae4af7fa55))
+* 类型声明文件编写 ([2764d5a](https://github.com/self-denial-cy/self-ui/commit/2764d5a9240f696facf2cc9a84879576b7d22e65))
+* 类型声明文件编写 ([2fd3373](https://github.com/self-denial-cy/self-ui/commit/2fd3373103ec07f349165ead16860b05571e2399))
+* 类型声明文件编写 ([60dbce8](https://github.com/self-denial-cy/self-ui/commit/60dbce8d586b7ce4d78a3d30eb0c33de807fe1e5))
+* 类型声明文件编写 ([70e5b87](https://github.com/self-denial-cy/self-ui/commit/70e5b87b23196e68fa23f6e70f968e85cb0ba689))
+* 类型声明文件编写 ([9e1b73d](https://github.com/self-denial-cy/self-ui/commit/9e1b73d727c9bb7e909fff0839cf833580f4d6f9))
+* 类型声明文件编写 ([db6fe2a](https://github.com/self-denial-cy/self-ui/commit/db6fe2ac04b1c8ad61b542aab5d5f526ad9250d5))
+* 类型声明文件编写 ([0c1ad81](https://github.com/self-denial-cy/self-ui/commit/0c1ad8134546e4c1375e5673921154e254219a20))
+* 类型声明文件编写 ([a35755d](https://github.com/self-denial-cy/self-ui/commit/a35755df33a3225346345dfc5980a7ea869461d1))
+
+
+
 ## [1.0.7](https://github.com/self-denial-cy/self-ui/compare/v1.0.6...v1.0.7) (2024-03-25)
 
 
