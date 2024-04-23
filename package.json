@@ -38,6 +38,7 @@
     "@babel/eslint-plugin": "^7.23.5",
     "@babel/plugin-transform-runtime": "^7.24.3",
     "@babel/preset-env": "^7.24.4",
+    "@babel/runtime": "^7.24.4",
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
@@ -85,7 +86,6 @@
     "node": ">=16"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.4",
     "@popperjs/core": "^2.11.8",
     "@selfui/button": "workspace:^",
     "@selfui/button-group": "workspace:^",
