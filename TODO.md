@@ -4,9 +4,8 @@
 - [x] 整体打包方案【使用 webpack 和 gulp】
 - [x] 切换至 pnpm monorepo
 - [x] npm publish
-- [ ] 试用实践【devDependencies 中的 vue 和 core-js 是否会影响使用】
 - [x] 自动生成更新日志
 - [x] CI/CD
 - [x] 类型声明文件
 - [ ] 单元测试
-- [x] 按需引用【借助 babel-plugin-import 实现】
+- [x] 全量引用【支持定制主题】、按需引用【通过 babel-plugin-import 插件支持，支持定制主题】、多包引用【支持定制主题】
