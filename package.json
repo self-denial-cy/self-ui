@@ -1,5 +1,5 @@
 {
-  "name": "@selfui/main",
+  "name": "@selfui/core",
   "version": "1.0.9",
   "packageManager": "pnpm@8.15.4",
   "author": {
